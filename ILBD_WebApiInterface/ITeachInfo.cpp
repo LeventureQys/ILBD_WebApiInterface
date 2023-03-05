@@ -8,15 +8,15 @@ using namespace std;
 
 bool WEB_API WebApi_Api::TeachInfo::Initialize(string strValue) {
 
-	return CLR::Instance()->Initialize(s2s(strValue));
+	return CLR::TeachInfo_Instance()->Initialize(s2s(strValue));
 }
 
 bool WEB_API WebApi_Api::TeachInfo::Initialize(string strServerIP, string strPort){
-	return CLR::Instance()->Initialize(s2s(strServerIP), s2s(strPort));
+	return CLR::TeachInfo_Instance()->Initialize(s2s(strServerIP), s2s(strPort));
 }
 
 bool WEB_API WebApi_Api::TeachInfo::ReGetZSDBasicLibInfo(){
-	return CLR::Instance()->ReGetZSDBasicLibInfo();
+	return CLR::TeachInfo_Instance()->ReGetZSDBasicLibInfo();
 }
 
 string WEB_API WebApi_Api::TeachInfo::ZYK_DB_IP()

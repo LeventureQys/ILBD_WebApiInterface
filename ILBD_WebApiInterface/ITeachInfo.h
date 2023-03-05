@@ -1,6 +1,16 @@
 ﻿#pragma once
 #ifndef _IWEB_H
 #define _IWEB_H
+//获得转换后的字符串类型数据，仅转换字符串
+//我知道这会降低可读性，但是爷乐意
+#define INS(value){\
+s2s(CLR::TeachInfo_Instance()->value)\
+}
+//返回原始数据，比如int longlong什么的，这种没得转，主要是转字符串类型，因为.net的字符串是托管在framework上的
+//不是系统原生的类型
+#define RAW(value){\
+CLR::TeachInfo_Instance()->value\
+}
 
 //Author:Leventure
 //Date:2023.3.1

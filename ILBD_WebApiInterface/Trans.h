@@ -22,13 +22,3 @@ string s2s(String^ Insert) {
 String^ s2s(string Insert) {
 	return marshal_as<String^>(Insert);
 }
-//获得转换后的字符串类型数据，仅转换字符串
-//我知道这会降低可读性，但是爷乐意
-#define INS(value){\
-s2s(CLR::Instance()->value)\
-}
-//返回原始数据，比如int longlong什么的，这种没得转，主要是转字符串类型，因为.net的字符串是托管在framework上的
-//不是系统原生的类型
-#define RAW(value){\
-CLR::Instance()->value\
-}

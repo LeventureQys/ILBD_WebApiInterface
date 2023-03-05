@@ -26,14 +26,15 @@
 //只能在外面套壳，以保证当前老库不受影响，这个更新可能会持续好几年
 //
 // 
-//可以作为一个Feature，之后如果需要改动，或者直接废弃掉.net，可能会考虑直接用NativeAOT进行转化,当然加不加随你
+//Feature，之后如果需要改动，或者直接废弃掉.net，可能会考虑直接用NativeAOT进行转化,当然加不加随你
 
+//单例的名称请保持命名规范，虽然在具体的接口上应该是用宏去覆盖，但还是建议保持一定的命名规范
 using namespace System;
 using namespace LBD_WebApiInterface;
 ref class CLR
 {
 public:
-	static LBD_WebApiInterface::Api::TeachInfoI^ Instance() {
+	static LBD_WebApiInterface::Api::TeachInfoI^ TeachInfo_Instance() {
 		if (m_Instance_TeacherInfo == nullptr) {
 			m_Instance_TeacherInfo = gcnew LBD_WebApiInterface::Api::TeachInfoI();
 		}

@@ -1,0 +1,9 @@
+﻿  pch.cpp
+  AssemblyInfo.cpp
+  ITeachInfo.cpp
+  Instance.cpp
+  正在生成代码...
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  AssemblyInfo.obj : 遇到了 MSIL 模块；对 MSIL 禁用了增量链接；正在执行完全链接
+    正在创建库 D:\Current\LBD_VS19\LBD_VS19\Release\ILBD_WebApiInterface.lib 和对象 D:\Current\LBD_VS19\LBD_VS19\Release\ILBD_WebApiInterface.exp
+  ILBD_WebApiInterface.vcxproj -> D:\Current\LBD_VS19\LBD_VS19\Release\ILBD_WebApiInterface.dll

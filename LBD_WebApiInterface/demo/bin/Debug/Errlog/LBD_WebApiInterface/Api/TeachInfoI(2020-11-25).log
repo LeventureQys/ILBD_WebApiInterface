@@ -1,0 +1,13 @@
+12:04:33 GetZYKServerVer: System.Net.WebException: 远程服务器返回错误: (404) 未找到。
+   在 LBD_WebApiInterface.Utility.CallApiHelper.CallMethodGet(String strWholeUrl) 位置 D:\※源码管理\智能网络化英语课堂教学系统V5.2\代码\OtherPublic\LBD_WebApiInterface\Utility\CallApiHelper.cs:行号 50
+   在 LBD_WebApiInterface.Api.TeachInfoI.GetZYKServerVer() 位置 D:\※源码管理\智能网络化英语课堂教学系统V5.2\代码\OtherPublic\LBD_WebApiInterface\Api\TeachInfoI.cs:行号 8840
+13:42:13 GetZYKServerVer: System.Net.WebException: 远程服务器返回错误: (404) 未找到。
+   在 LBD_WebApiInterface.Utility.CallApiHelper.CallMethodGet(String strWholeUrl) 位置 D:\※源码管理\智能网络化英语课堂教学系统V5.2\代码\OtherPublic\LBD_WebApiInterface\Utility\CallApiHelper.cs:行号 50
+   在 LBD_WebApiInterface.Api.TeachInfoI.GetZYKServerVer() 位置 D:\※源码管理\智能网络化英语课堂教学系统V5.2\代码\OtherPublic\LBD_WebApiInterface\Api\TeachInfoI.cs:行号 8840
+13:44:33 Initialize: 输入字符串的格式不正确。
+13:52:28 GetZYKServerVer: System.Net.WebException: 远程服务器返回错误: (404) 未找到。
+   在 LBD_WebApiInterface.Utility.CallApiHelper.CallMethodGet(String strWholeUrl) 位置 D:\※源码管理\智能网络化英语课堂教学系统V5.2\代码\OtherPublic\LBD_WebApiInterface\Utility\CallApiHelper.cs:行号 50
+   在 LBD_WebApiInterface.Api.TeachInfoI.GetZYKServerVer() 位置 D:\※源码管理\智能网络化英语课堂教学系统V5.2\代码\OtherPublic\LBD_WebApiInterface\Api\TeachInfoI.cs:行号 8840
+13:52:58 GetZYKServerVer: System.Net.WebException: 远程服务器返回错误: (404) 未找到。
+   在 LBD_WebApiInterface.Utility.CallApiHelper.CallMethodGet(String strWholeUrl) 位置 D:\※源码管理\智能网络化英语课堂教学系统V5.2\代码\OtherPublic\LBD_WebApiInterface\Utility\CallApiHelper.cs:行号 50
+   在 LBD_WebApiInterface.Api.TeachInfoI.GetZYKServerVer() 位置 D:\※源码管理\智能网络化英语课堂教学系统V5.2\代码\OtherPublic\LBD_WebApiInterface\Api\TeachInfoI.cs:行号 8840

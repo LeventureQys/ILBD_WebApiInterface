@@ -1,0 +1,1383 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LBD_TeachCenterModel</name>
+    </assembly>
+    <members>
+        <member name="P:LBD_TeachCenterModel.Models.ResAmountInfoM.ResourceType">
+            <summary>
+            资源库类型
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Models.ResAmountInfoM.TotalNum">
+            <summary>
+            总数量
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Models.ResAmountInfoM.MonthNum">
+            <summary>
+            资料月增量
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Models.ResAmountInfoM.SubjectInfo">
+            <summary>
+            与学科相关的资料数量信息
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Models.ResSubjectAmountM.SubjectID">
+            <summary>
+            学科ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Models.ResSubjectAmountM.SubjectName">
+            <summary>
+            学科名
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Models.ResSubjectAmountM.SubjectTotalNum">
+            <summary>
+            该学科对应资料总数量
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Models.ResSubjectAmountM.SubjectMonthAddNum">
+            <summary>
+            该学科对应资料的月增量
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.LessonPlanWithCount">
+            <summary>
+            课后练习和数据总量
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanWithCount.Count">
+            <summary>
+            数据总量（分页时需要用到）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanWithCount.LessonPlan">
+            <summary>
+            课堂教案
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.LessonPlanM">
+            <summary>
+            课堂教案
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.ID">
+            <summary>
+            课堂教案ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.LessonPlanName">
+            <summary>
+            课堂教案名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.PicPath">
+            <summary>
+            课堂教案缩略图路径（暂无）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.ShareStatus">
+            <summary>
+            课堂教案共享状态（0-不共享，1-无密码共享，2-有密码共享）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.SharePwd">
+            <summary>
+            共享密码
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.Status">
+            <summary>
+            授课状态（0-未授课，1-已授课）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.SubjectID">
+            <summary>
+            学科ID（同云平台学科ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.SchoolType">
+            <summary>
+            学校类型
+            <para>1-大学</para>
+            <para>2-中小学</para>
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.LevelCode">
+            <summary>
+            年级ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.Term">
+            <summary>
+            学期
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.FolderID">
+            <summary>
+            用户自定义目录的叶子节点ID（为0则表示没有自定义目录）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.Creator">
+            <summary>
+            作者（即教师ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.UseTimes">
+            <summary>
+            使用次数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.LPCourseware">
+            <summary>
+            课文讲解、重难点讲解、随堂测试
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanM.LPTask">
+            <summary>
+            课堂教案的教学计划（未制定计划时长度为0）
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.LP_CoursewareM">
+            <summary>
+            课堂教案包含的课件
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_CoursewareM.CoursewareID">
+            <summary>
+            课件的ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_CoursewareM.CoursewareName">
+            <summary>
+            课件的Name
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_CoursewareM.CoursewareType">
+            <summary>
+            1-课文讲解课件（人工）；2-课文讲解课件（智能）；3-重难点讲解课件（人工）；4-重难点讲解课件（智能）；
+            5-综合试卷（人工）；6-综合试卷（智能）；7-口语试卷（人工）；8-口语试卷（智能）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_CoursewareM.CoursewareStatus">
+            <summary>
+            课件状态（0-无教学计划，1-有教学计划但未执行，2-有教学计划且执行中，2-已结束）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_CoursewareM.CoursewarePicPath">
+            <summary>
+            课件的图片路径
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_CoursewareM.CoursewareSetInfo">
+            <summary>
+            课件设置信息
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.LP_TaskM">
+            <summary>
+            课堂教案的教学计划
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_TaskM.ID">
+            <summary>
+            任务的ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_TaskM.TaskObject">
+            <summary>
+            授课对象（即课程班，可多值）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_TaskM.TaskObjectName">
+            <summary>
+            授课对象名称（即课程班名称，可多值）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_TaskM.TeachTime">
+            <summary>
+            授课时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_TaskM.ClassroomID">
+            <summary>
+            教室ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_TaskM.Classroom">
+            <summary>
+            授课教室
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.LP_CoursewareSetInfoM">
+            <summary>
+            课堂教案下的课件设置信息
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_CoursewareSetInfoM.HuPing">
+            <summary>
+            互评设置（1-一对一 ；2-一对二；3-一对三）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_CoursewareSetInfoM.TeachDuration">
+            <summary>
+            教学时长（0-不限时）（单位：秒）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_CoursewareSetInfoM.DaXiaoTi">
+            <summary>
+            大小题数（[大题数];[小题数]）
+            <para> 示例： 1;5  表示1个大题5个小题</para>
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_CoursewareSetInfoM_Whole.CoursewareID">
+            <summary>
+            课件的ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_CoursewareSetInfoM_Whole.CoursewareType">
+            <summary>
+            1-课文讲解课件（人工）；2-课文讲解课件（智能）；3-重难点讲解课件（人工）；4-重难点讲解课件（智能）；
+            5-综合试卷（人工）；6-综合试卷（智能）；7-口语试卷（人工）；8-口语试卷（智能）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LP_CoursewareSetInfoM_Whole.CoursewareSetInfo">
+            <summary>
+            设置信息
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.LessonPlanAndFolderM">
+            <summary>
+            课堂教案及文件夹
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanAndFolderM.UserFolderSumCount">
+            <summary>
+            用户自定义文件夹总量
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanAndFolderM.LessonPlanSumCount">
+            <summary>
+            课堂教案总量
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanAndFolderM.UserFolder">
+            <summary>
+            用户自定义文件夹
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.LessonPlanAndFolderM.LessonPlan">
+            <summary>
+            课堂教案
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.O_PublishTaskParamM">
+            <summary>
+            调用外部接口发布任务时的参数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.DaKeJianID">
+            <summary>
+            大课件ID（即课前预习ID或课堂教案ID或课后练习ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.DaKeJianName">
+            <summary>
+            大课件名称（即课前预习名称或课堂教案名称或课后练习名称）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.DaKeJianType">
+            <summary>
+            1-课前预习，2-课堂教案，3-课后测试
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.TeacherID">
+            <summary>
+            教师ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.TeacherName">
+            <summary>
+            教师名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.SubjectID">
+            <summary>
+            学科ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.SubjectName">
+            <summary>
+            学科名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.Courseware">
+            <summary>
+            发布任务时的课件的参数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.TaskObject">
+            <summary>
+            任务对象（即课程班ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.TaskObjectName">
+            <summary>
+            任务对象名称（即课程班名称）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.TaskStartTime">
+            <summary>
+            任务起始时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.TaskEndTime">
+            <summary>
+            任务终止时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.ServerTime">
+            <summary>
+            调用接口时的服务器时间（若非服务器端调用，则赋值null）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.SchoolID">
+            <summary>
+            学校ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.SchoolName">
+            <summary>
+            学校名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.Term">
+            <summary>
+            学期
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.MuKeParam">
+            <summary>
+            慕课特有参数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.ZHZYParam">
+            <summary>
+            综合作业、写作作业、听读作业特有参数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.KYZYParam">
+            <summary>
+            口语作业特有参数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_PublishTaskParamM.KHCSParam">
+            <summary>
+            课后测试特有参数
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.O_CoursewareParamM">
+            <summary>
+            调用外部接口发布任务时课件的参数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_CoursewareParamM.CoursewareID">
+            <summary>
+            课件（即慕课、作业等）ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_CoursewareParamM.CoursewareName">
+            <summary>
+            课件（即慕课、作业等）名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_CoursewareParamM.CoursewareType">
+            <summary>
+            课件类型（同PreviewM,LessonPlanM,PracticeM实体类中的同名属性）
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.O_MuKe_PublishTaskParamM">
+            <summary>
+            调用外部接口发布任务时慕课特有的参数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_MuKe_PublishTaskParamM.RatingRules">
+            <summary>
+            达标的方式（1-规定学习时间，2-规定学习完整度，3-规定学得分）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_MuKe_PublishTaskParamM.RatingTime">
+            <summary>
+            规定的学习时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_MuKe_PublishTaskParamM.RatingDegree">
+            <summary>
+            规定学习完整度
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_MuKe_PublishTaskParamM.RatingScore">
+            <summary>
+            规定得分
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_MuKe_PublishTaskParamM.IsPush">
+            <summary>
+            是否共享
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.O_ZHZY_PublishTaskParamM">
+            <summary>
+            调用外部接口发布任务时综合作业、写作作业、听读作业特有的参数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_ZHZY_PublishTaskParamM.SysID">
+            <summary>
+            系统ID（综合、写作、听读的系统ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_ZHZY_PublishTaskParamM.LimitTime">
+            <summary>
+            限时时间（-1表示非限时，大于0表示限时的时间）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_ZHZY_PublishTaskParamM.HuPingFlag">
+            <summary>
+            互评标志（0-不互评，1-互评）
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.O_KYZY_PublishTaskParamM">
+            <summary>
+            调用外部接口发布任务时口语作业特有的参数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_KYZY_PublishTaskParamM.EvalType">
+            <summary>
+            作业评测方式（0-自动评测+教师辅评，1-学生互评+教师辅评，2-两者混合评测）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_KYZY_PublishTaskParamM.LimitTime">
+            <summary>
+            作业作答时长（0表示作答不限时，大于0表示作答限时的时长），单位：分钟
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_KYZY_PublishTaskParamM.OKFlag">
+            <summary>
+            提示信息教师确认标识（0-未确认，1-已确认）
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.O_KHCS_PublishTaskParamM">
+            <summary>
+            调用外部接口发布任务时课后测试特有的参数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_KHCS_PublishTaskParamM.TestTimeLong">
+            <summary>
+            测试时长（单位：分钟）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_KHCS_PublishTaskParamM.TestMode">
+            <summary>
+            0-综合考试，1-口语考试
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_KHCS_PublishTaskParamM.CourseID">
+            <summary>
+            课程ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_KHCS_PublishTaskParamM.CourseName">
+            <summary>
+            课程名称
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.O_AdjustTaskDeadlineParamM">
+            <summary>
+            调用外部接口修改任务期限时的参数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_AdjustTaskDeadlineParamM.DaKeJianID">
+            <summary>
+            大课件ID（即课前预习ID或课堂教案ID或课后练习ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_AdjustTaskDeadlineParamM.DaKeJianName">
+            <summary>
+            大课件名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_AdjustTaskDeadlineParamM.DaKeJianType">
+            <summary>
+            1-课前预习，2-课堂教案，3-课后测试
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_AdjustTaskDeadlineParamM.SubjectID">
+            <summary>
+            学科ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_AdjustTaskDeadlineParamM.SubjectName">
+            <summary>
+            学科名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_AdjustTaskDeadlineParamM.TeacherID">
+            <summary>
+            教师ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_AdjustTaskDeadlineParamM.TeacherName">
+            <summary>
+            教师名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_AdjustTaskDeadlineParamM.Courseware">
+            <summary>
+            课件（即慕课、作业等）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_AdjustTaskDeadlineParamM.StartTime">
+            <summary>
+            任务起始时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_AdjustTaskDeadlineParamM.EndTime">
+            <summary>
+            任务终止时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_AdjustTaskDeadlineParamM.ServerTime">
+            <summary>
+            调用接口时的服务器时间（若非服务器端调用，则赋值null）
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.O_StartOrEndTaskParamM">
+            <summary>
+            调用外部接口立即开始或结束任务时的参数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_StartOrEndTaskParamM.DaKeJianID">
+            <summary>
+            大课件ID（即课前预习ID或课堂教案ID或课后练习ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_StartOrEndTaskParamM.DaKeJianName">
+            <summary>
+            大课件名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_StartOrEndTaskParamM.DaKeJianType">
+            <summary>
+            1-课前预习，2-课堂教案，3-课后测试
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_StartOrEndTaskParamM.SubjectID">
+            <summary>
+            学科ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_StartOrEndTaskParamM.SubjectName">
+            <summary>
+            学科名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_StartOrEndTaskParamM.TeacherID">
+            <summary>
+            教师ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_StartOrEndTaskParamM.TeacherName">
+            <summary>
+            教师名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_StartOrEndTaskParamM.Courseware">
+            <summary>
+            课件（即慕课、作业等）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_StartOrEndTaskParamM.OperationFlag">
+            <summary>
+            1-立即开始，2-立即结束
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_StartOrEndTaskParamM.ServerTime">
+            <summary>
+            调用接口时的服务器时间（若非服务器端调用，则赋值null）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.O_StartOrEndTaskParamM.WholeOrSingle">
+            <summary>
+            修改整个大课件还是内部单个子课件（0-整个大课件，1-单个子课件）
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.ApiResultM`1">
+            <summary>
+            Api的返回结果
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.ApiResultM`1.ErrorFlag">
+            <summary>
+            错误码
+            <para>0-正常</para>
+            <para>1-操作失败</para>
+            <para>2-函数不存在</para>
+            <para>3-参数有误</para>
+            <para>4-Token失效（需要Token的场合）</para>
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.ApiResultM`1.Message">
+            <summary>
+            异常消息
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.ApiResultM`1.Data">
+            <summary>
+            实际数据
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.ApiResultM`1.ServerTime">
+            <summary>
+            服务器时间
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.PracticeWithCountM">
+            <summary>
+            课后练习和数据总量
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeWithCountM.Count">
+            <summary>
+            数据总量（分页时需要用到）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeWithCountM.Practice">
+            <summary>
+            课后练习
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.PracticeM">
+            <summary>
+            课后练习
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.ID">
+            <summary>
+            课后练习ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.PracticeName">
+            <summary>
+            课后练习名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.PicPath">
+            <summary>
+            课后练习缩略图路径（暂无）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.ShareStatus">
+            <summary>
+            课后练习共享状态（0-不共享，1-无密码共享，2-有密码共享）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.SharePwd">
+            <summary>
+            共享密码
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.Status">
+            <summary>
+            发布状态（0-未发布，1-已发布但未进行，2-已发布且进行中，3-已结束）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.SubjectID">
+            <summary>
+            学科ID（同云平台学科ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.SchoolType">
+            <summary>
+            学校类型
+            <para>1-大学</para>
+            <para>2-中小学</para>
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.LevelCode">
+            <summary>
+            年级ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.Term">
+            <summary>
+            学期
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.FolderID">
+            <summary>
+            用户自定义目录的叶子节点ID（为0则表示没有自定义目录）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.Creator">
+            <summary>
+            作者（即教师ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.UseTimes">
+            <summary>
+            使用次数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.PublishTime">
+            <summary>
+            任务发布时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.PraCourseware">
+            <summary>
+            课后作业、课后测试
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeM.PraTask">
+            <summary>
+            课前预习发布的任务（未发布时值为null）
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.Pra_CoursewareM">
+            <summary>
+            课后练习下包含的课件（即课后作业和课后测试）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_CoursewareM.CoursewareID">
+            <summary>
+            作业或测试的ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_CoursewareM.CoursewareName">
+            <summary>
+            作业或测试的Name
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_CoursewareM.CoursewareType">
+            <summary>
+            1-综合测试（人工）； 2-综合测试（智能）； 3-口语测试（人工）； 4-口语测试（智能）；
+            5-笔译作业（人工）；6-笔译作业（智能）； 7-综合作业（人工）；8-综合作业（智能）；
+            9-口语作业（人工）；10-口语作业（智能）；11-写作作业（人工）；12-写作作业（智能）；
+            13-听读作业（人工）；14-听读作业（智能）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_CoursewareM.CoursewareStatus">
+            <summary>
+            课件状态（0-未发布，1-已发布但未进行，2-已发布且进行中，3-已结束）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_CoursewareM.CoursewarePicPath">
+            <summary>
+            课件的图片路径
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_CoursewareM.CoursewareSetInfo">
+            <summary>
+            课件设置信息
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.Pra_TaskM">
+            <summary>
+            课后练习的任务
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_TaskM.TaskObject">
+            <summary>
+            发布任务的对象（即课程班，可多值）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_TaskM.TaskObjectName">
+            <summary>
+            发布任务的对象的名称（即课程班名称，可多值）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_TaskM.StartTime">
+            <summary>
+            任务起始时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_TaskM.EndTime">
+            <summary>
+            任务终止时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_TaskM.SumCount">
+            <summary>
+            任务总量（即所有课程班总人数*子任务数量）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_TaskM.CurCount">
+            <summary>
+            任务当前完量（即已经完成的人数*完成的子任务数量）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_TaskM.Progress">
+            <summary>
+            任务状态（教师端时为CurCount/SumCount，学生端时1-已完成，小于1-进行中）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_TaskM.TaskStatus">
+            <summary>
+            任务时间状态（1-未开始，2-进行中，3-已结束）
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.Pra_CoursewareSetInfoM">
+            <summary>
+            课后测试下的课件设置信息
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_CoursewareSetInfoM.AllowHuPing">
+            <summary>
+            是否允许互评（false-不允许，true-允许）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_CoursewareSetInfoM.HuPing">
+            <summary>
+            互评设置（0-不互评，1-互评）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_CoursewareSetInfoM.LimitDuration">
+            <summary>
+            限制时长（0-不限时）（单位：秒）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_CoursewareSetInfoM_Whole.CoursewareID">
+            <summary>
+            课件的ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_CoursewareSetInfoM_Whole.CoursewareType">
+             <summary>
+            1-慕课（人工）； 2-慕课（智能）；3-笔译作业（人工）；4-笔译作业（智能）；
+             5-综合作业（人工）；6-综合作业（智能）；7-口语作业（人工）；8-口语作业（智能）；
+             9-写作作业（人工）；10-写作作业（智能）；11-听读作业（人工）；12-听读作业（智能）
+             </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pra_CoursewareSetInfoM_Whole.CoursewareSetInfo">
+            <summary>
+            设置信息
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.PracticeAndFolderM">
+            <summary>
+            课后练习及文件夹
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeAndFolderM.UserFolderSumCount">
+            <summary>
+            用户自定义文件夹总量
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeAndFolderM.PracticeSumCount">
+            <summary>
+            课后练习总量
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeAndFolderM.UserFolder">
+            <summary>
+            用户自定义文件夹
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PracticeAndFolderM.Practice">
+            <summary>
+            课后练习
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.PreviewWithCountM">
+            <summary>
+            课前预习和数据总量
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewWithCountM.Count">
+            <summary>
+            数据总量（分页时需要用到）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewWithCountM.Preview">
+            <summary>
+            课前预习
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.PreviewM">
+            <summary>
+            课前预习
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.ID">
+            <summary>
+            课前预习ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.PreviewName">
+            <summary>
+            课前预习名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.PicPath">
+            <summary>
+            课前预习缩略图路径（暂无）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.ShareStatus">
+            <summary>
+            课前预习共享状态（0-不共享，1-无密码共享，2-有密码共享）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.SharePwd">
+            <summary>
+            课前预习共享密码
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.Status">
+            <summary>
+            发布状态（0-未发布，1-已发布但未进行，2-已发布且进行中，3-已结束）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.SubjectID">
+            <summary>
+            学科ID（同云平台学科ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.SchoolType">
+            <summary>
+            学校类型
+            <para>1-大学</para>
+            <para>2-中小学</para>
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.LevelCode">
+            <summary>
+            年级ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.Term">
+            <summary>
+            学期
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.FolderID">
+            <summary>
+            用户自定义目录的叶子节点ID（为0则表示没有自定义目录）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.Creator">
+            <summary>
+            作者（即教师ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.UseTimes">
+            <summary>
+            使用次数
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.PublishTime">
+            <summary>
+            任务发布时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.PreCourseware">
+            <summary>
+            慕课和作业
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewM.PreTask">
+            <summary>
+            课前预习发布的任务（未发布时值为null）
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.Pre_CoursewareM">
+            <summary>
+            课前预习下包含的课件（即慕课和作业）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareM.CoursewareID">
+            <summary>
+            慕课或作业的ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareM.CoursewareName">
+            <summary>
+            慕课或作业的Name
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareM.CoursewareType">
+             <summary>
+            1-慕课（人工）； 2-慕课（智能）；3-笔译作业（人工）；4-笔译作业（智能）；
+             5-综合作业（人工）；6-综合作业（智能）；7-口语作业（人工）；8-口语作业（智能）；
+             9-写作作业（人工）；10-写作作业（智能）；11-听读作业（人工）；12-听读作业（智能）
+             </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareM.CoursewareStatus">
+            <summary>
+            课件状态（0-未发布，1-已发布但未进行，2-已发布且进行中，3-已结束）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareM.CoursewarePicPath">
+            <summary>
+            课件的图片路径
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareM.CoursewareSetInfo">
+            <summary>
+            课件的设置信息
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.Pre_TaskM">
+            <summary>
+            课前预习发布的任务
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_TaskM.TaskObject">
+            <summary>
+            发布任务的对象（即课程班，可多值）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_TaskM.TaskObjectName">
+            <summary>
+            发布任务的对象的名称（即课程班的名称，可多值）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_TaskM.StartTime">
+            <summary>
+            任务起始时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_TaskM.EndTime">
+            <summary>
+            任务终止时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_TaskM.SumCount">
+            <summary>
+            任务总量（即所有课程班总人数*子任务数量）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_TaskM.CurCount">
+            <summary>
+            任务当前完成量（即已经完成的人数*完成的子任务数量）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_TaskM.Progress">
+            <summary>
+            任务进度（教师端时为CurCount/SumCount，学生端时1-已完成，小于1-进行中）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_TaskM.TaskStatus">
+            <summary>
+            任务时间状态（1-未开始，2-进行中，3-已结束）
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.Pre_CoursewareSetInfoM">
+            <summary>
+            课堂教案下的课件设置信息
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareSetInfoM.AllowHuPing">
+            <summary>
+            是否允许互评（false-不允许，true-允许）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareSetInfoM.HuPing">
+            <summary>
+            互评设置（0-不互评，1-互评）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareSetInfoM.IsShared">
+            <summary>
+            是否共享（0-不共享，1-共享）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareSetInfoM.MoocRules">
+            <summary>
+            慕课课件达标要求条件（1-时间，2-完整度，3-得分）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareSetInfoM.MoocRuleValue">
+            <summary>
+            慕课课件达标要求条件值
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareSetInfoM.LimitDuration">
+            <summary>
+            限制时长（0-不限时）（单位：秒）
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.Pre_CoursewareSetInfoM_Whole">
+            <summary>
+            包含设置信息和课件的ID、类型
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareSetInfoM_Whole.CoursewareID">
+            <summary>
+            课件的ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareSetInfoM_Whole.CoursewareType">
+             <summary>
+            1-慕课（人工）； 2-慕课（智能）；3-笔译作业（人工）；4-笔译作业（智能）；
+             5-综合作业（人工）；6-综合作业（智能）；7-口语作业（人工）；8-口语作业（智能）；
+             9-写作作业（人工）；10-写作作业（智能）；11-听读作业（人工）；12-听读作业（智能）
+             </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.Pre_CoursewareSetInfoM_Whole.CoursewareSetInfo">
+            <summary>
+            设置信息
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.Res.PreviewAndFolderM">
+            <summary>
+            课前预习及文件夹
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewAndFolderM.UserFolderSumCount">
+            <summary>
+            用户自定义文件夹总量
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewAndFolderM.PreviewSumCount">
+            <summary>
+            课前预习总量
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewAndFolderM.UserFolder">
+            <summary>
+            用户自定义文件夹
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.PreviewAndFolderM.Preview">
+            <summary>
+            课前预习
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.KeHouCeShi.KHCS_TaskObjectM">
+            <summary>
+            课后测试任务对象
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.KeHouCeShi.KHCS_TaskObjectM.Type">
+            <summary>
+            班级类型（课程班固定为“102>1”）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.KeHouCeShi.KHCS_TaskObjectM.UserID">
+            <summary>
+            课程班ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.KeHouCeShi.KHCS_TaskObjectM.UserName">
+            <summary>
+            课程班名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.KeHouCeShi.KHCS_TaskObjectM.UserIDPath">
+            <summary>
+            课程班ID路径（学校ID>学科ID>课程ID>课程班ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.KeHouCeShi.KHCS_TaskObjectM.UserNamePath">
+            <summary>
+            课程班名称路径（学校名称>学科名称>课程名称>课程班名称）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.AddMsgParamM.MsgType">
+            <summary>
+            1-发布，2-调整任务期限，3-结束
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.AddMsgParamM.MsgUrl">
+            <summary>
+            消息的链接地址
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.AddMsgParamM.TaskStartTime">
+            <summary>
+            任务开始时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.AddMsgParamM.TaskEndTime">
+            <summary>
+            任务结束时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.AddMsgParamM.TaskObjectID">
+            <summary>
+            任务对象（即课程班ID）
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.AddMsgParamM.Operation">
+            <summary>
+            1-Add，2-Update
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.CloudPlatform.BDandInelProductConfigInfoM">
+            <summary>
+            大数据、智能化产品的配备信息
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.BDandInelProductConfigInfoM.ResultFlag">
+            <summary>
+            结果标识
+            <para>1—正常获取</para>
+            <para>-1—未检测到加密所</para>
+            <para>-2—加密锁已过期</para>
+            <para>-3—加密锁不能用于该产品</para>
+            <para>-4—加密锁接口调用错误</para>
+            <para>-5—加密锁时钟错误</para>
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.BDandInelProductConfigInfoM.ResultMsg">
+            <summary>
+            每种结果标识对应的文字说明
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.BDandInelProductConfigInfoM.HasBigDataSys">
+            <summary>
+            是否配备了大数据系统。 0—否， 1—是。当ResultFlag!=1时，此值为-1
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.BDandInelProductConfigInfoM.HasIntelligentSys">
+            <summary>
+            是否配备了智能化系统。 0—否， 1—是。当ResultFlag!=1时，此值为-1
+            </summary>
+        </member>
+        <member name="T:LBD_TeachCenterModel.CloudPlatform.SubjectPurchaseInfoM">
+            <summary>
+            学科的购买信息
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.SubjectPurchaseInfoM.ResultFlag">
+            <summary>
+            结果标识
+            <para>1—正常获取</para>
+            <para>-1—未检测到加密所</para>
+            <para>-2—加密锁已过期</para>
+            <para>-3—加密锁不能用于该产品</para>
+            <para>-4—加密锁接口调用错误</para>
+            <para>-5—加密锁时钟错误</para>
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.SubjectPurchaseInfoM.ResultMsg">
+            <summary>
+            每种结果标识对应的文字说明
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.SubjectPurchaseInfoM.HasChinese">
+            <summary>
+            是否购买了语文。 0—否， 1—是。当ResultFlag!=1时，此值为-1
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.SubjectPurchaseInfoM.HasMaths">
+            <summary>
+            是否购买了数学。 0—否， 1—是。当ResultFlag!=1时，此值为-1
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.SubjectPurchaseInfoM.HasEnglish">
+            <summary>
+            是否购买了英语。 0—否， 1—是。当ResultFlag!=1时，此值为-1
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.SubjectPurchaseInfoM.HasPhysics">
+            <summary>
+            是否购买了物理。 0—否， 1—是。当ResultFlag!=1时，此值为-1
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.SubjectPurchaseInfoM.HasChemistry">
+            <summary>
+            是否购买了化学。 0—否， 1—是。当ResultFlag!=1时，此值为-1
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.SubjectPurchaseInfoM.HasBiology">
+            <summary>
+            是否购买了生物。 0—否， 1—是。当ResultFlag!=1时，此值为-1
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.SubjectPurchaseInfoM.HasPolitics">
+            <summary>
+            是否购买了政治。 0—否， 1—是。当ResultFlag!=1时，此值为-1
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.SubjectPurchaseInfoM.HasHistory">
+            <summary>
+            是否购买了历史。 0—否， 1—是。当ResultFlag!=1时，此值为-1
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.CloudPlatform.SubjectPurchaseInfoM.HasGeography">
+            <summary>
+            是否购买了地理。 0—否， 1—是。当ResultFlag!=1时，此值为-1
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.UserResPathM.ID">
+            <summary>
+            目录ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.UserResPathM.DirName">
+            <summary>
+            目录名称
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.UserResPathM.Term">
+            <summary>
+            学期
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.UserResPathM.SubjectID">
+            <summary>
+            学科ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.UserResPathM.SchoolType">
+            <summary>
+            学校类型
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.UserResPathM.LevelCode">
+            <summary>
+            年级
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.UserResPathM.ParentID">
+            <summary>
+            父目录ID
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.UserResPathM.Creator">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.UserResPathM.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:LBD_TeachCenterModel.Res.UserResPathM.LastEditTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+    </members>
+</doc>

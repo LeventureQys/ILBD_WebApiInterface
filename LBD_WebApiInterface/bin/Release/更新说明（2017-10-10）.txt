@@ -1,0 +1,3 @@
+修改TeachInfoI的以下接口
+public CloudPlatformSubsystemM GetSubSysAddr(string strSysID)
+D00强制不根据学科来获取

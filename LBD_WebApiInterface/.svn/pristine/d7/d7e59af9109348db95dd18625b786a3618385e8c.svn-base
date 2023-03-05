@@ -1,0 +1,5 @@
+10:19:36 Initialize: 输入字符串的格式不正确。
+11:36:45 GetZYKServerVer: System.Net.WebException: 远程服务器返回错误: (404) 未找到。
+   在 LBD_WebApiInterface.Utility.CallApiHelper.CallMethodGet(String strWholeUrl) 位置 D:\※源码管理\智能网络化英语课堂教学系统V5.2\代码\OtherPublic\LBD_WebApiInterface\Utility\CallApiHelper.cs:行号 50
+   在 LBD_WebApiInterface.Api.TeachInfoI.GetZYKServerVer() 位置 D:\※源码管理\智能网络化英语课堂教学系统V5.2\代码\OtherPublic\LBD_WebApiInterface\Api\TeachInfoI.cs:行号 8838
+13:52:40 P_GetOtherSysService: 缺少根元素。

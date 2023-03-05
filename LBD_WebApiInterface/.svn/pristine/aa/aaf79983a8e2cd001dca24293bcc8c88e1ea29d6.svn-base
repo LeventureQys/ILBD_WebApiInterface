@@ -1,0 +1,41 @@
+增加属性CloudPreparationSrvInfo
+类CloudPreparationSrvInfoM声明如下：
+    public class CloudPreparationSrvInfoM
+    {
+        /// <summary>
+        /// 服务器代码
+        /// </summary>
+        public string ServerCode { get; set; }
+        /// <summary>
+        /// 服务器描述
+        /// </summary>
+        public string ServerDescription { get; set; }
+        /// <summary>
+        /// 服务器ip地址
+        /// </summary>
+        public string ServerIP { get; set; }
+        /// <summary>
+        /// 服务器端口
+        /// </summary>
+        public string ServerPort{ get; set; }
+        /// <summary>
+        /// 服务器Ftp用户名
+        /// </summary>
+        public string UserName { get; set; }
+        /// <summary>
+        /// 服务器Ftp密码
+        /// </summary>
+        public string UserPwd{ get; set; }
+        /// <summary>
+        /// 服务器虚拟路径
+        /// </summary>
+        public string VirtualPath{ get; set; }
+        /// <summary>
+        /// 服务器物理路径
+        /// </summary>
+        public string PhyPath { get; set; }
+    }
+
+云备课的ftp、http、websoket信息都是通过他获取
+
+注意：网络化教材库的ftp还是通过原来的方式获取

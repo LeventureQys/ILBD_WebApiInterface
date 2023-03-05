@@ -1,0 +1,8 @@
+CloudPreparationI中增加如下接口，具体说明看注释：
+
+GetTeachingProgram
+GetPreview
+GetIntelCourseware
+GetClassTest
+GetHomework
+GetPreviewTask

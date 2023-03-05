@@ -1,0 +1,12 @@
+13:39:33 CallMethodPost异常记录: 访问地址：http://192.168.2.98:8003/WS_ResourceCloud/SearchStatisticalInfo.asmx/WS_Search_GetServerAddressConf，参数：serverID=
+13:39:33 CallMethodPost: 操作超时
+13:41:33 CallMethodPost异常记录: 访问地址：http://192.168.2.98:8003/WS_AllSubjectKlg/BaseData/GetBaseData.asmx/WS_Search_GetServerAddressConf，参数：serverID=
+13:41:33 CallMethodPost: 远程服务器返回错误: (500) 内部服务器错误。
+13:41:36 CallMethodPost异常记录: 访问地址：http://192.168.2.98:8003/WS_AllSubjectKlg/BaseData/GetBaseData.asmx/WS_Search_GetServerAddressConf，参数：serverID=
+13:41:36 CallMethodPost: 远程服务器返回错误: (500) 内部服务器错误。
+13:44:59 CallMethodPost异常记录: 访问地址：http://192.168.2.98:8003/WS_AllSubjectKlg/BaseData/GetBaseData.asmx/WS_Search_GetServerAddressConf，参数：serverID=
+13:44:59 CallMethodPost: 远程服务器返回错误: (500) 内部服务器错误。
+13:52:31 CallMethodPost异常记录: 访问地址：http://192.168.2.98:8003/WS_AllSubjectKlg/BaseData/GetBaseData.asmx/WS_Search_GetServerAddressConf，参数：serverID=
+13:52:31 CallMethodPost: 远程服务器返回错误: (500) 内部服务器错误。
+13:53:58 CallMethodPost异常记录: 访问地址：http://192.168.2.98:8003/WS_AllSubjectKlg/BaseData/GetBaseData.asmx/WS_Search_GetServerAddressConf，参数：serverID=
+13:53:58 CallMethodPost: 远程服务器返回错误: (500) 内部服务器错误。

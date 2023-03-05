@@ -1,0 +1,6 @@
+1.TeachCenterI中增加接口，当使用了某个教案上课时调用此接口
+    public bool HasUsedLessonPlan(string strLessonPlanID, string strTeacherID)
+
+
+2.TeachInfoI中的接口做了内部修改
+public CloudPlatformSubsystemM GetSubSysAddr(string strSysID)

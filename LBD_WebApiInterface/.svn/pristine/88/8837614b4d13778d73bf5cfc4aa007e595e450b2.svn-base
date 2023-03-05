@@ -1,0 +1,53 @@
+10:17:32 初始化课堂教学webapi地址:: http://192.168.129.185:10101/Ws_ItelEngTeach/NetTeachApiF/API/TeachInfoApi.ashx
+10:17:32 GetSubSysAddr: strSysID=B90,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+10:17:32 GetSubSysAddr: strSysID=A00,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+10:19:36 GetSubSysAddr: strSysID=A10,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+10:30:39 初始化课堂教学webapi地址:: http://192.168.129.185:10101/Ws_ItelEngTeach/NetTeachApiF/API/TeachInfoApi.ashx
+10:30:43 GetSubSysAddr: strSysID=B90,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+10:30:44 GetSubSysAddr: strSysID=A00,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+11:35:02 GetSubSysAddr: strSysID=A10,strSubjectID=,mCloudPlatformBFUrl=
+11:35:48 初始化课堂教学webapi地址:: http://192.168.129.185:10101/Ws_ItelEngTeach/NetTeachApiF/API/TeachInfoApi.ashx
+11:35:53 GetSubSysAddr: strSysID=B90,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+11:35:54 GetSubSysAddr: strSysID=A00,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+11:36:39 GetZYKServerVer: sbUrl = http://192.168.129.185:10103/WS_ResourceCloudPrim/api/TaskAnswer/GetUnpackTaskFtpPath
+11:37:36 初始化课堂教学webapi地址:: http://192.168.129.185:10101/Ws_ItelEngTeach/NetTeachApiF/API/TeachInfoApi.ashx
+11:37:36 GetSubSysAddr: strSysID=B90,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+11:37:36 GetSubSysAddr: strSysID=A00,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+11:38:00 GetZYKServerVer: sbUrl = http://192.168.129.185:10103/WS_ResourceCloudPrim/api/config/getversion
+11:39:10 初始化课堂教学webapi地址:: http://192.168.129.185:10101/Ws_ItelEngTeach/NetTeachApiF/API/TeachInfoApi.ashx
+11:39:10 GetSubSysAddr: strSysID=B90,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+11:39:10 GetSubSysAddr: strSysID=A00,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+11:39:19 GetZYKServerVer: sbUrl = http://192.168.129.185:10103/WS_ResourceCloudPrim/api/config/getversion
+11:41:53 初始化课堂教学webapi地址:: http://192.168.129.185:10101/Ws_ItelEngTeach/NetTeachApiF/API/TeachInfoApi.ashx
+11:41:53 GetSubSysAddr: strSysID=B90,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+11:41:53 GetSubSysAddr: strSysID=A00,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+11:41:58 GetZYKServerVer: sbUrl = http://192.168.129.185:10103/WS_ResourceCloudPrim/api/config/getversion
+11:44:41 初始化课堂教学webapi地址:: http://192.168.129.185:10101/Ws_ItelEngTeach/NetTeachApiF/API/TeachInfoApi.ashx
+11:44:41 GetSubSysAddr: strSysID=B90,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+11:44:41 GetSubSysAddr: strSysID=A00,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+11:44:48 GetZYKServerVer: sbUrl = http://192.168.129.185:10103/WS_ResourceCloudPrim/api/config/getversion
+13:42:31 初始化课堂教学webapi地址:: http://192.168.129.185:10101/Ws_ItelEngTeach/NetTeachApiF/API/TeachInfoApi.ashx
+13:42:31 GetSubSysAddr: strSysID=B90,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:42:31 GetSubSysAddr: strSysID=A00,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:42:35 GetZYKServerVer: sbUrl = http://192.168.129.185:10103/WS_ResourceCloudPrim/api/config/getversion
+13:43:11 GetSubSysAddr: strSysID=J11,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:43:12 GetSubSysAddr: strSysID=890,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:43:12 GetSubSysAddr: strSysID=360,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:43:12 GetSubSysAddr: strSysID=A10,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:43:17 GetSubSysAddr: strSysID=A10,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:43:25 GetSubSysAddr: strSysID=A10,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:45:04 GetSubSysAddr: strSysID=A10,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:45:07 GetSubSysAddr: strSysID=A10,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:45:34 GetSubSysAddr: strSysID=A10,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:46:12 初始化课堂教学webapi地址:: http://192.168.129.185:10101/Ws_ItelEngTeach/NetTeachApiF/API/TeachInfoApi.ashx
+13:46:12 GetSubSysAddr: strSysID=B90,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:46:12 GetSubSysAddr: strSysID=A00,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+13:46:12 GetZYKServerVer: sbUrl = http://192.168.129.185:10103/WS_ResourceCloudPrim/api/config/getversion
+13:52:39 初始化课堂教学webapi地址:: http://192.168.129.33:10101/Ws_ItelEngTeach/NetTeachApiF/API/TeachInfoApi.ashx
+13:52:40 GetSubSysAddr: strSysID=B90,strSubjectID=,mCloudPlatformBFUrl=192.168.129.33:10102
+13:52:40 GetSubSysAddr: strSysID=A00,strSubjectID=,mCloudPlatformBFUrl=192.168.129.33:10102
+13:52:40 GetZYKServerVer: sbUrl = http://192.168.129.33:10103/WS_ResourceCloud/api/config/getversion
+13:53:25 GetSubSysAddr: strSysID=J11,strSubjectID=,mCloudPlatformBFUrl=192.168.129.33:10102
+13:53:25 GetSubSysAddr: strSysID=890,strSubjectID=,mCloudPlatformBFUrl=192.168.129.33:10102
+13:53:25 GetSubSysAddr: strSysID=360,strSubjectID=,mCloudPlatformBFUrl=192.168.129.33:10102
+13:53:25 GetSubSysAddr: strSysID=A10,strSubjectID=,mCloudPlatformBFUrl=192.168.129.33:10102

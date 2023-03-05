@@ -1,0 +1,4 @@
+23:51:32 初始化课堂教学webapi地址:: http://192.168.129.185:10101/Ws_ItelEngTeach/NetTeachApiF/API/TeachInfoApi.ashx
+23:52:20 GetSubSysAddr: strSysID=B90,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+23:52:29 GetSubSysAddr: strSysID=A00,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102
+23:54:41 GetSubSysAddr: strSysID=A10,strSubjectID=,mCloudPlatformBFUrl=192.168.129.185:10102

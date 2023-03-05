@@ -1,0 +1,27 @@
+1.增加GetTeachClassProgramByID，GetOptionalCourseware
+/// <summary>
+/// 根据课堂教案id查找课堂教案信息
+/// </summary>
+/// <param name="sTeachClassProgramID">课堂教案ID</param>
+/// <returns></returns>
+public TeachClassProgramM GetTeachClassProgramByID(string sTeachClassProgramID)
+
+/// <summary>
+/// 查询智能化课件
+/// </summary>
+/// <param name="strZhiNengBeiKeIPandPort">智能化课件Ip和Port,用":"分隔，如："192.168.0.1:8001"</param>
+/// <param name="strTeacherID">教师ID，如T001</param>
+/// <param name="strSubjectID">学科ID，如S2-English</param>
+/// <param name="strTerm">学期,如TeachInfo的TermYear</param>
+/// <param name="strKeyword">关键词,模糊查询时需要，传空为查询所有</param>
+/// <param name="iPageSize">单页显示的个数</param>
+/// <param name="iPageIndex">页码</param>
+/// <param name="iOrderMode">0代表按最后修改时间排序，=1代表按创建时间排序</param>
+/// <param name="bAscOrDesc">升降序,True-升序；False-降序</param>
+/// <param name="SumCount">课件总数(输出参数)</param>
+/// <returns></returns>
+        public ItelCoursewareM[] GetOptionalCourseware( string strZhiNengBeiKeIPandPort,  string strTeacherID, string strSubjectID, string strTerm, string strKeyword, int iPageSize, int iPageIndex, int iOrderMode, bool bAscOrDesc, out long SumCount)
+
+2.接口GetPreview返回的实体类PreClassProgramM修改属性（sState改为State,增加PreClassAssignmentID）
+
+3.接口GetHomework返回的实体类AfterClassProgramM修改属性（sState改为State,增加AfterClassAssignmentID

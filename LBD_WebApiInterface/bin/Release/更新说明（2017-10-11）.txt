@@ -1,0 +1,6 @@
+修改TeachInfoI的以下接口
+public CloudPlatformSubsystemM GetSubSysAddr(string strSysID)
+D00强制不根据学科来获取
+
+命名空间LBD_WebApiInterface.Api下CourseCenterI增加接口
+GetRequestResourceByID 根据资源id查找点播资源信息

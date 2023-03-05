@@ -1,0 +1,10 @@
+命名空间LBD_WebApiInterface.Api下增加CourseCenterI，多媒体云课堂（课程中心）的接口
+	GetRequestResource    查找点播资源
+	GetBroadcastResource  查找广播资源
+	GetLiveResourceM      查找直播资源
+
+
+命名空间LBD_WebApiInterface.Models.CourseCenter下增加多个实体类
+
+
+接口地址：IP：192.168.2.55    Port：8010

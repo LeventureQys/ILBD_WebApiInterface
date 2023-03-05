@@ -1,0 +1,7 @@
+1.修改PreviewM的Status说明，Practice同理
+        /// <summary>
+        /// 发布状态（0-未发布，1-已发布但未进行，2-已发布且进行中，3-已结束）
+        /// </summary>
+        public byte Status { get; set; }
+
+

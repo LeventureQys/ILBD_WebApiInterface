@@ -1,0 +1,12 @@
+13:54:58 CallMethodPost异常记录: 访问地址：http://192.168.129.33:10101/Ws_ItelEngTeach/jxWebService.asmx/WS_G_OtherSysInfo ，参数：SysID=&SecCode=11122156
+13:54:58 CallMethodPost: 远程服务器返回错误: (500) 内部服务器错误。
+13:57:11 CallMethodPost异常记录: 访问地址：http://192.168.129.33:10101/Ws_ItelEngTeach/jxWebService.asmx/WS_G_OtherSysInfo ，参数：SysID=&SecCode=11122156
+13:57:11 CallMethodPost: 远程服务器返回错误: (500) 内部服务器错误。
+13:57:57 CallMethodPost异常记录: 访问地址：http://192.168.129.33:10103/WS_AllSubjectKlg/BaseData/GetBaseData.asmx，参数：serverID=
+13:57:57 CallMethodPost: 远程服务器返回错误: (500) 内部服务器错误。
+14:01:11 CallMethodPost异常记录: 访问地址：http://192.168.129.33:10101/Ws_ItelEngTeach/jxWebService.asmx/WS_G_OtherSysInfo ，参数：SysID=&SecCode=11122156
+14:01:11 CallMethodPost: 远程服务器返回错误: (500) 内部服务器错误。
+14:09:38 CallMethodPost异常记录: 访问地址：http://192.168.129.33:10101/Ws_ItelEngTeach/jxWebService.asmx/WS_G_OtherSysInfo ，参数：SysID=&SecCode=11122156
+14:09:38 CallMethodPost: 远程服务器返回错误: (500) 内部服务器错误。
+14:11:50 CallMethodPost异常记录: 访问地址：http://192.168.129.33:10101/Ws_ItelEngTeach/jxWebService.asmx/WS_G_OtherSysInfo ，参数：SysID=&SecCode=11122156
+14:11:50 CallMethodPost: 远程服务器返回错误: (500) 内部服务器错误。

@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67F581AD-B885-42BC-8FE4-EB986F0F5841}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LBD_WebApiInterface</RootNamespace>
+    <AssemblyName>LBD_WebApiInterface</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\LBD_WebApiInterface.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Release\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;RELEASE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\LBD_WebApiInterface.XML</DocumentationFile>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AccessWebApi_Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\AccessWebApi_Model.dll</HintPath>
+    </Reference>
+    <Reference Include="lancoo.cp.basic.sysbaseclass, Version=2.2.0.1, Culture=neutral, PublicKeyToken=f52b57b4c48e2c97, processorArchitecture=MSIL" />
+    <Reference Include="LBD_TeachCenterModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\LBD_TeachCenterModel.dll</HintPath>
+    </Reference>
+    <Reference Include="LgSoft.LgMgrCenterDOTDLL, Version=1.0.0.1, Culture=neutral, PublicKeyToken=76e9750c16d44ddc, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\BigDataInfoI.cs" />
+    <Compile Include="Api\CloudServerConfigl.cs" />
+    <Compile Include="Api\CourseCenterI.cs" />
+    <Compile Include="Api\E_ResourceLibrary3I.cs" />
+    <Compile Include="Api\MultipleSubjectI.cs" />
+    <Compile Include="Api\NetCoursewareI.cs" />
+    <Compile Include="Api\OtherInfoI.cs" />
+    <Compile Include="Api\TeachmaterialI.cs" />
+    <Compile Include="Api\TeachCenterI.cs" />
+    <Compile Include="Api\TeachInfoI.cs" />
+    <Compile Include="Api\CloudPreparationI.cs" />
+    <Compile Include="Api\VisitMyRepositoryI.cs" />
+    <Compile Include="Api\TeachSetI.cs" />
+    <Compile Include="Api\TextbookAdaptI.cs" />
+    <Compile Include="Models\BigData\BigDataM.cs" />
+    <Compile Include="Models\ClassTeach\CusEnum.cs" />
+    <Compile Include="Models\ClassTeach\LastClassM.cs" />
+    <Compile Include="Models\CloudPlatform\BaseInfoM.cs" />
+    <Compile Include="Models\CloudPlatform\CLPSysConfigInfo.cs" />
+    <Compile Include="Models\CloudPlatform\DataInfoM.cs" />
+    <Compile Include="Models\CloudPlatform\UserInfoM.cs" />
+    <Compile Include="Models\CloudServerConfig.cs" />
+    <Compile Include="Models\CourseCenter\CourseCenterM.cs" />
+    <Compile Include="Models\TutorMes.cs" />
+    <Compile Include="Models\E_ResourceLibrary\E_ResourceLibrary3M.cs" />
+    <Compile Include="Models\MyRepositoryM.cs" />
+    <Compile Include="Models\ClassTeach\TeachInfoM.cs" />
+    <Compile Include="Models\CloudSubjectM.cs" />
+    <Compile Include="Models\TeachCenter\TeachCenterM.cs" />
+    <Compile Include="Models\CloudPreparation\TeachingProgramM.cs" />
+    <Compile Include="Models\TeachmaterialM.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utility\CallApiHelper.cs" />
+    <Compile Include="Utility\CDirNameHelper.cs" />
+    <Compile Include="Utility\CommandApi.cs" />
+    <Compile Include="Utility\CommandWS.cs" />
+    <Compile Include="Utility\EncryptHelper.cs" />
+    <Compile Include="Utility\JsonFormatter.cs" />
+    <Compile Include="Models\MultipleSubjectM.cs" />
+    <Compile Include="Models\NetCoursewareM.cs" />
+    <Compile Include="Models\TeachSetM.cs" />
+    <Compile Include="Models\TextbookAdaptM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\LogHelper.cs" />
+    <Compile Include="Utility\UtilityClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="doc\课程中心V2.0对外网络数据获取接口访问规范20180828.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

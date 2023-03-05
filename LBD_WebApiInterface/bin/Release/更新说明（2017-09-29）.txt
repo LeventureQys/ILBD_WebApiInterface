@@ -1,0 +1,16 @@
+CloudPreparationI类增加以下接口
+1.重载初始化接口
+public bool Initialize(string CloudPreparationIP, string CloudPreparationPort,string HomeworkWsIP,string HomeworkWsPort)
+HomeworkWsIP-离线作来wsip,HomeworkWsPort)-离线作业端口
+
+2.GetPreviewByTPID
+根据教学方案ID查询该教学方案下的课前预习
+
+3.GetHomeworkByTPID
+根据教学方案ID查询该教学方案下的课后预习
+
+4.MakeOfflineHomeWork
+制作离线作业
+
+5.PutMyOfflineHomeWork
+上传离线作业(作业ftp上传后调用此接口）

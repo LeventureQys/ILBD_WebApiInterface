@@ -1,0 +1,10 @@
+CloudPreparationI中增加如下接口，具体说明看注释：
+
+GetTeachingProgram   重载，新增一个可以支持分页查询的接口
+GetTeachClassProgram   查找课堂教案
+GetAfterClassAssignment  查找课后测试任务
+
+部分实体类属性有变更（增删）
+
+GetTeachClassProgramByTPID 根据教学方案ID查询该教学方案下的课堂教案
+GetAttachResourceProgramByTPID 根据教学方案ID查询该教学方案下的相关教辅

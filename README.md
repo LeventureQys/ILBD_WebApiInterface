@@ -1,2 +1,4 @@
 # ILBD_WebApiInterface
  云网络智慧课堂LBD_WebApiInterface的CLR模块的版本控制仓库
+ 
+ 输出位置可能需要自己控制调试一下我直接是上的我的默认设置

@@ -3,21 +3,108 @@
 
 #include "ITeachInfo.h"
 #include "Trans.h"
-
+#define INS(value){\
+s2s(CLR::TeachInfo_Instance()->value)\
+}
+//返回原始数据，比如int longlong什么的，这种没得转，主要是转字符串类型，因为.net的字符串是托管在framework上的
+//不是系统原生的类型
+#define RAW(value){\
+CLR::TeachInfo_Instance()->value\
+}
 using namespace std;
 
 bool WEB_API WebApi_Api::TeachInfo::Initialize(string strValue) {
-
 	return CLR::TeachInfo_Instance()->Initialize(s2s(strValue));
 }
 
-bool WEB_API WebApi_Api::TeachInfo::Initialize(string strServerIP, string strPort){
+bool WEB_API WebApi_Api::TeachInfo::Initialize(string strServerIP, string strPort) {
 	return CLR::TeachInfo_Instance()->Initialize(s2s(strServerIP), s2s(strPort));
 }
 
-bool WEB_API WebApi_Api::TeachInfo::ReGetZSDBasicLibInfo(){
+bool WebApi_Api::TeachInfo::InitializeXKJXY(string sCloudBasicPlatformBFUrl)
+{
+	return RAW(InitializeXKJXY(s2s(sCloudBasicPlatformBFUrl)));
+}
+
+
+
+bool WebApi_Api::TeachInfo::InitInfoForUser(string strToken, string strTeacherID)
+{
+	return RAW(InitInfoForUser(s2s(strToken), s2s(strTeacherID)));
+}
+
+bool WEB_API WebApi_Api::TeachInfo::ReGetZSDBasicLibInfo() {
 	return CLR::TeachInfo_Instance()->ReGetZSDBasicLibInfo();
 }
+
+string WebApi_Api::TeachInfo::GetZYKServerVer()
+{
+	return INS(GetZYKServerVer());
+}
+
+int WebApi_Api::TeachInfo::L_HasLastClassInfo(string strProductCode, string strCourseClassID)
+{
+	return CLR::TeachInfo_Instance()->L_HasLastClassInfo(s2s(strProductCode), s2s(strCourseClassID));
+}
+
+bool WebApi_Api::TeachInfo::InitInfoForCustomSubject(string cusSubjectId, string cusSubjectName)
+{
+	return RAW(InitInfoForCustomSubject(s2s(cusSubjectId), s2s(cusSubjectName)));
+}
+
+bool WebApi_Api::TeachInfo::CheckUserOnline()
+{
+	return RAW(CheckUserOnline());
+}
+
+bool WebApi_Api::TeachInfo::UserLogout()
+{
+	return RAW(UserLogout());
+}
+
+bool WebApi_Api::TeachInfo::JudgeDeviceDetec()
+{
+	return RAW(JudgeDeviceDetec());
+}
+
+string WebApi_Api::TeachInfo::GetSubSysWebIPandPort(string strSysID)
+{
+	return INS(GetSubSysWebIPandPort(s2s(strSysID)));
+}
+
+string WebApi_Api::TeachInfo::GetSubSysApiIPandPort(string strSysID)
+{
+	return INS(GetSubSysApiIPandPort(s2s(strSysID)));
+}
+
+int WebApi_Api::TeachInfo::GetStudentNumByClassID(string strClassID)
+{
+	return RAW(GetStudentNumByClassID(s2s(strClassID)));
+}
+
+string WebApi_Api::TeachInfo::GetDigitalLibraryUrl(int iUserType)
+{
+	return INS(GetDigitalLibraryUrl(iUserType));
+}
+
+int WebApi_Api::TeachInfo::WS_G_SetNewLockPoint(string sysId, string token)
+{
+	return RAW(WS_G_SetNewLockPoint(s2s(sysId), s2s(token)));
+}
+
+int WebApi_Api::TeachInfo::UpdateNetCoursewareStatus(string strCoursewareID, bool bStatus, string strLastEditor)
+{
+	return CLR::TeachInfo_Instance()->UpdateNetCoursewareStatus(s2s(strCoursewareID), bStatus, s2s(strLastEditor));
+}
+
+
+
+
+
+
+
+
+
 
 string WEB_API WebApi_Api::TeachInfo::ZYK_DB_IP()
 {

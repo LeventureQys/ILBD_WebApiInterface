@@ -14,7 +14,6 @@ using namespace msclr::interop;
 using namespace LBD_WebApiInterface;
 //这个宏只是未来代替我写找到单例而已，其实没有很大含义,只是为了编译的时候替换一下
 
-
 string s2s(String^ Insert) {
 	return marshal_as<string>(Insert);
 }

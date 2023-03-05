@@ -1,9 +1,10 @@
-﻿  pch.cpp
-  AssemblyInfo.cpp
+﻿  AssemblyInfo.cpp
   ITeachInfo.cpp
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\ILBD_WebApiInterface\ITeachInfo.h(38,3): error C3646: “string”: 未知重写说明符
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\ILBD_WebApiInterface\ITeachInfo.h(35,10): error C3646: “ZYK_DB_IP”: 未知重写说明符
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\ILBD_WebApiInterface\ITeachInfo.h(35,20): error C2059: 语法错误:“)”
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\ILBD_WebApiInterface\ITeachInfo.h(35,21): error C2238: 意外的标记位于“;”之前
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\ILBD_WebApiInterface\ITeachInfo.cpp(22,39): error C2039: "ZYK_DB_IP": 不是 "WebApi_Api::TeachInfo" 的成员
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\ILBD_WebApiInterface\ITeachInfo.h(28): message : 参见“WebApi_Api::TeachInfo”的声明
   Instance.cpp
   正在生成代码...
-  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
-  AssemblyInfo.obj : 遇到了 MSIL 模块；对 MSIL 禁用了增量链接；正在执行完全链接
-    正在创建库 D:\Current\LBD_VS19\LBD_VS19\Release\ILBD_WebApiInterface.lib 和对象 D:\Current\LBD_VS19\LBD_VS19\Release\ILBD_WebApiInterface.exp
-  ILBD_WebApiInterface.vcxproj -> D:\Current\LBD_VS19\LBD_VS19\Release\ILBD_WebApiInterface.dll

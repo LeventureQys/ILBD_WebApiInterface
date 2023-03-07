@@ -123,9 +123,11 @@
   <ItemGroup>
     <ClInclude Include="ITeachInfo.h" />
     <ClInclude Include="Instance.h" />
+    <ClInclude Include="Model_Trans.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Trans.h" />
+    <ClInclude Include="UserInfoM.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />

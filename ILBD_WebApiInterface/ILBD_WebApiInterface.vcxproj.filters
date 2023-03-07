@@ -16,6 +16,9 @@
     <Filter Include="头文件\Api">
       <UniqueIdentifier>{e8f68917-a266-47f2-a6db-bc1a3f47a6a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\Model">
+      <UniqueIdentifier>{8c1fe83d-0aea-4f55-a817-f3a3d2d36599}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resource.h">
@@ -32,6 +35,12 @@
     </ClInclude>
     <ClInclude Include="ITeachInfo.h">
       <Filter>头文件\Api</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInfoM.h">
+      <Filter>头文件\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Model_Trans.h">
+      <Filter>头文件\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

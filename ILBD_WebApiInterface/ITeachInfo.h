@@ -35,7 +35,7 @@ namespace WebApi_Api {
 		bool InitInfoForSubject(E_Subject_cpp eSubject);
 		bool InitInfoForCustomSubject(string cusSubjectId, string cusSubjectName);
 		bool Initialize_BS(string strNetTeachIP, string strNetTeachPort, string strToken, string strTeacherID, E_Subject_cpp eSubject);
-		//int UserLogin(string strUserAccount, string strUserPwd, string strMachineType, string strLoginIP, string strMacAddress, string& strLoginContent);
+		int UserLogin(string strUserAccount, string strUserPwd, string strMachineType, string strLoginIP, string strMacAddress, string& strLoginContent);
 		bool CheckUserOnline();
 		bool UserLogout();
 		//LoginUserInfo GetOnlineUserInfo();
@@ -44,7 +44,7 @@ namespace WebApi_Api {
 		//ScheduleInfoM[] GetScheduleByNetClassRoom_WS(string strClassroomID, DateTime dtLessonTime);
 		bool JudgeDeviceDetec();
 		//SchoolBaseInfoM GetSchoolInfoByID(string strSchoolID)
-		//bool GetCloudPlatformSubject(string& strSubjectID, string& strSubjectName);
+		bool GetCloudPlatformSubject(string& strSubjectID, string& strSubjectName);
 		//TeacherInfoSimpleM GetTeacherInfoSimple();
 		//TeacherInfoDetailM GetTeacherInfoDetail();
 		//CloudPlatformSubsystemM GetSubSysAddr(string strSysID)
@@ -73,7 +73,7 @@ namespace WebApi_Api {
 		//string[] GetSomeSystemWebUrl(int iUserType)
 		//CloudPlatformSubjectM[] GetSubjectsByUserID(string strToken, string strUserID, out bool bValidToken)
 		int WS_G_SetNewLockPoint(string sysId, string token);
-		//int GetSubSystemLockerInfoByID(string slockerID, int& iProductPointCount, string& sProbationYear, string& sProbationMonth, string& sProbationDay);
+		int GetSubSystemLockerInfoByID(string slockerID, int& iProductPointCount, string& sProbationYear, string& sProbationMonth, string& sProbationDay);
 		//TeachModuleM[] GetSubjectTeachModule()
 		//LBD_WebApiInterface.ClassTeach.TeachModeM[] GetSubjectTeachMode()
 		int UpdateNetCoursewareStatus(string strCoursewareID, bool bStatus, string strLastEditor);

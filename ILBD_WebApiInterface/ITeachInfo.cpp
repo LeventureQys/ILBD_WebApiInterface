@@ -3,14 +3,17 @@
 
 #include "ITeachInfo.h"
 #include "Trans.h"
-#define INS(value){\
-s2s(CLR::TeachInfo_Instance()->value)\
-}
 //返回原始数据，比如int longlong什么的，这种没得转，主要是转字符串类型，因为.net的字符串是托管在framework上的
 //不是系统原生的类型
 #define RAW(value){\
 CLR::TeachInfo_Instance()->value\
 }
+//返回string类型，带了转换
+#define INS(value){\
+s2s(RAW(value))\
+}
+
+
 //宏转换示例
 ENUM_MATCH(WebApi_Api::E_TeachProductName_cpp, LBD_WebApiInterface::Api::TeachInfoI::E_TeachProductName, E_TeachProductName_cpp, E_TeachProductName)
 ENUM_MATCH(WebApi_Api::E_Subject_cpp, LBD_WebApiInterface::Api::TeachInfoI::E_Subject, E_Subject_cpp, E_Subject)
@@ -75,6 +78,15 @@ bool WebApi_Api::TeachInfo::Initialize_BS(string strNetTeachIP, string strNetTea
 	return RAW(Initialize_BS(s2s(strNetTeachIP), s2s(strNetTeachPort), s2s(strToken), s2s(strTeacherID), ToE_Subject(eSubject)));
 }
 
+int WebApi_Api::TeachInfo::UserLogin(string strUserAccount, string strUserPwd, string strMachineType, string strLoginIP, string strMacAddress, string& strLoginContent)
+{
+	System::String^ cs_strLoginContent = s2s(strLoginContent);
+	int result = 0;
+	result = RAW(UserLogin(s2s(strUserAccount), s2s(strUserPwd), s2s(strMachineType), s2s(strLoginIP), s2s(strMacAddress), cs_strLoginContent));
+	strLoginContent = s2s(cs_strLoginContent);
+	return 0;
+}
+
 
 
 bool WebApi_Api::TeachInfo::CheckUserOnline()
@@ -92,7 +104,7 @@ bool WebApi_Api::TeachInfo::JudgeDeviceDetec()
 	return RAW(JudgeDeviceDetec());
 }
 
-bool WebApi_Api::TeachInfo::GetCloudPlatformSubject(string& strSubjectID, string& strSubjectName)
+bool WebApi_Api::TeachInfo::GetCloudPlatformSubject(std::string& strSubjectID, std::string& strSubjectName)
 {
 	System::String^ cs_strSubjectID = s2s(strSubjectID);
 	System::String^ cs_strSubjectName = s2s(strSubjectName);
@@ -129,6 +141,22 @@ string WEB_API WebApi_Api::TeachInfo::GetDigitalLibraryUrl(int iUserType)
 int WEB_API WebApi_Api::TeachInfo::WS_G_SetNewLockPoint(string sysId, string token)
 {
 	return RAW(WS_G_SetNewLockPoint(s2s(sysId), s2s(token)));
+}
+
+int WebApi_Api::TeachInfo::GetSubSystemLockerInfoByID(string slockerID, int& iProductPointCount, string& sProbationYear, string& sProbationMonth, string& sProbationDay)
+{
+	System::String^ cs_sProbationYear = s2s(sProbationYear);
+	System::String^ cs_sProbationMonth = s2s(sProbationMonth);
+	System::String^ cs_sProbationDay = s2s(sProbationDay);
+
+	int result = 0;
+	result = RAW(GetSubSystemLockerInfoByID(s2s(slockerID), iProductPointCount, cs_sProbationYear, cs_sProbationMonth, cs_sProbationDay));
+
+	sProbationYear = s2s(cs_sProbationYear);
+	sProbationMonth = s2s(cs_sProbationMonth);
+	sProbationDay = s2s(cs_sProbationDay);
+
+	return result;
 }
 
 int WEB_API WebApi_Api::TeachInfo::UpdateNetCoursewareStatus(string strCoursewareID, bool bStatus, string strLastEditor)

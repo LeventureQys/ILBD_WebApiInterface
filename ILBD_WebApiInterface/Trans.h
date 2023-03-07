@@ -22,10 +22,6 @@ String^ s2s(string Insert) {
 	return marshal_as<String^>(Insert);
 }
 
-#ifdef _MSC_VER
-//这个宏的意思是：进行枚举类型的转换，因为枚举类型的具体类型可能会需要带上，调用示例：
-//ENUM_MATCH(WebApi_Api::TeachInfo::E_TeachProductName_cpp, LBD_WebApiInterface::Api::TeachInfoI::E_TeachProductName, E_TeachProductName_cpp, E_TeachProductName)
-
 #define ENUM_MATCH(cpp_enum_type, cs_enum_type,cpp_funcname,cs_funcname) \
     inline cs_enum_type To##cs_funcname(cpp_enum_type cppValue) \
     { \
@@ -35,17 +31,21 @@ String^ s2s(string Insert) {
     { \
         return static_cast<cpp_enum_type>(csValue); \
     }
-#else
-#define ENUM_MATCH(cpp_enum_type, cs_enum_type) \
-    inline cs_enum_type To##cs_enum_type(cpp_enum_type cppValue) \
-    { \
-        return static_cast<cs_enum_type>(cppValue); \
-    } \
-    inline cpp_enum_type To##cpp_enum_type(cs_enum_type csValue) \
-    { \
-        return static_cast<cpp_enum_type>(csValue); \
-    }
-#endif
+
+//本来想的是能不能直接做成类似QAXCLASS_BEGIN那种，看了半天没想到怎么实现那种功能，还是算了，先这么做吧
+
+//参数交换
+#define TRANCPP_S(cpp_cls_name,cs_cls_name,prop_type)\
+{\
+cpp_cls_name.prop_type = s2s(cs_cls_name->prop_type);\
+}
+
+#define TRANCPP(cpp_cls_name,cs_cls_name,prop_type){\
+cpp_cls_name.prop_type = cs_cls_name->prop_type;\
+}
+
+
+
 
 //
 //enum class MyEnum { Value1, Value2, Value3 };

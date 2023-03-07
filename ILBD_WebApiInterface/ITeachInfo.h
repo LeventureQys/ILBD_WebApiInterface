@@ -16,7 +16,9 @@
 #endif
 #include "Api_Enums.h"
 #include <string>
+#include "UserInfoM.h"
 using namespace std;
+using namespace WebApi_Model;
 namespace WebApi_Api {
 	class WEB_API TeachInfo {
 	public:
@@ -38,7 +40,7 @@ namespace WebApi_Api {
 		int UserLogin(string strUserAccount, string strUserPwd, string strMachineType, string strLoginIP, string strMacAddress, string& strLoginContent);
 		bool CheckUserOnline();
 		bool UserLogout();
-		//LoginUserInfo GetOnlineUserInfo();
+		LoginUserInfo_cpp GetOnlineUserInfo();
 		//LoginUserInfo GetOnlineUserInfo(string token)
 		//ScheduleInfoM[] GetScheduleByNetClassRoom(string strClassroomID, DateTime dtLessonTime);
 		//ScheduleInfoM[] GetScheduleByNetClassRoom_WS(string strClassroomID, DateTime dtLessonTime);

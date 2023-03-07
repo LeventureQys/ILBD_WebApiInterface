@@ -3,6 +3,7 @@
 
 #include "ITeachInfo.h"
 #include "Trans.h"
+#include "Model_Trans.h"
 //返回原始数据，比如int longlong什么的，这种没得转，主要是转字符串类型，因为.net的字符串是托管在framework上的
 //不是系统原生的类型
 #define RAW(value){\
@@ -97,6 +98,11 @@ bool WebApi_Api::TeachInfo::CheckUserOnline()
 bool WebApi_Api::TeachInfo::UserLogout()
 {
 	return RAW(UserLogout());
+}
+
+LoginUserInfo_cpp WebApi_Api::TeachInfo::GetOnlineUserInfo()
+{
+	return to_LoginUserInfo(RAW(GetOnlineUserInfo()));
 }
 
 bool WebApi_Api::TeachInfo::JudgeDeviceDetec()

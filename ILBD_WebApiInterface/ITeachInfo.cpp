@@ -60,8 +60,7 @@ int WebApi_Api::TeachInfo::L_HasLastClassInfo(string strProductCode, string strC
 
 bool WebApi_Api::TeachInfo::InitInfoForSubject(E_Subject_cpp eSubject)
 {
-	//return RAW(InitInfoForSubject())
-	return true;
+	return RAW(InitInfoForSubject(ToE_Subject(eSubject)));
 }
 
 
@@ -73,9 +72,7 @@ bool WebApi_Api::TeachInfo::InitInfoForCustomSubject(string cusSubjectId, string
 
 bool WebApi_Api::TeachInfo::Initialize_BS(string strNetTeachIP, string strNetTeachPort, string strToken, string strTeacherID, E_Subject_cpp eSubject)
 {
-	//return RAW()
-	//return false;
-	return true;
+	return RAW(Initialize_BS(s2s(strNetTeachIP), s2s(strNetTeachPort), s2s(strToken), s2s(strTeacherID), ToE_Subject(eSubject)));
 }
 
 
@@ -95,49 +92,49 @@ bool WebApi_Api::TeachInfo::JudgeDeviceDetec()
 	return RAW(JudgeDeviceDetec());
 }
 
-//bool WebApi_Api::TeachInfo::GetCloudPlatformSubject(string& strSubjectID, string& strSubjectName)
-//{
-//	
-//}
+bool WebApi_Api::TeachInfo::GetCloudPlatformSubject(string& strSubjectID, string& strSubjectName)
+{
+	System::String^ cs_strSubjectID = s2s(strSubjectID);
+	System::String^ cs_strSubjectName = s2s(strSubjectName);
+	bool result = false;
 
-string WebApi_Api::TeachInfo::GetSubSysWebIPandPort(string strSysID)
+	result = CLR::TeachInfo_Instance()->GetCloudPlatformSubject(cs_strSubjectID, cs_strSubjectName);
+
+	strSubjectID = s2s(cs_strSubjectID);
+	strSubjectName = s2s(cs_strSubjectName);
+
+	return result;
+}
+
+string WEB_API WebApi_Api::TeachInfo::GetSubSysWebIPandPort(string strSysID)
 {
 	return INS(GetSubSysWebIPandPort(s2s(strSysID)));
 }
 
-string WebApi_Api::TeachInfo::GetSubSysApiIPandPort(string strSysID)
+string WEB_API WebApi_Api::TeachInfo::GetSubSysApiIPandPort(string strSysID)
 {
 	return INS(GetSubSysApiIPandPort(s2s(strSysID)));
 }
 
-int WebApi_Api::TeachInfo::GetStudentNumByClassID(string strClassID)
+int WEB_API WebApi_Api::TeachInfo::GetStudentNumByClassID(string strClassID)
 {
 	return RAW(GetStudentNumByClassID(s2s(strClassID)));
 }
 
-string WebApi_Api::TeachInfo::GetDigitalLibraryUrl(int iUserType)
+string WEB_API WebApi_Api::TeachInfo::GetDigitalLibraryUrl(int iUserType)
 {
 	return INS(GetDigitalLibraryUrl(iUserType));
 }
 
-int WebApi_Api::TeachInfo::WS_G_SetNewLockPoint(string sysId, string token)
+int WEB_API WebApi_Api::TeachInfo::WS_G_SetNewLockPoint(string sysId, string token)
 {
 	return RAW(WS_G_SetNewLockPoint(s2s(sysId), s2s(token)));
 }
 
-int WebApi_Api::TeachInfo::UpdateNetCoursewareStatus(string strCoursewareID, bool bStatus, string strLastEditor)
+int WEB_API WebApi_Api::TeachInfo::UpdateNetCoursewareStatus(string strCoursewareID, bool bStatus, string strLastEditor)
 {
 	return CLR::TeachInfo_Instance()->UpdateNetCoursewareStatus(s2s(strCoursewareID), bStatus, s2s(strLastEditor));
 }
-
-
-
-
-
-
-
-
-
 
 string WEB_API WebApi_Api::TeachInfo::ZYK_DB_IP()
 {

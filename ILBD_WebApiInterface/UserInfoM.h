@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 namespace WebApi_Model {
-    public class LoginUserInfo_cpp
+    class LoginUserInfo_cpp
     {
     public:
         string UserID;

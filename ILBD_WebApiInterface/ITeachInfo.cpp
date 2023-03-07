@@ -105,6 +105,11 @@ LoginUserInfo_cpp WebApi_Api::TeachInfo::GetOnlineUserInfo()
 	return to_LoginUserInfo(RAW(GetOnlineUserInfo()));
 }
 
+LoginUserInfo_cpp WebApi_Api::TeachInfo::GetOnlineUserInfo(string token)
+{
+	return to_LoginUserInfo(RAW(GetOnlineUserInfo(s2s(token))));
+}
+
 bool WebApi_Api::TeachInfo::JudgeDeviceDetec()
 {
 	return RAW(JudgeDeviceDetec());

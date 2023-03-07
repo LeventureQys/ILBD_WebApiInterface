@@ -41,7 +41,7 @@ namespace WebApi_Api {
 		bool CheckUserOnline();
 		bool UserLogout();
 		LoginUserInfo_cpp GetOnlineUserInfo();
-		//LoginUserInfo GetOnlineUserInfo(string token)
+		LoginUserInfo_cpp GetOnlineUserInfo(string token);
 		//ScheduleInfoM[] GetScheduleByNetClassRoom(string strClassroomID, DateTime dtLessonTime);
 		//ScheduleInfoM[] GetScheduleByNetClassRoom_WS(string strClassroomID, DateTime dtLessonTime);
 		bool JudgeDeviceDetec();

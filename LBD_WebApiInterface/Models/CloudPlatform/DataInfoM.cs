@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace LBD_WebApiInterface.Models.CloudPlatform
+﻿namespace LBD_WebApiInterface.Models.CloudPlatform
 {
     public class ScheduleInfoM
     {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace LBD_WebApiInterface.Models.CloudPlatform
+﻿namespace LBD_WebApiInterface.Models.CloudPlatform
 {
     public class CLPSysConfigInfo
     {
@@ -13,6 +8,7 @@ namespace LBD_WebApiInterface.Models.CloudPlatform
         //区）范围）使用，5：中职学校使用，6：高职学校使用。）
         /// </summary>
         public string useRange { get; set; }
+
         /// <summary>
         /// 产品名称
         /// </summary>

@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using LBD_WebApiInterface.Utility;
-using System.Xml;
-using LBD_WebApiInterface.Models.CloudPlatform;
-using System.IO;
+﻿using lancoo.cp.basic.sysbaseclass;
 using LBD_WebApiInterface.Models;
-using lancoo.cp.basic.sysbaseclass;
+using LBD_WebApiInterface.Models.CloudPlatform;
+using LBD_WebApiInterface.Utility;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Xml;
 
 namespace LBD_WebApiInterface.Api
 {
@@ -32,15 +30,13 @@ namespace LBD_WebApiInterface.Api
 
         private bool mInitStatus;
 
-
         public OtherInfoI()
         {
             mInitStatus = false;
         }
-       
 
         //初始化
-        public bool Initialize(string strNetTeachIPAndPort,string strCloudPlatformIPAndPort)
+        public bool Initialize(string strNetTeachIPAndPort, string strCloudPlatformIPAndPort)
         {
             try
             {
@@ -54,8 +50,8 @@ namespace LBD_WebApiInterface.Api
                 string strNetTeachIP = "";
                 string strNetTeachPort = "";
                 long lPort = -1;
-                string strNetTeachVirDir="";
-                if (string.IsNullOrEmpty(strNetTeachIPAndPort)==false)
+                string strNetTeachVirDir = "";
+                if (string.IsNullOrEmpty(strNetTeachIPAndPort) == false)
                 {
                     string[] arrTemp = strNetTeachIPAndPort.Split(':');
                     strNetTeachIP = arrTemp[0];
@@ -84,7 +80,7 @@ namespace LBD_WebApiInterface.Api
             return false;
         }
 
-        public SubjectPlatformSysInfoM[] GetSubjectPlatformSysInfo(string strCloudSubjectID, string strCloudSubjectName, string strSysID, int iUserType,byte bSubjectID)
+        public SubjectPlatformSysInfoM[] GetSubjectPlatformSysInfo(string strCloudSubjectID, string strCloudSubjectName, string strSysID, int iUserType, byte bSubjectID)
         {
             try
             {
@@ -313,7 +309,7 @@ namespace LBD_WebApiInterface.Api
                 {
                     return null;
                 }
-                
+
                 //更多应用系统（本系统实体）
                 OuterSystemM[] arrOuterSys = JsonFormatter.JsonDeserialize<OuterSystemM[]>(strData);
                 if (arrOuterSys == null || arrOuterSys.Length == 0)
@@ -444,30 +440,39 @@ namespace LBD_WebApiInterface.Api
                 case "S11":
                     strPartAddr = "/ClassPreview.aspx?lg_tk=" + strToken + "&SubjectID=" + strCloudSubjectID;
                     break;
+
                 case "S13":
                     strPartAddr = "/AfterClassPractice.aspx?lg_tk=" + strToken + "&SubjectID=" + strCloudSubjectID;
                     break;
+
                 case "810":
                     strPartAddr = "/index.aspx?lg_tk=" + strToken + "&SubjectID=" + strCloudSubjectID;
                     break;
+
                 case "830":
                     strPartAddr = "/index.aspx?lg_tk=" + strToken + "&SubjectID=" + strCloudSubjectID;
                     break;
+
                 case "821":
                     strPartAddr = "/index.aspx?lg_tk=" + strToken + "&SubjectID=" + strCloudSubjectID;
                     break;
+
                 case "851":
                     strPartAddr = "/View/TeachStudy.aspx?lg_tk=" + strToken + "&typeid=1";
                     break;
+
                 case "852":
                     strPartAddr = "/View/TeachBehaviour.aspx?lg_tk=" + strToken + "&typeid=2";
                     break;
+
                 case "S20":
                     strPartAddr = "/FreeStudy/index.aspx?lg_tk=" + strToken;
                     break;
+
                 case "S30":
                     strPartAddr = "/Mainpage.aspx?lg_tk=" + strToken + "&subID=" + strCloudSubjectID;
                     break;
+
                 case "430":
                     strPartAddr = "/Community/Forum/WebPage/ForumMain.aspx";
                     break;
@@ -580,6 +585,7 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
+
         /// <summary>
         /// 根据基础平台版本判断是否有“个人网盘”模块
         /// </summary>
@@ -611,6 +617,7 @@ namespace LBD_WebApiInterface.Api
                 return false;
             }
         }
+
         /// <summary>
         /// 获取云平台下子系统Web访问地址（不使用云平台学科ID获取，即按通用学科方式获取）
         /// </summary>
@@ -633,7 +640,7 @@ namespace LBD_WebApiInterface.Api
             return "";
         }
 
-        private void DealWithString(ref string str,int iUserType)
+        private void DealWithString(ref string str, int iUserType)
         {
             try
             {
@@ -679,12 +686,15 @@ namespace LBD_WebApiInterface.Api
                     case 0:
                         strSubjectName = "";
                         break;
+
                     case 1:
                         strSubjectName = "语文";
                         break;
+
                     case 2:
                         strSubjectName = "数学";
                         break;
+
                     case 3:
                         strSubjectName = "英语";
                         break;
@@ -723,6 +733,7 @@ namespace LBD_WebApiInterface.Api
                 //throw;
             }
         }
+
         private void WriteErrorMessage(string strMethodName, string strErrorMessage)
         {
             try
@@ -741,6 +752,5 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
-
     }
 }

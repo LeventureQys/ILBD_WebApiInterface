@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using LBD_WebApiInterface.Models;
 using LBD_WebApiInterface.Utility;
+using System;
+using System.Collections.Generic;
 using System.Xml;
-using LBD_WebApiInterface.Models;
 
 namespace LBD_WebApiInterface.Api
 {
@@ -13,10 +11,12 @@ namespace LBD_WebApiInterface.Api
         private string webapiIp;//校本教材库webapi ip地址
         private string webapiPort;//校本教材库webapi端口
 
-        public TeachmaterialI(string webapiIp,string webapiPort) {
+        public TeachmaterialI(string webapiIp, string webapiPort)
+        {
             this.webapiIp = webapiIp;
             this.webapiPort = webapiPort;
         }
+
         /// <summary>
         /// 获取校本教材库里面的教材
         /// <param name="userID ">用户ID</param>
@@ -28,14 +28,14 @@ namespace LBD_WebApiInterface.Api
             {
                 if (string.IsNullOrEmpty(webapiIp) || string.IsNullOrEmpty(webapiPort))
                     return null;
-                string webapiAddr = string.Format("http://{0}:{1}/WebService.asmx/WS_Get_LessonTeachMaterialInfo?userID="+ userID, webapiIp, webapiPort);
+                string webapiAddr = string.Format("http://{0}:{1}/WebService.asmx/WS_Get_LessonTeachMaterialInfo?userID=" + userID, webapiIp, webapiPort);
                 webapiAddr += "&beiKeMuBiaoCode=" + beiKeMuBiaoCode;
                 string result = CallApiHelper.CallMethod_Get(webapiAddr);
                 if (string.IsNullOrEmpty(result))
                     return null;
                 XmlDocument xd = new XmlDocument();
                 xd.LoadXml(result);
-                XmlNodeList nodeList=xd.GetElementsByTagName("string");
+                XmlNodeList nodeList = xd.GetElementsByTagName("string");
                 if (nodeList == null || nodeList.Count <= 0)
                     return null;
                 string jsonResult = nodeList[0].InnerText;
@@ -48,6 +48,7 @@ namespace LBD_WebApiInterface.Api
                 return null;
             }
         }
+
         /// <summary>
         /// 根据教材id获取教材里面的课程
         /// </summary>
@@ -61,7 +62,7 @@ namespace LBD_WebApiInterface.Api
                     return null;
                 if (string.IsNullOrEmpty(webapiIp) || string.IsNullOrEmpty(webapiPort))
                     return null;
-                string webapiAddr = string.Format("http://{0}:{1}/WebService.asmx/WS_Get_LessonOneTeachMaterialInfo?teachMaterialID={2}", webapiIp, webapiPort,teachMaterialID);
+                string webapiAddr = string.Format("http://{0}:{1}/WebService.asmx/WS_Get_LessonOneTeachMaterialInfo?teachMaterialID={2}", webapiIp, webapiPort, teachMaterialID);
                 string result = CallApiHelper.CallMethod_Get(webapiAddr);
                 if (string.IsNullOrEmpty(result))
                     return null;
@@ -80,6 +81,7 @@ namespace LBD_WebApiInterface.Api
                 return null;
             }
         }
+
         /// <summary>
         /// 获取课程内的资料
         /// </summary>
@@ -94,7 +96,7 @@ namespace LBD_WebApiInterface.Api
                     return null;
                 if (string.IsNullOrEmpty(webapiIp) || string.IsNullOrEmpty(webapiPort))
                     return null;
-                string webapiAddr = string.Format("http://{0}:{1}/WebService.asmx/WS_Get_LessonOneTeachMaterialCourse?teachMaterialID={2}&materialID={3}", webapiIp, webapiPort, teachMaterialID,materialID);
+                string webapiAddr = string.Format("http://{0}:{1}/WebService.asmx/WS_Get_LessonOneTeachMaterialCourse?teachMaterialID={2}&materialID={3}", webapiIp, webapiPort, teachMaterialID, materialID);
                 string result = CallApiHelper.CallMethod_Get(webapiAddr);
                 if (string.IsNullOrEmpty(result))
                     return null;

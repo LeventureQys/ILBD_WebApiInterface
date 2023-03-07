@@ -1,6 +1,6 @@
 ﻿  pch.cpp
   AssemblyInfo.cpp
-  ILBD_WebApiInterface.cpp
+  ITeachInfo.cpp
   Instance.cpp
   正在生成代码...
   .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp

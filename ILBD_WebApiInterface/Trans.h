@@ -21,3 +21,42 @@ string s2s(String^ Insert) {
 String^ s2s(string Insert) {
 	return marshal_as<String^>(Insert);
 }
+
+#ifdef _MSC_VER
+//这个宏的意思是：进行枚举类型的转换，因为枚举类型的具体类型可能会需要带上，调用示例：
+//ENUM_MATCH(WebApi_Api::TeachInfo::E_TeachProductName_cpp, LBD_WebApiInterface::Api::TeachInfoI::E_TeachProductName, E_TeachProductName_cpp, E_TeachProductName)
+
+#define ENUM_MATCH(cpp_enum_type, cs_enum_type,cpp_funcname,cs_funcname) \
+    inline cs_enum_type To##cs_funcname(cpp_enum_type cppValue) \
+    { \
+        return static_cast<cs_enum_type>(cppValue); \
+    } \
+    inline cpp_enum_type To##cpp_funcname(cs_enum_type csValue) \
+    { \
+        return static_cast<cpp_enum_type>(csValue); \
+    }
+#else
+#define ENUM_MATCH(cpp_enum_type, cs_enum_type) \
+    inline cs_enum_type To##cs_enum_type(cpp_enum_type cppValue) \
+    { \
+        return static_cast<cs_enum_type>(cppValue); \
+    } \
+    inline cpp_enum_type To##cpp_enum_type(cs_enum_type csValue) \
+    { \
+        return static_cast<cpp_enum_type>(csValue); \
+    }
+#endif
+
+//
+//enum class MyEnum { Value1, Value2, Value3 };
+//enum class MyCSharpEnum { Value1, Value2, Value3 };
+//
+//ENUM_MATCH(MyEnum, MyCSharpEnum)
+//
+//// 转换C++枚举值为C#枚举值
+//MyEnum cppValue = MyEnum::Value1;
+//MyCSharpEnum csValue = ToMyCSharpEnum(cppValue);
+//
+//// 转换C#枚举值为C++枚举值
+//MyCSharpEnum csValue2 = MyCSharpEnum::Value2;
+//MyEnum cppValue2 = ToMyEnum(csValue2);

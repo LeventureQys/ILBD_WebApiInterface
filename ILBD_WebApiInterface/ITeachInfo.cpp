@@ -11,14 +11,25 @@ s2s(CLR::TeachInfo_Instance()->value)\
 #define RAW(value){\
 CLR::TeachInfo_Instance()->value\
 }
+//ºê×ª»»Ê¾Àý
+ENUM_MATCH(WebApi_Api::E_TeachProductName_cpp, LBD_WebApiInterface::Api::TeachInfoI::E_TeachProductName, E_TeachProductName_cpp, E_TeachProductName)
+ENUM_MATCH(WebApi_Api::E_Subject_cpp, LBD_WebApiInterface::Api::TeachInfoI::E_Subject, E_Subject_cpp, E_Subject)
+
 using namespace std;
+
+
 
 bool WEB_API WebApi_Api::TeachInfo::Initialize(string strValue) {
 	return CLR::TeachInfo_Instance()->Initialize(s2s(strValue));
 }
 
 bool WEB_API WebApi_Api::TeachInfo::Initialize(string strServerIP, string strPort) {
-	return CLR::TeachInfo_Instance()->Initialize(s2s(strServerIP), s2s(strPort));
+	return RAW(Initialize(s2s(strServerIP), s2s(strPort)));
+}
+
+bool WebApi_Api::TeachInfo::Initialize(string sCloudBasicPlatformBFUrl, E_TeachProductName_cpp sProductName)
+{
+	return RAW(Initialize(s2s(sCloudBasicPlatformBFUrl), ToE_TeachProductName(sProductName)));
 }
 
 bool WebApi_Api::TeachInfo::InitializeXKJXY(string sCloudBasicPlatformBFUrl)
@@ -47,10 +58,27 @@ int WebApi_Api::TeachInfo::L_HasLastClassInfo(string strProductCode, string strC
 	return CLR::TeachInfo_Instance()->L_HasLastClassInfo(s2s(strProductCode), s2s(strCourseClassID));
 }
 
+bool WebApi_Api::TeachInfo::InitInfoForSubject(E_Subject_cpp eSubject)
+{
+	//return RAW(InitInfoForSubject())
+	return true;
+}
+
+
+
 bool WebApi_Api::TeachInfo::InitInfoForCustomSubject(string cusSubjectId, string cusSubjectName)
 {
 	return RAW(InitInfoForCustomSubject(s2s(cusSubjectId), s2s(cusSubjectName)));
 }
+
+bool WebApi_Api::TeachInfo::Initialize_BS(string strNetTeachIP, string strNetTeachPort, string strToken, string strTeacherID, E_Subject_cpp eSubject)
+{
+	//return RAW()
+	//return false;
+	return true;
+}
+
+
 
 bool WebApi_Api::TeachInfo::CheckUserOnline()
 {
@@ -65,6 +93,11 @@ bool WebApi_Api::TeachInfo::UserLogout()
 bool WebApi_Api::TeachInfo::JudgeDeviceDetec()
 {
 	return RAW(JudgeDeviceDetec());
+}
+
+bool WebApi_Api::TeachInfo::GetCloudPlatformSubject(string& strSubjectID, string& strSubjectName)
+{
+	
 }
 
 string WebApi_Api::TeachInfo::GetSubSysWebIPandPort(string strSysID)

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using LBD_WebApiInterface.MultipleSubjectM;
 using LBD_WebApiInterface.Utility;
-using LBD_WebApiInterface.Models;
-using LBD_WebApiInterface.MultipleSubjectM;
+using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace LBD_WebApiInterface.Api
@@ -19,7 +16,7 @@ namespace LBD_WebApiInterface.Api
             get
             {
                 return mApiBaseUrl;
-            }          
+            }
         }
 
         private string mApiBaseUrl;
@@ -27,8 +24,6 @@ namespace LBD_WebApiInterface.Api
         private CommandApi mCommandApi;
 
         private bool mInitStatus;
-
-
 
         public MultipleSubjectI()
         {
@@ -100,7 +95,7 @@ namespace LBD_WebApiInterface.Api
                     return false;
                 }
 
-                mApiBaseUrl ="http://" + strMultipleSubjectAPIIPAndPort + "/ExternalInterface/Subject_Resource.ashx";
+                mApiBaseUrl = "http://" + strMultipleSubjectAPIIPAndPort + "/ExternalInterface/Subject_Resource.ashx";
                 mServiceUrl = "http://" + strMultipleSubjectAPIIPAndPort + "/Service.ashx";
 
                 int iErrorFlag = 8;
@@ -155,7 +150,7 @@ namespace LBD_WebApiInterface.Api
 
                 if (arrSubject != null)
                 {
-                    foreach(var subject in arrSubject)
+                    foreach (var subject in arrSubject)
                     {
                         if (subject.DirectoryName == strSubjectName)
                         {
@@ -206,7 +201,7 @@ namespace LBD_WebApiInterface.Api
                 {
                     return null;
                 }
-                
+
                 int iErrorFlag = -1;
                 string[] arrParam = new string[2];
                 arrParam[0] = iDirID.ToString();
@@ -216,7 +211,7 @@ namespace LBD_WebApiInterface.Api
                 {
                     return null;
                 }
-                DirectoryAndResourceInfoM[] arrDir= JsonFormatter.JsonDeserialize<DirectoryAndResourceInfoM[]>(strData);
+                DirectoryAndResourceInfoM[] arrDir = JsonFormatter.JsonDeserialize<DirectoryAndResourceInfoM[]>(strData);
                 if (arrDir != null && arrDir.Length == 1)
                 {
                     return arrDir[0];
@@ -286,7 +281,7 @@ namespace LBD_WebApiInterface.Api
                     return null;
                 }
                 ResourceDetailInfoM[] ResourceDetail = JsonFormatter.JsonDeserialize<ResourceDetailInfoM[]>(strData);
-                if (ResourceDetail != null && ResourceDetail.Length==1)
+                if (ResourceDetail != null && ResourceDetail.Length == 1)
                 {
                     List<ResourceFileM> list = new List<ResourceFileM>();
                     if (ResourceDetail[0].Content != null)
@@ -331,7 +326,7 @@ namespace LBD_WebApiInterface.Api
 
             return null;
         }
-     
+
         //根据ID获取文件
         public ResourceFileM GetContentFile(int iFileID)
         {
@@ -522,14 +517,14 @@ namespace LBD_WebApiInterface.Api
             try
             {
                 int iErrorFlag = -1;
-                BasicInfo[] basicInfo=null;
-                string strData = mCommandApi.CallMethodGet_DXK("GetBasicInfo",null, out iErrorFlag);
+                BasicInfo[] basicInfo = null;
+                string strData = mCommandApi.CallMethodGet_DXK("GetBasicInfo", null, out iErrorFlag);
                 if (string.IsNullOrEmpty(strData) == false)
                 {
                     basicInfo = JsonFormatter.JsonDeserialize<BasicInfo[]>(strData);
                 }
 
-                if (basicInfo != null && basicInfo.Length==1)
+                if (basicInfo != null && basicInfo.Length == 1)
                 {
                     string[] arrReturn = new string[2];
 
@@ -586,7 +581,6 @@ namespace LBD_WebApiInterface.Api
             return null;
         }
 
-
         private void WriteErrorMessage(string strMethodName, string sErrorMessage)
         {
             try
@@ -605,6 +599,5 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
-
     }
 }

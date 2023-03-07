@@ -1,24 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using LBD_WebApiInterface.Models;
+using LBD_WebApiInterface.Models.E_ResourceLibrary;
 using LBD_WebApiInterface.Utility;
-using LBD_WebApiInterface.Models;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml;
-using LBD_WebApiInterface.Models.E_ResourceLibrary;
 
 namespace LBD_WebApiInterface.Api
 {
     public class VisitMyRepositoryI
     {
-
         private string mNetTeachIP;
         private string mNetTeachPort;
         private string mNetTeachVirDir;
 
         private bool mInitStatus;
-
 
         public VisitMyRepositoryI()
         {
@@ -28,7 +24,7 @@ namespace LBD_WebApiInterface.Api
         /// <summary>
         /// 参数为网络化课堂教学系统整体服务的IP和Port
         /// </summary>
-        public bool Initialize(string strNetTeachIP, string strNetTeachPort,string strNetTeachVirDir)
+        public bool Initialize(string strNetTeachIP, string strNetTeachPort, string strNetTeachVirDir)
         {
             try
             {
@@ -68,10 +64,11 @@ namespace LBD_WebApiInterface.Api
         }
 
         #region 获取“我的资源库”
+
         /// <summary>
         /// 获取“我的资料库”的内容
         /// </summary>
-        public MyRepositoryM GetMyRepository(byte bSubjectID, string strTeacherID, string strMultipleSubjectAPIIPAndPort,string strCourseClassID)
+        public MyRepositoryM GetMyRepository(byte bSubjectID, string strTeacherID, string strMultipleSubjectAPIIPAndPort, string strCourseClassID)
         {
             try
             {
@@ -137,7 +134,7 @@ namespace LBD_WebApiInterface.Api
         }
 
         //获取电子资源库
-        private R_MyDigitizedResourceM GetMyDigitizedResource(byte bSubjectID, string strTeacherID, string strMultipleSubjectAPIIPAndPort,string strCourseClassID)
+        private R_MyDigitizedResourceM GetMyDigitizedResource(byte bSubjectID, string strTeacherID, string strMultipleSubjectAPIIPAndPort, string strCourseClassID)
         {
             try
             {
@@ -363,7 +360,8 @@ namespace LBD_WebApiInterface.Api
 
             return null;
         }
-        #endregion
+
+        #endregion 获取“我的资源库”
 
         /// <summary>
         /// 根据课件ID获取网络化课件详细信息（strTeacherID为null，则教学计划为null）
@@ -403,7 +401,7 @@ namespace LBD_WebApiInterface.Api
                     return 0;
                 }
 
-                string strApiBaseUrl = string.Format(Properties.Resources.NetCoursewareUrl, mNetTeachIP, mNetTeachPort,"");
+                string strApiBaseUrl = string.Format(Properties.Resources.NetCoursewareUrl, mNetTeachIP, mNetTeachPort, "");
                 CommandApi CommandApi = new CommandApi();
                 CommandApi.BaseUrl = strApiBaseUrl;
 
@@ -438,7 +436,7 @@ namespace LBD_WebApiInterface.Api
         /// <summary>
         /// 获取“我的课本”
         /// </summary>
-        public string GetMyTextbook(byte bSubjectID, string strTeacherID,string strCourseClassID)
+        public string GetMyTextbook(byte bSubjectID, string strTeacherID, string strCourseClassID)
         {
             try
             {
@@ -480,19 +478,19 @@ namespace LBD_WebApiInterface.Api
         /// <summary>
         /// 获取本地电脑常用路径
         /// </summary>
-        public string GetLocalComputerPath(byte bSubjectID, string strTeacherID,short sClassroomIndex)
+        public string GetLocalComputerPath(byte bSubjectID, string strTeacherID, short sClassroomIndex)
         {
             try
             {
-               // TeacherSetInfoM ts=GetSetInfo(bSubjectID,strTeacherID,"本地电脑常用教学资源目录定制");
-//                 if(ts!=null)
-//                 {
-//                     string strPath=ts.SetItemValue;
-//                     return strPath;
-//                 }
+                // TeacherSetInfoM ts=GetSetInfo(bSubjectID,strTeacherID,"本地电脑常用教学资源目录定制");
+                //                 if(ts!=null)
+                //                 {
+                //                     string strPath=ts.SetItemValue;
+                //                     return strPath;
+                //                 }
 
                 TeachSetI ts = new TeachSetI();
-                ts.Initialize(mNetTeachIP, mNetTeachPort,mNetTeachVirDir);
+                ts.Initialize(mNetTeachIP, mNetTeachPort, mNetTeachVirDir);
                 string strValue = ts.GetItemValueSingle(TeachSetI.E_SetItem.本地电脑常用目录, bSubjectID, strTeacherID, null, sClassroomIndex);
 
                 return strValue;
@@ -507,7 +505,7 @@ namespace LBD_WebApiInterface.Api
         /// <summary>
         /// 获取U盘常用路径
         /// </summary>
-        public string GetUpanPath(byte bSubjectID, string strTeacherID,short sClassroomIndex)
+        public string GetUpanPath(byte bSubjectID, string strTeacherID, short sClassroomIndex)
         {
             try
             {
@@ -531,8 +529,9 @@ namespace LBD_WebApiInterface.Api
         }
 
         #region 资料选择相关
+
         //获取“我的收藏”的目录
-        public FavoriteFolderM[] GetMyFavoriteFolder(string strToken,string strSysID, string strCloudPlatformIPAndPort)
+        public FavoriteFolderM[] GetMyFavoriteFolder(string strToken, string strSysID, string strCloudPlatformIPAndPort)
         {
             try
             {
@@ -575,7 +574,7 @@ namespace LBD_WebApiInterface.Api
         }
 
         //获取“我的收藏”的资源
-        public FavoriteResInfoM[] GetMyFavoriteResInfo(string strToken, string strCloudPlatformIPAndPort,string strFolderID, int iPageIndex, int iPageSize)
+        public FavoriteResInfoM[] GetMyFavoriteResInfo(string strToken, string strCloudPlatformIPAndPort, string strFolderID, int iPageIndex, int iPageSize)
         {
             try
             {
@@ -756,7 +755,7 @@ namespace LBD_WebApiInterface.Api
                 xmlDoc = new XmlDocument();
                 xmlDoc.LoadXml(strReturn);
                 list = xmlDoc.GetElementsByTagName("anyType");
-                if (list != null&&list.Count > 0)
+                if (list != null && list.Count > 0)
                 {
                     for (int i = 0; i < list.Count; i++)
                     {
@@ -811,7 +810,7 @@ namespace LBD_WebApiInterface.Api
                 {
                     iCount = list.Count;
                 }
-                if (iCount ==1)
+                if (iCount == 1)
                 {
                     PersonDiskFileM file = new PersonDiskFileM();
 
@@ -886,8 +885,8 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
-        #endregion
 
+        #endregion 资料选择相关
 
         //private TeacherSetInfoM GetSetInfo(byte bSubjectID,string strTeacherID,string strName)
         //{
@@ -914,7 +913,7 @@ namespace LBD_WebApiInterface.Api
         //            TeacherSetInfoM[] tsInfo = ts.GetTeacherSetValue(bSubjectID, strTeacherID, resultID);
         //            if (tsInfo != null && tsInfo.Length == 1)
         //            {
-        //                return tsInfo[0]; 
+        //                return tsInfo[0];
         //            }
         //        }
         //    }
@@ -963,6 +962,5 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
-
     }
 }

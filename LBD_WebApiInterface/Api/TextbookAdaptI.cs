@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using LBD_WebApiInterface.Models;
 using LBD_WebApiInterface.Utility;
-using LBD_WebApiInterface.Models;
+using System;
 using System.IO;
 
 namespace LBD_WebApiInterface.Api
@@ -13,34 +10,33 @@ namespace LBD_WebApiInterface.Api
         //专用教材表的字段
         public enum BookDataField
         {
-            ID=1,
-            BookName=2,
-            BookSize=5,
-            FileNum=6,
-            LastEditTime=11
+            ID = 1,
+            BookName = 2,
+            BookSize = 5,
+            FileNum = 6,
+            LastEditTime = 11
         }
+
         //专用教材排序方式
         public enum BookOrderType
         {
-            ASC=1,
-            DESC=2
+            ASC = 1,
+            DESC = 2
         }
+
         //专用教材适配状态（整形值与API接口所需值相匹配，直接转换成整形值使用即可）
         public enum BookAdaptStatus
         {
-            All=-1,//查询所有，不在乎有没有适配
-            None=0,//完全没有适配的
-            Some=1,//部分适配的
-            Whole=2//全部适配的
+            All = -1,//查询所有，不在乎有没有适配
+            None = 0,//完全没有适配的
+            Some = 1,//部分适配的
+            Whole = 2//全部适配的
         }
-
 
         private string mApiBaseUrl;
         private CommandApi mCommandApi;
 
         private bool mInitStatus;
-
-
 
         public TextbookAdaptI()
         {
@@ -124,15 +120,19 @@ namespace LBD_WebApiInterface.Api
                     case BookDataField.ID:
                         arrParam[4] = "ID";
                         break;
+
                     case BookDataField.BookName:
                         arrParam[4] = "TextbookName";
                         break;
+
                     case BookDataField.BookSize:
                         arrParam[4] = "TextbookSize";
                         break;
+
                     case BookDataField.FileNum:
                         arrParam[4] = "FileNum";
                         break;
+
                     case BookDataField.LastEditTime:
                         arrParam[4] = "LastEditTime";
                         break;
@@ -142,6 +142,7 @@ namespace LBD_WebApiInterface.Api
                     case BookOrderType.ASC:
                         arrParam[5] = "ASC";
                         break;
+
                     case BookOrderType.DESC:
                         arrParam[5] = "DESC";
                         break;
@@ -153,7 +154,7 @@ namespace LBD_WebApiInterface.Api
                     return null;
                 }
 
-                PublishingTextbookM[] result = JsonFormatter.JsonDeserialize < PublishingTextbookM[]>(str);
+                PublishingTextbookM[] result = JsonFormatter.JsonDeserialize<PublishingTextbookM[]>(str);
                 return result;
             }
             catch (Exception e)
@@ -307,7 +308,7 @@ namespace LBD_WebApiInterface.Api
         {
             try
             {
-                if (sTeachModeID<0)
+                if (sTeachModeID < 0)
                 {
                     return null;
                 }
@@ -450,7 +451,7 @@ namespace LBD_WebApiInterface.Api
                 }
 
                 string[] arrParam = new string[1];
-                arrParam[0]= JsonFormatter.JsonSerialize(material);
+                arrParam[0] = JsonFormatter.JsonSerialize(material);
                 string str = mCommandApi.CallMethodPost("InsertMaterialCategory", arrParam);
 
                 if (string.IsNullOrEmpty(str) == false)
@@ -492,7 +493,7 @@ namespace LBD_WebApiInterface.Api
                     return 0;
                 }
 
-                string[] arrParam=new string[8];
+                string[] arrParam = new string[8];
                 arrParam[0] = ID.ToString();
                 arrParam[1] = strTextbookName;
                 arrParam[2] = strTextbookPath;
@@ -524,7 +525,7 @@ namespace LBD_WebApiInterface.Api
                 arrParam[7] = strLastEditor;
 
                 string str = mCommandApi.CallMethodPut("UpdateTextbook", arrParam);
-                if (string.IsNullOrEmpty(str)==false)
+                if (string.IsNullOrEmpty(str) == false)
                 {
                     return Convert.ToInt32(str);
                 }
@@ -540,7 +541,7 @@ namespace LBD_WebApiInterface.Api
         /// <summary>
         /// 更新素材类别（不需要的字段赋值为null，ID和LastEditor为必须参数）
         /// </summary>
-        public int UpdateMaterialCategory(short ID, short? sApplyValueID, short? sTeachModeID,byte? bLevelNo,string strDirPath, string strLastEditor)
+        public int UpdateMaterialCategory(short ID, short? sApplyValueID, short? sTeachModeID, byte? bLevelNo, string strDirPath, string strLastEditor)
         {
             try
             {
@@ -549,7 +550,7 @@ namespace LBD_WebApiInterface.Api
                     return 0;
                 }
 
-                string[] arrParam=new string[6];
+                string[] arrParam = new string[6];
                 arrParam[0] = ID.ToString();
                 if (sApplyValueID.HasValue)
                 {
@@ -716,6 +717,5 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
-
     }
 }

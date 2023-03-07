@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using LBD_WebApiInterface.Models;
+﻿using LBD_WebApiInterface.Models;
 using LBD_WebApiInterface.Utility;
+using System;
 using System.IO;
 
 namespace LBD_WebApiInterface.Api
@@ -33,10 +30,12 @@ namespace LBD_WebApiInterface.Api
             CreateTime = 4,
             CoursewareName = 5,
             LevelID = 7,
+
             /// <summary>
             /// 课件上课时长
             /// </summary>
             CoursewareTime = 8,
+
             CoursewareStatus = 9,
             LastEditor = 11,
             LastEditTime = 12,
@@ -45,10 +44,12 @@ namespace LBD_WebApiInterface.Api
             /// 授课时间
             /// </summary>
             TeachTime = 25,
+
             /// <summary>
             /// 授课教室
             /// </summary>
             Classroom = 26,
+
             /// <summary>
             /// 授课对象（课程班）
             /// </summary>
@@ -73,6 +74,7 @@ namespace LBD_WebApiInterface.Api
             /// 根据条件搜索
             /// </summary>
             ByCondition = 1,
+
             /// <summary>
             /// 根据关键词搜索
             /// </summary>
@@ -83,54 +85,66 @@ namespace LBD_WebApiInterface.Api
         {
             /// <summary>
             /// 图文教材库
-            /// </summary>        
-            图文教材库=1,
+            /// </summary>
+            图文教材库 = 1,
+
             /// <summary>
             /// 多媒体教程库
             /// </summary>
             多媒体教程库 = 2,
+
             /// <summary>
             /// 公共媒体库
             /// </summary>
             公共媒体库 = 3,
+
             /// <summary>
             /// 作业库
             /// </summary>
             作业库 = 4,
+
             /// <summary>
             /// 情景会话库
             /// </summary>
             情景会话库 = 5,
+
             /// <summary>
             /// 水平试题库
             /// </summary>
             水平试题库 = 6,
+
             /// <summary>
             /// 知识点课件库
             /// </summary>
             知识点课件库 = 7,
+
             /// <summary>
             /// 主题背景库
             /// </summary>
             主题背景库 = 8,
+
             /// <summary>
             /// 本地电脑
             /// </summary>
             本地电脑 = 9,
+
             /// <summary>
             /// 翻译库
             /// </summary>
             翻译库 = 10,
+
             /// <summary>
             /// 电子资源库
             /// </summary>
             电子资源库 = 11,
+
             /// <summary>
             /// 数字化资源库
             /// </summary>
             数字化资源库 = 12,
-            网络化课件库=13,
-            U盘=14
+
+            网络化课件库 = 13,
+            U盘 = 14
         }
 
         private string mApiBaseUrl;
@@ -143,12 +157,10 @@ namespace LBD_WebApiInterface.Api
             mInitStatus = false;
         }
 
-
-
         /// <summary>
         /// 初始化连接
         /// </summary>
-        public bool Initialize(string strNetTeachIP,string strNetTeachPort)
+        public bool Initialize(string strNetTeachIP, string strNetTeachPort)
         {
             try
             {
@@ -162,7 +174,7 @@ namespace LBD_WebApiInterface.Api
                 mCommandApi = new CommandApi();
                 mCommandApi.BaseUrl = mApiBaseUrl;
                 //mCommandApi.ControllerName = "NetCoursewareApi";
-                
+
                 mInitStatus = true;
 
                 return mInitStatus;
@@ -175,7 +187,7 @@ namespace LBD_WebApiInterface.Api
             return false;
         }
 
-        public bool Initialize(string strNetTeachIP, string strNetTeachPort,string strNetVirDir)
+        public bool Initialize(string strNetTeachIP, string strNetTeachPort, string strNetVirDir)
         {
             try
             {
@@ -222,7 +234,7 @@ namespace LBD_WebApiInterface.Api
                     return null;
                 }
 
-                NetCoursewareM[] arr= JsonFormatter.JsonDeserialize<NetCoursewareM[]>(strData);
+                NetCoursewareM[] arr = JsonFormatter.JsonDeserialize<NetCoursewareM[]>(strData);
                 return arr;
             }
             catch (Exception e)
@@ -277,12 +289,15 @@ namespace LBD_WebApiInterface.Api
                     case 1:
                         arrParam[4] = "CoursewareID";
                         break;
+
                     case 4:
-                        arrParam[4] = "CreateTime";    
+                        arrParam[4] = "CreateTime";
                         break;
+
                     case 12:
                         arrParam[4] = "LastEditTime";
                         break;
+
                     default:
                         arrParam[4] = "CoursewareID";
                         break;
@@ -292,9 +307,11 @@ namespace LBD_WebApiInterface.Api
                     case 1:
                         arrParam[5] = "ASC";
                         break;
+
                     case 2:
                         arrParam[5] = "DESC";
                         break;
+
                     default:
                         arrParam[5] = "ASC";
                         break;
@@ -399,7 +416,7 @@ namespace LBD_WebApiInterface.Api
         /// <summary>
         /// 查询单个课件（若teacherID为空，则教学计划为空）
         /// </summary>
-        public NetCoursewareDetailM GetNetCoursewareDetailByID(string strCoursewareID,string strTeacherID)
+        public NetCoursewareDetailM GetNetCoursewareDetailByID(string strCoursewareID, string strTeacherID)
         {
             try
             {
@@ -447,12 +464,15 @@ namespace LBD_WebApiInterface.Api
                     case 1:
                         arrParam[4] = "CoursewareID";
                         break;
+
                     case 4:
                         arrParam[4] = "CreateTime";
                         break;
+
                     case 12:
                         arrParam[4] = "LastEditTime";
                         break;
+
                     default:
                         arrParam[4] = "CoursewareID";
                         break;
@@ -462,9 +482,11 @@ namespace LBD_WebApiInterface.Api
                     case 1:
                         arrParam[5] = "ASC";
                         break;
+
                     case 2:
                         arrParam[5] = "DESC";
                         break;
+
                     default:
                         arrParam[5] = "ASC";
                         break;
@@ -475,18 +497,23 @@ namespace LBD_WebApiInterface.Api
                     case 0:
                         arrParam[7] = "";
                         break;
+
                     case 9:
                         arrParam[7] = "CoursewareStatus";
                         break;
+
                     case 25:
                         arrParam[7] = "TeachTime";
                         break;
+
                     case 26:
-                        arrParam[7]="Classroom";
+                        arrParam[7] = "Classroom";
                         break;
+
                     case 27:
                         arrParam[7] = "TeachClass";
                         break;
+
                     default:
                         arrParam[7] = "";
                         break;
@@ -496,9 +523,11 @@ namespace LBD_WebApiInterface.Api
                     case 1:
                         arrParam[8] = "1";
                         break;
+
                     case 2:
                         arrParam[8] = "2";
                         break;
+
                     default:
                         break;
                 }
@@ -576,7 +605,7 @@ namespace LBD_WebApiInterface.Api
                     return 0;
                 }
                 string[] arrParam = new string[1];
-                arrParam[0]= JsonFormatter.JsonSerialize(ncwd);
+                arrParam[0] = JsonFormatter.JsonSerialize(ncwd);
                 string strReturn = mCommandApi.CallMethodPost("AddNetCoursewareDetail", arrParam);
 
                 return Convert.ToInt32(strReturn);
@@ -646,7 +675,7 @@ namespace LBD_WebApiInterface.Api
                 }
 
                 string[] arrParam = new string[1];
-                arrParam[0]= JsonFormatter.JsonSerialize(aResource);
+                arrParam[0] = JsonFormatter.JsonSerialize(aResource);
                 string strReturn = mCommandApi.CallMethodPost("InsertNCWAssistResource", arrParam);
                 if (strReturn != null)
                 {
@@ -676,7 +705,7 @@ namespace LBD_WebApiInterface.Api
 
             return null;
         }
-        
+
         /// <summary>
         /// 添加网络化课件所需资源
         /// </summary>
@@ -784,7 +813,7 @@ namespace LBD_WebApiInterface.Api
         /// <summary>
         /// 更新教学计划
         /// </summary>
-        public int UpdateTeachPlan(int ID,DateTime? dtTeachTime,string strClassroom,string strTeachClass,string strLastEditor)
+        public int UpdateTeachPlan(int ID, DateTime? dtTeachTime, string strClassroom, string strTeachClass, string strLastEditor)
         {
             try
             {
@@ -821,7 +850,7 @@ namespace LBD_WebApiInterface.Api
         /// <summary>
         /// 更新网络化课件所需资源
         /// </summary>
-        public int UpdateNCWResource(int ID, short? sTeachModeID, int? iTeachDurationTime, string strSimulationInfoPath, byte? bOrderNo,string strLastEditor)
+        public int UpdateNCWResource(int ID, short? sTeachModeID, int? iTeachDurationTime, string strSimulationInfoPath, byte? bOrderNo, string strLastEditor)
         {
             try
             {
@@ -835,7 +864,6 @@ namespace LBD_WebApiInterface.Api
                 if (sTeachModeID != null)
                 {
                     arrParam[1] = sTeachModeID.ToString();
-
                 }
                 if (iTeachDurationTime != null)
                 {
@@ -874,7 +902,7 @@ namespace LBD_WebApiInterface.Api
         {
             try
             {
-                if (string.IsNullOrEmpty(strCoursewareID)||string.IsNullOrEmpty(strTeacherID))
+                if (string.IsNullOrEmpty(strCoursewareID) || string.IsNullOrEmpty(strTeacherID))
                 {
                     return 0;
                 }
@@ -993,49 +1021,62 @@ namespace LBD_WebApiInterface.Api
                     case 1:
                         strName = "图文教材库";
                         break;
+
                     case 2:
                         strName = "多媒体教程库";
                         break;
+
                     case 3:
                         strName = "公共媒体库";
                         break;
+
                     case 4:
                         strName = "作业库";
                         break;
+
                     case 5:
                         strName = "情景会话库";
                         break;
+
                     case 6:
                         strName = "水平试题库";
                         break;
+
                     case 7:
                         strName = "知识点课件库";
                         break;
+
                     case 8:
                         strName = "主题背景库";
                         break;
+
                     case 9:
                         strName = "本地电脑";
                         break;
+
                     case 10:
                         strName = "翻译库";
                         break;
+
                     case 11:
                         strName = "电子资源库";
                         break;
+
                     case 12:
                         strName = "数字化资源库";
                         break;
+
                     case 13:
                         strName = "网络化课件库";
                         break;
+
                     case 14:
                         strName = "U盘";
                         break;
                 }
 
-                string[] arrParam=new string[1];
-                arrParam[0]=strName;
+                string[] arrParam = new string[1];
+                arrParam[0] = strName;
 
                 string strReturn = mCommandApi.CallMethodGet("GetTableFlagIDByName", arrParam);
 
@@ -1078,7 +1119,7 @@ namespace LBD_WebApiInterface.Api
         /// <summary>
         /// 根据老师ID和教学对象搜索教学最近的一个教学计划
         /// </summary>
-        public NCWTeachPlanM GetRecentTeachPlan(string strTeacherID, string strTeachClass,byte bSubjectID)
+        public NCWTeachPlanM GetRecentTeachPlan(string strTeacherID, string strTeachClass, byte bSubjectID)
         {
             try
             {
@@ -1091,7 +1132,7 @@ namespace LBD_WebApiInterface.Api
 
                 if (string.IsNullOrEmpty(strReturn) == false)
                 {
-                    NCWTeachPlanM[] ncwtp = JsonFormatter.JsonDeserialize <NCWTeachPlanM[]>(strReturn);
+                    NCWTeachPlanM[] ncwtp = JsonFormatter.JsonDeserialize<NCWTeachPlanM[]>(strReturn);
                     if (ncwtp != null && ncwtp.Length == 1)
                     {
                         return ncwtp[0];
@@ -1105,7 +1146,7 @@ namespace LBD_WebApiInterface.Api
 
             return null;
         }
-    
+
         public void GetSearchCondition(byte bSubjectID, string strTeacherID, out string[] arrTeachClass, out string[] arrClassroom, out string[] arrTeachTime)
         {
             arrTeachClass = null;
@@ -1144,7 +1185,6 @@ namespace LBD_WebApiInterface.Api
                 WriteErrorMessage("GetSearchCondition", e.Message);
             }
         }
-     
 
         private void WriteErrorMessage(string strMethodName, string sErrorMessage)
         {
@@ -1164,6 +1204,5 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
-
     }
 }

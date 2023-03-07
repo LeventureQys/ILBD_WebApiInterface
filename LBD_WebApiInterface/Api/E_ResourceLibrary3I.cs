@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using LBD_WebApiInterface.Models.E_ResourceLibrary;
+﻿using LBD_WebApiInterface.Models.E_ResourceLibrary;
 using LBD_WebApiInterface.Utility;
-using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+
 //using LBD_WebApiInterface.Api;
 
 namespace LBD_WebApiInterface.Api
@@ -14,14 +15,17 @@ namespace LBD_WebApiInterface.Api
     {
         private CommandApi mCommandApi;
         private string mApiIPandPort;
+
         //云平台学科ID
         private string mCloudSubjectID;
+
         private string mToken;
+
         //年级信息
         private List<GradeInfoForSearchM> mGradeInfo;
+
         //子库分类
         private List<ResourceClassLevelTwoForSearchM> mClassLevelTwo;
-
 
         /// <summary>
         /// 初始化
@@ -154,8 +158,8 @@ namespace LBD_WebApiInterface.Api
                     sbParam.Append("&SubjectID=" + mCloudSubjectID);
                 }
                 sbParam.Append("&GradeID=");
-                sbParam.Append("&Token="+mToken);
-                strWholeUrl = strWholeUrl  + sbParam.ToString();
+                sbParam.Append("&Token=" + mToken);
+                strWholeUrl = strWholeUrl + sbParam.ToString();
                 FolderAndResourceM data = CommandApi.CallMethodGet_ERL3<FolderAndResourceM>(strWholeUrl);
                 if (data == null)
                 {
@@ -191,7 +195,7 @@ namespace LBD_WebApiInterface.Api
             try
             {
                 string strWholeUrl = "http://" + mApiIPandPort + "/api/Public/GetResourceInfo";
-                strWholeUrl = strWholeUrl + "?ResourceID=" + ResourceID; 
+                strWholeUrl = strWholeUrl + "?ResourceID=" + ResourceID;
                 ResourceDetailM data = CommandApi.CallMethodGet_ERL3<ResourceDetailM>(strWholeUrl);
                 return data;
             }
@@ -229,7 +233,7 @@ namespace LBD_WebApiInterface.Api
             try
             {
                 string strWholeUrl = "http://" + mApiIPandPort + "/api/Public/GetBasicInfo";
-                BasicInfo data = CommandApi.CallMethodGet_ERL3<BasicInfo>(strWholeUrl);                
+                BasicInfo data = CommandApi.CallMethodGet_ERL3<BasicInfo>(strWholeUrl);
                 return data.ResourcesUrl;
             }
             catch (Exception e)
@@ -286,8 +290,8 @@ namespace LBD_WebApiInterface.Api
                         continue;
                     }
 
-                    string strbasicinfo = GetBasicInfo1();                                      
-                    strTempPath = strTempPath.Replace(strbasicinfo,"");
+                    string strbasicinfo = GetBasicInfo1();
+                    strTempPath = strTempPath.Replace(strbasicinfo, "");
                     //strTempPath = strTempPath.Replace("http://", "");
                     //int index = strTempPath.IndexOf('/');
                     //if (index > 0)
@@ -379,6 +383,7 @@ namespace LBD_WebApiInterface.Api
             ErrorCode = 5;
             return null;
         }
+
         /// <summary>
         /// 批量添加电子资源馆资料浏览记录
         /// </summary>
@@ -395,7 +400,7 @@ namespace LBD_WebApiInterface.Api
                 string param = JsonConvert.SerializeObject(new
                 {
                     User = new { UserID = userID, UserType = userType, Token = mToken, SecureCode = "1", Context = "Web", SchoolID = schoolID, UserName = userName },
-                    data = new {  list = resourceUseLogList }
+                    data = new { list = resourceUseLogList }
                 });
                 string strWholeUrl = "http://" + mApiIPandPort + "/api/Public/ReadDetailLogAdd";
                 string result = CallApiHelper.CallMethodPost(strWholeUrl, param);
@@ -412,7 +417,6 @@ namespace LBD_WebApiInterface.Api
                 return false;
             }
         }
-
 
         private static void WriteErrorMessage(string strMethodName, string sErrorMessage)
         {

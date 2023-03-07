@@ -1,10 +1,9 @@
-﻿using System;
+﻿using LBD_WebApiInterface.Models.CourseCenter;
+using LBD_WebApiInterface.Utility;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using System.Web;
-using LBD_WebApiInterface.Models.CourseCenter;
-using LBD_WebApiInterface.Utility;
 
 namespace LBD_WebApiInterface.Api
 {
@@ -41,11 +40,13 @@ namespace LBD_WebApiInterface.Api
             }
             return false;
         }
+
         /// <summary>
         /// 获取学科
         /// </summary>
         /// <returns></returns>
-        public SubjectM[] GetAllSubjectName() {
+        public SubjectM[] GetAllSubjectName()
+        {
             try
             {
                 StringBuilder sbUrl = new StringBuilder();
@@ -73,7 +74,6 @@ namespace LBD_WebApiInterface.Api
                                 list.Add(subject);
                         return list.ToArray();
                     }
-                        
                 }
                 else
                     return null;
@@ -84,6 +84,7 @@ namespace LBD_WebApiInterface.Api
                 return null;
             }
         }
+
         /// <summary>
         /// 获取教师信息
         /// </summary>
@@ -125,8 +126,9 @@ namespace LBD_WebApiInterface.Api
                 return null;
             }
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="Subject">传学科名称，传空获取不属于任何学科的视频</param>
         /// <param name="TeacherID">传教师id,传空表示所有老师</param>
@@ -145,15 +147,15 @@ namespace LBD_WebApiInterface.Api
             {
                 if (string.IsNullOrEmpty(TeacherID))
                     TeacherID = "ALL_TEACHER";
-                string sTime=null;
+                string sTime = null;
                 if (StartTime != null)
                     sTime = string.Format("{0:yyyyMMdd}", StartTime);
                 string eTime = null;
-                if(EndTime!=null)
+                if (EndTime != null)
                     eTime = string.Format("{0:yyyyMMdd}", EndTime);
                 StringBuilder sbUrl = new StringBuilder();
                 sbUrl.Append(mCourseCenterApiUrl + "/CourseCenter/MCC/External.ashx?method=GetRecordRes");
-                sbUrl.Append(string.Format("&params={7}|{0}|{1}|{2}|{3}|{4}|{5}|{6}", TeacherID, SortType, SearchStr, PageIndex, PageSize, sTime, eTime,Subject));
+                sbUrl.Append(string.Format("&params={7}|{0}|{1}|{2}|{3}|{4}|{5}|{6}", TeacherID, SortType, SearchStr, PageIndex, PageSize, sTime, eTime, Subject));
                 string strResult = CallApiHelper.CallMethodGet(sbUrl.ToString());
                 if (string.IsNullOrEmpty(strResult))
                 {
@@ -183,6 +185,7 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
+
         /// <summary>
         /// 获取指定目录下的录播资源
         /// </summary>
@@ -222,11 +225,13 @@ namespace LBD_WebApiInterface.Api
                 else
                     return null;
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 WriteErrorMessage("GetDirRecordRes", e.Message);
                 return null;
             }
         }
+
         /// <summary>
         /// 获取录播资源目录
         /// </summary>
@@ -253,8 +258,8 @@ namespace LBD_WebApiInterface.Api
                     eTime = string.Format("{0:yyyyMMdd}", EndTime);
                 StringBuilder sbUrl = new StringBuilder();
                 sbUrl.Append(mCourseCenterApiUrl + "/CourseCenter/MCC/External.ashx?method=GetRecordDir");
-                sbUrl.Append(string.Format("&params={7}|{0}|{1}|{2}|{3}|{4}|{5}|{6}", TeacherID, SortType, SearchStr, PageIndex, PageSize, sTime, eTime,Subject));
-                WriteErrorMessage("GetRecordDir",  sbUrl.ToString());
+                sbUrl.Append(string.Format("&params={7}|{0}|{1}|{2}|{3}|{4}|{5}|{6}", TeacherID, SortType, SearchStr, PageIndex, PageSize, sTime, eTime, Subject));
+                WriteErrorMessage("GetRecordDir", sbUrl.ToString());
                 string strResult = CallApiHelper.CallMethodGet(sbUrl.ToString());
                 if (string.IsNullOrEmpty(strResult))
                 {
@@ -280,12 +285,13 @@ namespace LBD_WebApiInterface.Api
                 else
                     return null;
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 WriteErrorMessage("GetRecordDir", e.Message);
                 return null;
             }
         }
+
         /// <summary>
         /// 查找点播资源
         /// </summary>
@@ -307,7 +313,6 @@ namespace LBD_WebApiInterface.Api
                 sbUrl.Append(mCourseCenterApiUrl + "/CourseCenter/MCC/External.ashx?method=GetBODRes");
                 sbUrl.Append(string.Format("&params={0}|{1}|{2}|{3}|{4}|{5}|{6}", TeacherID, SortType, SearchStr, PageIndex, PageSize, StartTime, EndTime));
                 //WriteDebugInfo("GetRequestResource获取录播视频地址", sbUrl.ToString());
-
 
                 string strResult = CallApiHelper.CallMethodGet(sbUrl.ToString());
                 if (string.IsNullOrEmpty(strResult))
@@ -338,6 +343,7 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
+
         /// <summary>
         /// 资源ID
         /// </summary>
@@ -422,6 +428,7 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
+
         /// <summary>
         /// 查找广播资源
         /// </summary>
@@ -567,7 +574,5 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
-
-
     }
 }

@@ -5,11 +5,8 @@ using LBD_WebApiInterface.Utility;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 using System.Xml;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace LBD_WebApiInterface.Api
 {
@@ -21,19 +18,24 @@ namespace LBD_WebApiInterface.Api
     public class CloudServerConfigl
     {
         #region 私有变量
+
         private string mTeachCenterApiUrl;
         private string mResourcesApiUrl;
         private string mSuiTtestApiUrl;
-        #endregion
+
+        #endregion 私有变量
 
         #region 初始化
+
         /// <summary>
         /// 初始化S10
         /// </summary>
         /// <param name="CloudPreparationIP">云备课WebApi的IP</param>
         /// <param name="CloudPreparationPort">云备课WebApi的Port</param>
         /// <returns>true-初始化成功，false-初始化失败</returns>
-        #endregion
+
+        #endregion 初始化
+
         public bool Initialize(string CloudPreparationIP, string CloudPreparationPort)
         {
             try
@@ -47,7 +49,7 @@ namespace LBD_WebApiInterface.Api
                 mTeachCenterApiUrl = "http://" + CloudPreparationIP + ":" + CloudPreparationPort;
                 WriteTrackLog("Initialize", "mTeachCenterApiUrl=" + mTeachCenterApiUrl);
                 //mIntelCoursewareI = new IntelCoursewareI();
-               // mCloudPreparationSrvInfo = GetCPSrvInfo();
+                // mCloudPreparationSrvInfo = GetCPSrvInfo();
                 return true;
             }
             catch (Exception e)
@@ -56,14 +58,18 @@ namespace LBD_WebApiInterface.Api
             }
             return false;
         }
+
         #region 初始化
+
         /// <summary>
         /// 初始化A00
         /// </summary>
         /// <param name="ResourcesIP">数字资源库WebApi的IP</param>
         /// <param name="ResourcesPort">数字资源库WebApi的Port</param>
         /// <returns>true-初始化成功，false-初始化失败</returns>
-        #endregion
+
+        #endregion 初始化
+
         public bool InitializeResources(string ResourcesIP, string ResourcesPort)
         {
             try
@@ -86,14 +92,18 @@ namespace LBD_WebApiInterface.Api
             }
             return false;
         }
+
         #region 初始化
+
         /// <summary>
         /// 初始化
         /// </summary>
         /// <param name="SuiTtestIP">随堂测试WebApi的IP</param>
         /// <param name="SuiTtestPort">随堂测试WebApi的Port</param>
         /// <returns>true-初始化成功，false-初始化失败</returns>
-        #endregion
+
+        #endregion 初始化
+
         public bool InitializeSuiTtest(string SuiTtestIP, string SuiTtestPort)
         {
             try
@@ -116,19 +126,20 @@ namespace LBD_WebApiInterface.Api
             }
             return false;
         }
+
         #region 获取新版数字化资源库字库信息
+
         /// <summary>
         ///  获取新版数字化资源库字库信息
         /// </summary>
         /// <returns></returns>
-        /// 
-        public List<BLibraryM> GetBLibraryM(string strLibCode,string strLibName,string strCourseCode)
+        ///
+        public List<BLibraryM> GetBLibraryM(string strLibCode, string strLibName, string strCourseCode)
         {
             try
             {
+                string webapiAddr = mResourcesApiUrl + "/SearchBasicInfo.asmx/WS_Basic_GetLibraryInfo?strLibCode=" + strLibCode + "&strLibName=" + strLibName + "&strCourseCode=" + strCourseCode;
 
-                string webapiAddr = mResourcesApiUrl + "/SearchBasicInfo.asmx/WS_Basic_GetLibraryInfo?strLibCode="+ strLibCode+"&strLibName="+ strLibName + "&strCourseCode="+ strCourseCode;
-                
                 string result = CallApiHelper.CallMethod_Get(webapiAddr);
                 if (string.IsNullOrEmpty(result))
                     return null;
@@ -138,17 +149,16 @@ namespace LBD_WebApiInterface.Api
                 if (nodeList == null || nodeList.Count <= 0)
                     return null;
                 List<BLibraryM> list = new List<BLibraryM>();
-                foreach(XmlNode node in nodeList)
+                foreach (XmlNode node in nodeList)
                 {
                     BLibraryM bm = new BLibraryM();
                     bm.LibrarySequence = node.ChildNodes[0].InnerText;
                     bm.LibraryCode = node.ChildNodes[1].InnerText;
-                    bm.LibraryName= node.ChildNodes[2].InnerText;
+                    bm.LibraryName = node.ChildNodes[2].InnerText;
                     bm.CourseCode = node.ChildNodes[3].InnerText;
                     list.Add(bm);
                 }
                 return list;
-                
             }
             catch (Exception e)
             {
@@ -157,8 +167,10 @@ namespace LBD_WebApiInterface.Api
             }
         }
 
-        #endregion
+        #endregion 获取新版数字化资源库字库信息
+
         #region 获取新版数字化资源库字库信息详情
+
         /// <summary>
         ///  获取新版数字化资源库字库信息
         /// <param name="OptionalParams">参数的格式:学科}学习阶段}水平级别}子库}资源格式}题型（以"}"隔开）  C}F}}I}1|2}</param>
@@ -167,12 +179,11 @@ namespace LBD_WebApiInterface.Api
         /// <param name="FilterContext ">要查询的关键字P</param>
         /// </summary>
         /// <returns></returns>
-        /// 
+        ///
         public LgdigitalRes GetBLibraryMCatalogSearch(string OptionalParams, string ItemText, string PageIndex, string PageSize, string FilterContext)
         {
             try
             {
-
                 string webapiAddr = null;
                 if (FilterContext == null || FilterContext.Equals(""))
                 {
@@ -236,9 +247,9 @@ namespace LBD_WebApiInterface.Api
                         listRes001.UpperKnlgText = nodeList[0].ChildNodes[i].ChildNodes[29].InnerText;
                         listRes001.OtherKnlgCode = nodeList[0].ChildNodes[i].ChildNodes[30].InnerText;
 
-                        if(nodeList[0].ChildNodes[i].ChildNodes[34] != null)
+                        if (nodeList[0].ChildNodes[i].ChildNodes[34] != null)
                         {
-                            if(string.IsNullOrEmpty(nodeList[0].ChildNodes[i].ChildNodes[34].InnerText) ==false)
+                            if (string.IsNullOrEmpty(nodeList[0].ChildNodes[i].ChildNodes[34].InnerText) == false)
                                 listRes001.ResCode = nodeList[0].ChildNodes[i].ChildNodes[34].InnerText;
                         }
 
@@ -250,7 +261,6 @@ namespace LBD_WebApiInterface.Api
                 string strlgdigitalRes = JsonFormatter.JsonSerialize(lgdigitalRes);
                 WriteTrackLog("GetBLibraryMCatalogSearch", "GetBLibraryMCatalogSearch=" + strlgdigitalRes);
                 return lgdigitalRes;
-
             }
             catch (Exception e)
             {
@@ -258,20 +268,21 @@ namespace LBD_WebApiInterface.Api
                 return null;
             }
         }
-        #endregion
+
+        #endregion 获取新版数字化资源库字库信息详情
 
         #region 获取新版数字化资源库服务器信息
+
         /// <summary>
         ///  获取新版数字化资源库服务器信息
         /// </summary>
         /// <returns></returns>
-        /// 
+        ///
         public ServerConf GetServerAddressConf(string serverID)
         {
             try
             {
-
-                string webapiAddr = mResourcesApiUrl + "/SearchStatisticalInfo.asmx/WS_Search_GetServerAddressConf?serverID="+ serverID;
+                string webapiAddr = mResourcesApiUrl + "/SearchStatisticalInfo.asmx/WS_Search_GetServerAddressConf?serverID=" + serverID;
                 WriteTrackLog("webapiAddr", "webapiAddr=" + webapiAddr);
                 string result = CallApiHelper.CallMethod_Get(webapiAddr);
                 if (string.IsNullOrEmpty(result))
@@ -293,12 +304,11 @@ namespace LBD_WebApiInterface.Api
                     bm.sPort = node.ChildNodes[4].InnerText;
                     bm.sUserName = node.ChildNodes[5].InnerText;
                     bm.sPWD = node.ChildNodes[6].InnerText;
-                   
+
                     list.Add(bm);
                 }
                 serverConf.server = list;
                 return serverConf;
-
             }
             catch (Exception e)
             {
@@ -307,24 +317,24 @@ namespace LBD_WebApiInterface.Api
             }
         }
 
-        #endregion
+        #endregion 获取新版数字化资源库服务器信息
 
         #region 关于数字化资源共享，需要调用共享的接口获取资源，通过调用数字化资源get方法，超时时间120s
+
         /// <summary>
         ///  调用数字化资源共享
         /// 20190423
         /// </summary>
         /// <returns></returns>
-        /// 
+        ///
         public int GetSharedLibraryM(string resId)
         {
             try
             {
-
-                string webapiAddr = mResourcesApiUrl + "/api/download?ResId=" + resId ;
+                string webapiAddr = mResourcesApiUrl + "/api/download?ResId=" + resId;
                 WriteTrackLog("webapiAddr", "webapiAddr=" + webapiAddr);
                 string result = CallApiHelper.CallMethod_Get1(webapiAddr);
-                if (string.IsNullOrEmpty(result))                    
+                if (string.IsNullOrEmpty(result))
                     return 2;//调用出错
 
                 bool s = JsonFormatter.JsonDeserialize<bool>(result);
@@ -334,8 +344,6 @@ namespace LBD_WebApiInterface.Api
                 { return 1; }//下载成功
                 else
                 { return 0; }//下载失败
-               
-
             }
             catch (Exception e)
             {
@@ -344,15 +352,16 @@ namespace LBD_WebApiInterface.Api
             }
         }
 
-        #endregion
+        #endregion 关于数字化资源共享，需要调用共享的接口获取资源，通过调用数字化资源get方法，超时时间120s
 
         #region 获取随堂测试试卷信息
+
         /// <summary>
         ///  获取随堂测试试卷信息
         /// </summary>
         /// <returns></returns>
-        /// 
-        public List<PaperResultDataGetParams> GetPaperResultData(string UserID,int PaperType,string BelongMonth,int QuestionType,string SearchContext,int PageIndex,int PageCount,string SubjectID)
+        ///
+        public List<PaperResultDataGetParams> GetPaperResultData(string UserID, int PaperType, string BelongMonth, int QuestionType, string SearchContext, int PageIndex, int PageCount, string SubjectID)
         {
             try
             {
@@ -379,13 +388,13 @@ namespace LBD_WebApiInterface.Api
                 XmlNodeList nodeList = xd.GetElementsByTagName("templetParam3OfPaperResultGetParamsvPVjqod3");
                 if (nodeList == null || nodeList.Count <= 0)
                     return null;
-                if (nodeList[0].ChildNodes[0].InnerText!= "0")
+                if (nodeList[0].ChildNodes[0].InnerText != "0")
                 {
                     WriteErrorMessage("GetPaperResultData", "查询失败，ErrorFlag=" + nodeList[0].ChildNodes[0].InnerText + "，Message=" + nodeList[0].ChildNodes[2].InnerText);
 
                     return null;
                 }
-                    
+
                 XmlNodeList nodeList1 = xd.GetElementsByTagName("d2p1:PaperResultDataGetParams");
                 List<PaperResultDataGetParams> list = new List<PaperResultDataGetParams>();
                 foreach (XmlNode node in nodeList1)
@@ -406,7 +415,6 @@ namespace LBD_WebApiInterface.Api
                     list.Add(bm);
                 }
                 return list;
-
             }
             catch (Exception e)
             {
@@ -415,9 +423,10 @@ namespace LBD_WebApiInterface.Api
             }
         }
 
-        #endregion
+        #endregion 获取随堂测试试卷信息
 
         #region 教学云主页添加学科网信息
+
         /// <summary>
         /// 教学云主页添加学科网信息
         ///   <param name="TeacherID">教师ID</param>
@@ -431,14 +440,14 @@ namespace LBD_WebApiInterface.Api
         ///  <param name="AddressPassword">密码</param>
         /// </summary>
         /// <returns></returns>
-        /// 
-        public string addSubjectNetwork( string bSubjectID, string strTeacherID, string strID, string Term, string SchoolID,string Icons,string ResAddress,string AddressName,string AddressUsername,string AddressPassword)
+        ///
+        public string addSubjectNetwork(string bSubjectID, string strTeacherID, string strID, string Term, string SchoolID, string Icons, string ResAddress, string AddressName, string AddressUsername, string AddressPassword)
         {
             try
             {
                 //short setItemID = TeachSetI.GetSetItemID(eSetItem);
                 string strTimeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                string Key = CP_MD5Helper.GetMd5Hash(strTimeStamp+ strTeacherID);
+                string Key = CP_MD5Helper.GetMd5Hash(strTimeStamp + strTeacherID);
                 string param = JsonFormatter.JsonSerialize(new
                 {
                     ID = strID,
@@ -447,13 +456,13 @@ namespace LBD_WebApiInterface.Api
                     TeacherID = strTeacherID,
                     SchoolID = SchoolID,
                     //Icon = ImageConvertString(Icons),
-                    Icon= Icons,
+                    Icon = Icons,
                     ResAddress = ResAddress,
-                    AddressName= AddressName,
-                    AddressUsername= AddressUsername,
-                    AddressPassword= AddressPassword,
+                    AddressName = AddressName,
+                    AddressUsername = AddressUsername,
+                    AddressPassword = AddressPassword,
                     TimeStamp = strTimeStamp,
-                    Key= Key
+                    Key = Key
                 });
                 WriteTrackLog("addSubjectNetwork", "addSubjectNetwork = " + param);
                 string strReturn = CallApiHelper.CallMethodPost(mTeachCenterApiUrl + "/CouldPreparation/SubjectNetwork/addSubjectNetwork", param);
@@ -478,15 +487,17 @@ namespace LBD_WebApiInterface.Api
 
             return "0";
         }
-        #endregion
+
+        #endregion 教学云主页添加学科网信息
 
         #region 删除学科网信息
+
         /// <summary>
         /// 删除学科网信息
         ///  <param name="ID">学科网ID</param>
         /// </summary>
         /// <returns></returns>
-        /// 
+        ///
         public string deleteSubjectNetwork(string ID)
         {
             try
@@ -523,15 +534,17 @@ namespace LBD_WebApiInterface.Api
 
             return "0";
         }
-        #endregion
+
+        #endregion 删除学科网信息
 
         #region 根据教师id，学科，学期，学校id信息获取学科网信息列表
+
         /// <summary>
         /// 根据教师id，学科，学期，学校id信息获取学科网信息列表
         /// </summary>
         /// <param name="sTeachingProgramID"></param>
         /// <returns></returns>
-        public SubjectNetworkM[] getSubjectNetworkByTeacherID( string TeacherID, string SchoolID, string SubjectID, string Term)
+        public SubjectNetworkM[] getSubjectNetworkByTeacherID(string TeacherID, string SchoolID, string SubjectID, string Term)
         {
             // int SumCount = 0;
             try
@@ -583,9 +596,11 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
-        #endregion
+
+        #endregion 根据教师id，学科，学期，学校id信息获取学科网信息列表
 
         #region 添加课时对应的教学方案信息
+
         /// <summary>
         /// 添加课时对应的教学方案信息
         ///  /// <param name="CourseTime">课时，格式2017-08-20 20:18:15</param>
@@ -593,7 +608,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="TeachProgramID">教学方案ID</param>
         /// </summary>
         /// <returns></returns>
-        /// 
+        ///
         public string addCourseTime(string CourseTime, string CourseName, string strID, string TeachProgramID)
         {
             try
@@ -633,9 +648,11 @@ namespace LBD_WebApiInterface.Api
 
             return "0";
         }
-        #endregion
+
+        #endregion 添加课时对应的教学方案信息
 
         #region 根据教学方案id信息获取课时信息列表
+
         /// <summary>
         /// 根据教学方案id信息获取课时信息列表
         /// </summary>
@@ -690,9 +707,11 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
-        #endregion
+
+        #endregion 根据教学方案id信息获取课时信息列表
 
         #region 添加或者更新知识点对应的教学方案信息
+
         /// <summary>
         /// 添加或者更新知识点对应的教学方案信息
         ///  /// <param name="KnowledgeCode">知识点唯一编码</param>
@@ -701,8 +720,8 @@ namespace LBD_WebApiInterface.Api
         /// <param name="BelongCoursewareID">所属的子方案id（如课前预习）</param>
         /// </summary>
         /// <returns></returns>
-        /// 
-        public string addKnowledge(string KnowledgeCode, string KnowledgeContent, string strID, string TeachProgramID,string BelongCoursewareID)
+        ///
+        public string addKnowledge(string KnowledgeCode, string KnowledgeContent, string strID, string TeachProgramID, string BelongCoursewareID)
         {
             try
             {
@@ -715,7 +734,7 @@ namespace LBD_WebApiInterface.Api
                     KnowledgeCode = KnowledgeCode,
                     KnowledgeContent = KnowledgeContent,
                     TeachProgramID = TeachProgramID,
-                    BelongCoursewareID= BelongCoursewareID,
+                    BelongCoursewareID = BelongCoursewareID,
                     TimeStamp = strTimeStamp,
                     Key = Key
                 });
@@ -742,9 +761,11 @@ namespace LBD_WebApiInterface.Api
 
             return "0";
         }
-        #endregion
+
+        #endregion 添加或者更新知识点对应的教学方案信息
 
         #region 根据教学方案id、知识点唯一编码，所属子方案id信息获取课时信息列表
+
         /// <summary>
         /// 根据教学方案id、知识点唯一编码，所属子方案id信息获取课时信息列表
         /// </summary>
@@ -801,9 +822,11 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
-        #endregion
+
+        #endregion 根据教学方案id、知识点唯一编码，所属子方案id信息获取课时信息列表
 
         #region 添加或者更新教材库对应的教学方案信息
+
         /// <summary>
         /// 添加或者更新教材库对应的教学方案信息
         ///  /// <param name="ClassPeriodID">课时id</param>
@@ -812,7 +835,7 @@ namespace LBD_WebApiInterface.Api
 
         /// </summary>
         /// <returns></returns>
-        /// 
+        ///
         public string addMaterialLibrary(string ClassPeriodID, string TeachingMaterialID, string strID, string TeachProgramID)
         {
             try
@@ -825,7 +848,7 @@ namespace LBD_WebApiInterface.Api
                     ID = strID,
                     ClassPeriodID = ClassPeriodID,
                     TeachingMaterialID = TeachingMaterialID,
-                    TeachProgramID = TeachProgramID,                   
+                    TeachProgramID = TeachProgramID,
                     TimeStamp = strTimeStamp,
                     Key = Key
                 });
@@ -852,9 +875,11 @@ namespace LBD_WebApiInterface.Api
 
             return "0";
         }
-        #endregion
+
+        #endregion 添加或者更新教材库对应的教学方案信息
 
         #region 根据教学方案id、课时id，教材库id信息获取教材库信息列表
+
         /// <summary>
         /// 根据教学方案id、知识点唯一编码，所属子方案id信息获取课时信息列表
         /// </summary>
@@ -911,20 +936,21 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
-        #endregion
+
+        #endregion 根据教学方案id、课时id，教材库id信息获取教材库信息列表
 
         #region 获取云备课服务器信息
+
         /// <summary>
         ///  获取云备课服务器信息
         /// </summary>
         /// <returns></returns>
-        /// 
+        ///
         public CloudServerConfigM[] GetCPSrvInfo()
         {
-           // int SumCount = 0;
+            // int SumCount = 0;
             try
             {
-                
                 //string strTimeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 string strTimeStamp = "20181211";
                 StringBuilder sbUrl = new StringBuilder();
@@ -968,8 +994,8 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
-        #endregion
 
+        #endregion 获取云备课服务器信息
 
         #region 获取图片转换成二进制
 
@@ -979,33 +1005,31 @@ namespace LBD_WebApiInterface.Api
         /// <param name="buffer">Base64String</param>
         /// <param name="fileName">文件名</param>
         /// <returns></returns>
-       
-         /// <summary>
-         /// 本地图片文件转Base64字符串
-         /// <param name="imagepath">本地文件路径</param>
+
+        /// <summary>
+        /// 本地图片文件转Base64字符串
+        /// <param name="imagepath">本地文件路径</param>
         /// <returns>Base64String</returns>
-         public string ImageConvertString(string imagepath)
-         {
-             using (FileStream fs = new FileStream(imagepath, FileMode.Open))
-             {
-                 byte[] byData = new byte[fs.Length];
-                 fs.Read(byData, 0, byData.Length);
-                 fs.Close();
-                 return Convert.ToBase64String(byData);
-             }
+        public string ImageConvertString(string imagepath)
+        {
+            using (FileStream fs = new FileStream(imagepath, FileMode.Open))
+            {
+                byte[] byData = new byte[fs.Length];
+                fs.Read(byData, 0, byData.Length);
+                fs.Close();
+                return Convert.ToBase64String(byData);
+            }
         }
 
-
-        #endregion
-
-
+        #endregion 获取图片转换成二进制
 
         #region 私有方法，调试使用
+
         private void WriteDebugInfo(string strMethodName, string strInfo)
         {
-        #if RELEASE
-         return;
-        #endif
+#if RELEASE
+            return;
+#endif
             try
             {
                 DirectoryInfo clsPath = new DirectoryInfo(Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory));
@@ -1023,6 +1047,7 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
+
         private void WriteErrorMessage(string strMethodName, string strErrorMessage)
         {
             try
@@ -1042,6 +1067,7 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
+
         private void WriteTrackLog(string strMethodName, string strErrorMessage)
         {
             try
@@ -1062,7 +1088,6 @@ namespace LBD_WebApiInterface.Api
             catch { }
         }
 
-       
-        #endregion
+        #endregion 私有方法，调试使用
     }
 }

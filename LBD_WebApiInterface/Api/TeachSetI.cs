@@ -1,11 +1,11 @@
-﻿using System;
+﻿using lancoo.cp.basic.sysbaseclass;
+using LBD_WebApiInterface.Models;
+using LBD_WebApiInterface.Utility;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using LBD_WebApiInterface.Utility;
-using LBD_WebApiInterface.Models;
-using System.IO;
-using lancoo.cp.basic.sysbaseclass;
 
 namespace LBD_WebApiInterface.Api
 {
@@ -29,8 +29,10 @@ namespace LBD_WebApiInterface.Api
             更多系统 = 3,
             本地电脑常用目录 = 4,
             U盘常用目录 = 5,
+
             //个人网盘绑定=6,
             新建课件引导提示 = 7,
+
             数字化资源库重命名 = 8,
             专用教材引导提示 = 9,
             个人库定制提示 = 10,
@@ -41,15 +43,13 @@ namespace LBD_WebApiInterface.Api
             教学应用库定制功能引导提示 = 15,
             教学应用库的电子书新增 = 16,
             教学应用库定制结果 = 17,
-            学生重难点标注功能引导提示=18,
-            智慧云网络室定制界面=19,
-            锁控教室间数=20
+            学生重难点标注功能引导提示 = 18,
+            智慧云网络室定制界面 = 19,
+            锁控教室间数 = 20
         }
-
 
         private string mApiBaseUrl;
         private CommandApi mCommandApi;
-
 
         private bool mInitStatus;
 
@@ -65,7 +65,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="strNetTeachPort">课堂教学端口</param>
         /// <param name="strNetTeachVirDir">应用程序名，非聚合版本传空</param>
         /// <returns></returns>
-        public bool Initialize(string strNetTeachIP, string strNetTeachPort,string strNetTeachVirDir)
+        public bool Initialize(string strNetTeachIP, string strNetTeachPort, string strNetTeachVirDir)
         {
             try
             {
@@ -217,7 +217,7 @@ namespace LBD_WebApiInterface.Api
             return -1;
         }
 
-        public int DeleteItemValue(byte bSubjectID,string strTeacherID)
+        public int DeleteItemValue(byte bSubjectID, string strTeacherID)
         {
             try
             {
@@ -253,8 +253,9 @@ namespace LBD_WebApiInterface.Api
         }
 
         #region 定制“我的资料库”相关
+
         //定制“我的资料库”，获取所有的子库
-        public DigitizedResourceItemM[] GetAllDigitizedResourceItem(byte bMySubjectID,string strTeacherID, string strMultipleSubjectAPIIPAndPort,string strCourseClassID)
+        public DigitizedResourceItemM[] GetAllDigitizedResourceItem(byte bMySubjectID, string strTeacherID, string strMultipleSubjectAPIIPAndPort, string strCourseClassID)
         {
             try
             {
@@ -273,7 +274,7 @@ namespace LBD_WebApiInterface.Api
                         //获取教师对资料库的重命名信息
                         Dictionary<string, string> dicResetName = new Dictionary<string, string>();
                         short sItemID = GetSetItemID(E_SetItem.数字化资源库重命名);
-                        TeacherSetInfoM[] teacherSetInfo = GetTeacherSetValue(bMySubjectID, strTeacherID, sItemID,strCourseClassID);
+                        TeacherSetInfoM[] teacherSetInfo = GetTeacherSetValue(bMySubjectID, strTeacherID, sItemID, strCourseClassID);
                         if (teacherSetInfo != null && teacherSetInfo.Length == 1)
                         {
                             string strResetName = teacherSetInfo[0].SetItemValue;
@@ -298,7 +299,7 @@ namespace LBD_WebApiInterface.Api
                                 dr.ItemID = listDir[i].DirectoryID.ToString();
                                 dr.ItemName = listDir[i].DirectoryName;
                                 dr.PhotoPath = listDir[i].IconPath;
-                                
+
                                 //替换成老师重命名后的名称
                                 if (dicResetName.ContainsKey(dr.ItemID))
                                 {
@@ -336,7 +337,7 @@ namespace LBD_WebApiInterface.Api
         }
 
         //重设“我的资料库”中子库的名称
-        public bool ResetDigitResLibraryName(byte bSubjectID,string strTeacherID, string[] arrLibraryID, string[] arrLibraryName,string strCourseClassID)
+        public bool ResetDigitResLibraryName(byte bSubjectID, string strTeacherID, string[] arrLibraryID, string[] arrLibraryName, string strCourseClassID)
         {
             try
             {
@@ -369,7 +370,7 @@ namespace LBD_WebApiInterface.Api
                     return false;
                 }
 
-                SetItemValueSingle(E_SetItem.数字化资源库重命名, bSubjectID, strTeacherID, sbLibrary.ToString(),strCourseClassID,0);
+                SetItemValueSingle(E_SetItem.数字化资源库重命名, bSubjectID, strTeacherID, sbLibrary.ToString(), strCourseClassID, 0);
 
                 return true;
             }
@@ -391,9 +392,11 @@ namespace LBD_WebApiInterface.Api
                     case 1:
                         strSubjectName = "语文";
                         break;
+
                     case 2:
                         strSubjectName = "数学";
                         break;
+
                     case 3:
                         strSubjectName = "英语";
                         break;
@@ -407,7 +410,7 @@ namespace LBD_WebApiInterface.Api
             return "";
         }
 
-        #endregion
+        #endregion 定制“我的资料库”相关
 
         /// <summary>
         /// 查找父目录
@@ -504,50 +507,50 @@ namespace LBD_WebApiInterface.Api
             return null;
         }
 
-/*
-        //判断一个目录是否能定制（能定制则不能进入子目录）
-        public bool IsDirCustomizable(string strDirID, bool bIsJiaoCai, bool HasSubDir)
-        {
-            try
-            {
-                bool bCanCustomizable = false;
-                if (bIsJiaoCai == true)
+        /*
+                //判断一个目录是否能定制（能定制则不能进入子目录）
+                public bool IsDirCustomizable(string strDirID, bool bIsJiaoCai, bool HasSubDir)
                 {
-                    if (HasSubDir == true)
+                    try
                     {
-                        LGZXDirM[] lgzxDir = GetJiaoCaiChildDirectory(strDirID);
-                        if (lgzxDir == null || lgzxDir.Length == 0)
+                        bool bCanCustomizable = false;
+                        if (bIsJiaoCai == true)
                         {
-                            bCanCustomizable = true;
-                        }
-                        else
-                        {
-                            //若子目录不是教材，则可定制
-                            if (lgzxDir[0].IsJiaoCai == 0)
+                            if (HasSubDir == true)
+                            {
+                                LGZXDirM[] lgzxDir = GetJiaoCaiChildDirectory(strDirID);
+                                if (lgzxDir == null || lgzxDir.Length == 0)
+                                {
+                                    bCanCustomizable = true;
+                                }
+                                else
+                                {
+                                    //若子目录不是教材，则可定制
+                                    if (lgzxDir[0].IsJiaoCai == 0)
+                                    {
+                                        bCanCustomizable = true;
+                                    }
+                                }
+                            }
+                            else
                             {
                                 bCanCustomizable = true;
                             }
                         }
-                    }
-                    else
-                    {
-                        bCanCustomizable = true;
-                    }
-                }
-                else
-                {
-                    bCanCustomizable = false;
-                }
+                        else
+                        {
+                            bCanCustomizable = false;
+                        }
 
-                return bCanCustomizable;
-            }
-            catch (Exception e)
-            {
-                WriteErrorMessage("IsDirCustomizable", e.Message);
-            }
-            return false;
-        }
-*/
+                        return bCanCustomizable;
+                    }
+                    catch (Exception e)
+                    {
+                        WriteErrorMessage("IsDirCustomizable", e.Message);
+                    }
+                    return false;
+                }
+        */
 
         /// <summary>
         /// 查找子目录
@@ -627,7 +630,7 @@ namespace LBD_WebApiInterface.Api
                 {
                     return null;
                 }
-                
+
                 string[] arrParam = new string[1];
                 //arrParam[0] = bSubjectID.ToString();
                 arrParam[0] = iSchoolType.ToString();
@@ -668,7 +671,6 @@ namespace LBD_WebApiInterface.Api
                 WriteErrorMessage("GetAllApplySystem", e.Message);
             }
             return null;
-
         }
 
         //根据学科获取所有应用系统
@@ -676,8 +678,8 @@ namespace LBD_WebApiInterface.Api
         {
             try
             {
-                string[] arrParam=new string[1];
-                arrParam[0]=bSubjectID.ToString();
+                string[] arrParam = new string[1];
+                arrParam[0] = bSubjectID.ToString();
 
                 string strData = mCommandApi.CallMethodGet("SelectAllOuterSystemBySubject", arrParam);
                 if (string.IsNullOrEmpty(strData))
@@ -693,7 +695,6 @@ namespace LBD_WebApiInterface.Api
                 WriteErrorMessage("GetAllApplySystemBySubject", e.Message);
             }
             return null;
-
         }
 
         //获取老师是否点击了网络化课件的“我知道了”
@@ -718,7 +719,7 @@ namespace LBD_WebApiInterface.Api
                 string strData = mCommandApi.CallMethodGet("SelectItemValue", arrParam);
                 if (string.IsNullOrEmpty(strData) == false)
                 {
-                    TeacherSetInfoM[] info=JsonFormatter.JsonDeserialize<TeacherSetInfoM[]>(strData);
+                    TeacherSetInfoM[] info = JsonFormatter.JsonDeserialize<TeacherSetInfoM[]>(strData);
                     if (info != null && info.Length > 0)
                     {
                         string strValue = info[0].SetItemValue;
@@ -779,9 +780,8 @@ namespace LBD_WebApiInterface.Api
             return 0;
         }
 
-
         //获取某个设置项的值
-        public string GetItemValueSingle(E_SetItem eSetItem, byte bSubjectID, string strTeacherID,string strCourseClassID,short sClassroomIndex)
+        public string GetItemValueSingle(E_SetItem eSetItem, byte bSubjectID, string strTeacherID, string strCourseClassID, short sClassroomIndex)
         {
             try
             {
@@ -851,7 +851,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="iAuthorizeTotal">额定授权总数</param>
         /// <param name="sErrTips">错误提示内容</param>
         /// <returns>授权成功或失败</returns>
-        public bool IsAuthorizePass(string sMacAddr, int iAuthorizeTotal,out string sErrTips)
+        public bool IsAuthorizePass(string sMacAddr, int iAuthorizeTotal, out string sErrTips)
         {
             //TODO：双网卡传入的mac地址为xxx|yyy的格式，不能直接将这串字符串上传到服务器，需要先切分判断，再考虑上传！
             //这里情况比较复杂，详情见博客https://leventureqys.github.io//2022/10/27/Debug/
@@ -952,7 +952,6 @@ namespace LBD_WebApiInterface.Api
                             }
                         }
                     }
-
 
                     if (bFind)//已授权机器码
                     {
@@ -1059,60 +1058,79 @@ namespace LBD_WebApiInterface.Api
                     case 1:
                         sSetItemID = 10;
                         break;
+
                     case 2:
                         sSetItemID = 11;
                         break;
+
                     case 3:
                         sSetItemID = 12;
                         break;
+
                     case 4:
                         sSetItemID = 13;
                         break;
-                    case 5: 
+
+                    case 5:
                         sSetItemID = 14;
                         break;
+
                     case 6:
                         sSetItemID = 15;
                         break;
+
                     case 7:
                         sSetItemID = 16;
                         break;
+
                     case 8:
                         sSetItemID = 17;
                         break;
+
                     case 9:
                         sSetItemID = 18;
                         break;
+
                     case 10:
                         sSetItemID = 19;
                         break;
+
                     case 11:
                         sSetItemID = 20;
                         break;
+
                     case 12:
                         sSetItemID = 21;
                         break;
+
                     case 13:
                         sSetItemID = 22;
                         break;
+
                     case 14:
                         sSetItemID = 23;
                         break;
+
                     case 15:
                         sSetItemID = 24;
                         break;
+
                     case 16:
                         sSetItemID = 25;
                         break;
+
                     case 17:
                         sSetItemID = 26;
                         break;
+
                     case 18:
                         sSetItemID = 27;
                         break;
+
                     case 19:
                         sSetItemID = 28;
                         break;
+
                     case 20:
                         sSetItemID = 29;
                         break;
@@ -1163,6 +1181,5 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
-
     }
 }

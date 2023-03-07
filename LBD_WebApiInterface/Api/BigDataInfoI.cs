@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using LBD_WebApiInterface.Utility;
-using LBD_WebApiInterface.ClassTeach;
-using System.IO;
-using LBD_WebApiInterface.Models.CloudPlatform;
+﻿using LBD_WebApiInterface.ClassTeach;
 using LBD_WebApiInterface.Models.BigData;
-using System.Xml;
+using LBD_WebApiInterface.Models.CloudPlatform;
+using LBD_WebApiInterface.Utility;
+using System;
+using System.IO;
 using System.Net;
+using System.Text;
+using System.Xml;
 
 namespace LBD_WebApiInterface.Api
 {
@@ -53,12 +51,13 @@ namespace LBD_WebApiInterface.Api
         }
 
         #region 云平台接口
+
         /// <summary>
         /// 获取学校信息
         /// </summary>
         /// <param name="SchoolID">学校ID</param>
         /// <returns></returns>
-        public SchoolBaseInfoM  CF_GetSchoolInfo(string SchoolID)
+        public SchoolBaseInfoM CF_GetSchoolInfo(string SchoolID)
         {
             try
             {
@@ -127,7 +126,7 @@ namespace LBD_WebApiInterface.Api
                 //                     {
                 //                         arrClassID[i] = stuInfo[i].ClassIDQM;
                 //                         arrClassName[i] = stuInfo[i].ClassNameQM;
-                // 
+                //
                 //                         index = arrClassID[i].IndexOf('>');
                 //                         if (index > -1)
                 //                         {
@@ -139,7 +138,6 @@ namespace LBD_WebApiInterface.Api
                 //                             arrClassName[i] = arrClassName[i].Substring(index + 1);
                 //                         }
                 //                     }
-
             }
             catch (Exception e)
             {
@@ -147,7 +145,8 @@ namespace LBD_WebApiInterface.Api
                 return null;
             }
         }
-        #endregion
+
+        #endregion 云平台接口
 
         /// <summary>
         /// 查找课堂基本信息
@@ -223,6 +222,7 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
+
         /// <summary>
         /// 查找资料信息（一次性获取课堂下所有的，仅包含使用过的）
         /// </summary>
@@ -267,7 +267,7 @@ namespace LBD_WebApiInterface.Api
                 string[] arrParam = new string[1];
                 arrParam[0] = LoginClassID.ToString();
                 string strReturn = mCommandApi.CallMethodGet("GetLoginModeInfo", arrParam);
-                if (string.IsNullOrEmpty(strReturn) ==false)
+                if (string.IsNullOrEmpty(strReturn) == false)
                 {
                     arrMode = JsonFormatter.JsonDeserialize<BD_LCTeachModeInfoM[]>(strReturn);
                 }
@@ -345,7 +345,7 @@ namespace LBD_WebApiInterface.Api
 
         //获取一堂课内教室控制下的操作学生结果,一次操作算一次结果集
         public BD_StuResultByTeachInfoM[] GetStuResultByTeachInfo(int LoginClassID, string OperCode)
-            {
+        {
             BD_StuResultByTeachInfoM[] arrStuResult = null;
             try
             {
@@ -353,19 +353,20 @@ namespace LBD_WebApiInterface.Api
                 arrparam[0] = LoginClassID.ToString();
                 arrparam[1] = OperCode;
                 string strReturn = mCommandApi.CallMethodGet("GetStuOperResultByTeach", arrparam);
-                if (string.IsNullOrEmpty(strReturn)==false)
+                if (string.IsNullOrEmpty(strReturn) == false)
                 {
                     arrStuResult = JsonFormatter.JsonDeserialize<BD_StuResultByTeachInfoM[]>(strReturn);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             { WriteErrorMessage("GetStuResultByTeachInfo", e.Message); }
             //if (arrStuResult == null)
             //{
             //    arrStuResult = new BD_StuResultByTeachInfoM[0];
             //}
             return arrStuResult;
-            }
+        }
+
         /// <summary>
         /// 获取一堂课中所有学生的笔记信息
         /// </summary>
@@ -426,7 +427,7 @@ namespace LBD_WebApiInterface.Api
         }
 
         //获取资料学习认知数据（认知大数据）
-        public string  GetResourceStudyPerceive(int iLoginClassID)
+        public string GetResourceStudyPerceive(int iLoginClassID)
         {
             try
             {
@@ -448,6 +449,7 @@ namespace LBD_WebApiInterface.Api
             }
             //return null;
         }
+
         //获取学习成绩认知数据
         public string GetStudyResultPerceive(int iLoginClassID)
         {
@@ -471,8 +473,10 @@ namespace LBD_WebApiInterface.Api
             }
             //return null;
         }
+
         #region 通过用户ID获取用户名称
-        public static  string GetUserNameWithUserID(string UserID, string basicPlatServerAddr)
+
+        public static string GetUserNameWithUserID(string UserID, string basicPlatServerAddr)
         {
             try
             {
@@ -512,8 +516,11 @@ namespace LBD_WebApiInterface.Api
                 return "";
             }
         }
-        #endregion
+
+        #endregion 通过用户ID获取用户名称
+
         #region 返回字符串的MD5值
+
         /// <summary>
         /// 返回字符串的MD5值
         /// </summary>
@@ -531,7 +538,9 @@ namespace LBD_WebApiInterface.Api
             }
             return sBuilder.ToString();
         }
-        #endregion
+
+        #endregion 返回字符串的MD5值
+
         private void WriteErrorMessage(string strMethodName, string strErrorMessage)
         {
             try

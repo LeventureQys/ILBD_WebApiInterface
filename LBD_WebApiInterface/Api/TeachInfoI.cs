@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using LBD_WebApiInterface.Utility;
-using System.Xml;
+﻿using lancoo.cp.basic.sysbaseclass;
 using LBD_WebApiInterface.ClassTeach;
-using LgSoft.LgMgrCenterDOTDLL;
-using LBD_WebApiInterface.Models.CloudPlatform;
-using AccessWebApi_Model.SchoolLesson;
 using LBD_WebApiInterface.Models;
-using System.Runtime.Serialization.Json;
+using LBD_WebApiInterface.Models.CloudPlatform;
+using LBD_WebApiInterface.Utility;
+using LgSoft.LgMgrCenterDOTDLL;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using lancoo.cp.basic.sysbaseclass;
-using System.Diagnostics;
-
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Xml;
 
 namespace LBD_WebApiInterface.Api
 {
     public class TeachInfoI
     {
-
         #region 改写部分
+
         /// <summary>
         /// 教学模块
         /// </summary>
@@ -34,7 +29,7 @@ namespace LBD_WebApiInterface.Api
             口语测试 = 4,
             作业 = 5,
             管理平台 = 6,
-            多媒体教学=7
+            多媒体教学 = 7
         }
 
         //现在多学科，教学模式有变更。但其它学科的又不能直接追加在后面，因为有相同名字的模式
@@ -121,15 +116,15 @@ namespace LBD_WebApiInterface.Api
             主题背景库 = 8,
             本地电脑 = 9,    //v5.0新增
             翻译库 = 10,     //新增翻译库
-            电子资源库=11,
-            数字化资源库=12,
-            网络化课件库=13,
-            U盘=14,
-            专用教材=15,
-            课前预习=16,
-            课堂教案=17,
-            课后练习=18,
-            智能化课件=19,
+            电子资源库 = 11,
+            数字化资源库 = 12,
+            网络化课件库 = 13,
+            U盘 = 14,
+            专用教材 = 15,
+            课前预习 = 16,
+            课堂教案 = 17,
+            课后练习 = 18,
+            智能化课件 = 19,
             智能组卷试卷 = 20,
             随堂测试卷 = 21,
             教学方案 = 22,
@@ -138,9 +133,8 @@ namespace LBD_WebApiInterface.Api
             课后作业方案 = 25,
             课文讲解课件 = 26,
             重难点讲解课件 = 27,
-            本地资料课件集 = 28,  
+            本地资料课件集 = 28,
             智能化课件组成 = 29  //智能化课件的子模块类型例如主体原文、课前热身xiezongwu201710-13
-           
         }
 
         /// <summary>
@@ -152,18 +146,17 @@ namespace LBD_WebApiInterface.Api
             平均分 = 2
         }
 
-        #endregion
-
+        #endregion 改写部分
 
         #region 事件
+
         public delegate void EventInvalidTokenHandler();
-        public event EventInvalidTokenHandler EventInvalidToken; 
 
-        #endregion
+        public event EventInvalidTokenHandler EventInvalidToken;
 
+        #endregion 事件
 
-
-        #region  属性
+        #region 属性
 
         // 学科
         public enum E_Subject
@@ -178,8 +171,8 @@ namespace LBD_WebApiInterface.Api
             政治 = 7,
             历史 = 8,
             地理 = 9,
-            科学=10,
-            美术=11
+            科学 = 10,
+            美术 = 11
         }
 
         //其它系统名称（从本系统接口获取，区别于云平台）
@@ -203,10 +196,10 @@ namespace LBD_WebApiInterface.Api
         /// </summary>
         public enum E_TeachProductName
         {
-            Default=0,//默认为英语课堂教学系统5.2
-            EnglishClassRoomTeachSystemV52=1,
-            GeneralClassRoomTeachSystemV20=2,
-            InternetStudySystemV10=3
+            Default = 0,//默认为英语课堂教学系统5.2
+            EnglishClassRoomTeachSystemV52 = 1,
+            GeneralClassRoomTeachSystemV20 = 2,
+            InternetStudySystemV10 = 3
         }
 
         //本系统的学科ID
@@ -217,12 +210,16 @@ namespace LBD_WebApiInterface.Api
                 return mMySubjectID;
             }
         }
+
         //当前系统Id
-        public string CurSysID {
-            get {
+        public string CurSysID
+        {
+            get
+            {
                 return m_curSysID;
             }
         }
+
         //本系统的系统ID
         public string MySysID
         {
@@ -231,6 +228,7 @@ namespace LBD_WebApiInterface.Api
                 return C_MySystemID;
             }
         }
+
         //学生成绩总评
         public string StudentResultSysID
         {
@@ -257,6 +255,7 @@ namespace LBD_WebApiInterface.Api
                 return mCloudPlatformBFIP;
             }
         }
+
         public string CloudPlatformBFPort
         {
             get
@@ -264,6 +263,7 @@ namespace LBD_WebApiInterface.Api
                 return mCloudPlatformBFPort;
             }
         }
+
         public string CloudPlatformBFPhyPath
         {
             get
@@ -271,6 +271,7 @@ namespace LBD_WebApiInterface.Api
                 return mCloudPlatformBFPhyPath;
             }
         }
+
         //云平台基础平台学科ID
         public string CloudPlatformSubjectID
         {
@@ -279,6 +280,7 @@ namespace LBD_WebApiInterface.Api
                 return mCloudPlatformSubjectID;
             }
         }
+
         //云平台基础平台学科名称
         public string CloudPlatformSubjectName
         {
@@ -296,6 +298,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strWebServerICIP;
             }
         }
+
         public long TeachWebServerICPort
         {
             get
@@ -303,6 +306,7 @@ namespace LBD_WebApiInterface.Api
                 return m_lngWebServerICPort;
             }
         }
+
         public string TeachWebServerICPhyPath
         {
             get
@@ -319,6 +323,7 @@ namespace LBD_WebApiInterface.Api
                 return mMultipleSubjectWebIPAndPort;
             }
         }
+
         //电子阅览室（李琳璐，又名学科资源库）WS服务和API地址（IP:Port）
         public string MultipleSubjectAPIIPAndPort
         {
@@ -336,6 +341,7 @@ namespace LBD_WebApiInterface.Api
                 return mSchoolID;
             }
         }
+
         //学校名称
         public string SchoolName
         {
@@ -344,6 +350,7 @@ namespace LBD_WebApiInterface.Api
                 return mSchoolName;
             }
         }
+
         //学校级别（ 1：大学、 2：中小学）
         public string SchoolLevel
         {
@@ -352,6 +359,7 @@ namespace LBD_WebApiInterface.Api
                 return mSchoolLevel;
             }
         }
+
         public string SchoolType
         {
             get
@@ -359,6 +367,7 @@ namespace LBD_WebApiInterface.Api
                 return mSchoolType;
             }
         }
+
         //本系统的概念，区别于云平台
         public int MySchoolType
         {
@@ -367,7 +376,6 @@ namespace LBD_WebApiInterface.Api
                 return mMySchoolType;
             }
         }
-
 
         public string TermYear
         {
@@ -384,6 +392,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strResourceDBIP;
             }
         }
+
         public string ZYK_DB_Name
         {
             get
@@ -391,6 +400,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strResourceDBName;
             }
         }
+
         public string ZYK_DB_UserName
         {
             get
@@ -398,6 +408,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strResourceDBUserName;
             }
         }
+
         public string ZYK_DB_UserPwd
         {
             get
@@ -413,6 +424,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strFtpIPAddress;
             }
         }
+
         public long ZYK_FTP_Port
         {
             get
@@ -420,6 +432,7 @@ namespace LBD_WebApiInterface.Api
                 return m_lngFtpPort;
             }
         }
+
         public string ZYK_FTP_Name
         {
             get
@@ -427,6 +440,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strFtpName;
             }
         }
+
         public string ZYK_FTP_UserName
         {
             get
@@ -434,6 +448,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strFtpUserName;
             }
         }
+
         public string ZYK_FTP_UserPwd
         {
             get
@@ -441,6 +456,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strFtpUserPwd;
             }
         }
+
         public string ZYK_FTP_PhyPath
         {
             get
@@ -456,6 +472,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strHttpIPAddress;
             }
         }
+
         public int ZYK_HTTP_Port
         {
             get
@@ -463,6 +480,7 @@ namespace LBD_WebApiInterface.Api
                 return m_intHttpPort;
             }
         }
+
         public string ZYK_HTTP_Name
         {
             get
@@ -479,6 +497,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strEssayWSIP;
             }
         }
+
         public long EssayWSPort
         {
             get
@@ -495,6 +514,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strEssayWSIP_IR;
             }
         }
+
         public long EssayWSPort_IR
         {
             get
@@ -502,6 +522,7 @@ namespace LBD_WebApiInterface.Api
                 return m_lngEssayWSPort_IR;
             }
         }
+
         public string EssayVirDir_IR
         {
             get
@@ -509,7 +530,8 @@ namespace LBD_WebApiInterface.Api
                 return m_strEssayVirDir_IR;
             }
         }
-        //口语考试 
+
+        //口语考试
         public string OTServiceIP
         {
             get
@@ -517,6 +539,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strOTServiceIP;
             }
         }
+
         public long OTServicePort
         {
             get
@@ -537,6 +560,7 @@ namespace LBD_WebApiInterface.Api
                 mThemeVideoWSIP = value;
             }
         }
+
         public string ThemeVideoPort
         {
             get
@@ -548,10 +572,12 @@ namespace LBD_WebApiInterface.Api
                 mThemeVideoPort = value;
             }
         }
+
         /// <summary>
         /// 主题背景库的聚合应用程序名
         /// </summary>
-        public string ThemeVideoVirDir { get { return mThemeVideoVirDir; } }
+        public string ThemeVideoVirDir
+        { get { return mThemeVideoVirDir; } }
 
         //知识点
         public string KnowledgeWSIP
@@ -561,6 +587,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strKnowledgeWSIP;
             }
         }
+
         public long KnowledgeWSPort
         {
             get
@@ -568,6 +595,7 @@ namespace LBD_WebApiInterface.Api
                 return m_lngKnowledgeWSPort;
             }
         }
+
         public string KnowledgeDBIP
         {
             get
@@ -575,6 +603,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strKnowledgeDBIP;
             }
         }
+
         public string KnowledgeDBName
         {
             get
@@ -582,6 +611,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strKnowledgeDBName;
             }
         }
+
         public string KnowledgeDBUserName
         {
             get
@@ -589,6 +619,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strKnowledgeDBUserName;
             }
         }
+
         public string KnowledgeDBUserPwd
         {
             get
@@ -607,6 +638,7 @@ namespace LBD_WebApiInterface.Api
                 return mSkillTrainIP;
             }
         }
+
         /// <summary>
         /// 技能训练服务器Port
         /// </summary>
@@ -617,10 +649,12 @@ namespace LBD_WebApiInterface.Api
                 return mSkillTrainPort;
             }
         }
+
         /// <summary>
         /// 技能训练服务器的聚合应用程序名
         /// </summary>
-        public string SkillTrainVirDir {get { return mSkillTrainVirDir; }}
+        public string SkillTrainVirDir
+        { get { return mSkillTrainVirDir; } }
 
         //WebSocket
         public string WebSocketIP
@@ -634,6 +668,7 @@ namespace LBD_WebApiInterface.Api
                 mWebSocketIP = value;
             }
         }
+
         public string WebSocketPort
         {
             get
@@ -658,6 +693,7 @@ namespace LBD_WebApiInterface.Api
                 mBigDataWebAddr = value;
             }
         }
+
         public string BigDataAPIIPAndPort
         {
             get
@@ -666,7 +702,7 @@ namespace LBD_WebApiInterface.Api
             }
             set
             {
-                mBigDataAPIAddr= value;
+                mBigDataAPIAddr = value;
             }
         }
 
@@ -687,6 +723,7 @@ namespace LBD_WebApiInterface.Api
                 return mZYKGL_WS_IP;
             }
         }
+
         public string ZYKGL_WS_Port
         {
             get
@@ -694,10 +731,13 @@ namespace LBD_WebApiInterface.Api
                 return mZYKGL_WS_Port;
             }
         }
+
         /// <summary>
         /// 资源库管理（A00）的聚合应用程序名
         /// </summary>
-        public string ZYKGL_WS_VirDir { get { return mZYKGL_WS_VirDir; } }
+        public string ZYKGL_WS_VirDir
+        { get { return mZYKGL_WS_VirDir; } }
+
         //知识点识别服务器WS
         public string ZSDSB_WS_IP
         {
@@ -706,6 +746,7 @@ namespace LBD_WebApiInterface.Api
                 return mZSDSB_WS_IP;
             }
         }
+
         public string ZSDSB_WS_Port
         {
             get
@@ -713,10 +754,13 @@ namespace LBD_WebApiInterface.Api
                 return mZSDSB_WS_Port;
             }
         }
+
         /// <summary>
         /// 知识点识别服务器的聚合应用程序名
         /// </summary>
-        public string ZSDSB_WS_VirDir { get { return mZSDSB_WS_VirDir; } }
+        public string ZSDSB_WS_VirDir
+        { get { return mZSDSB_WS_VirDir; } }
+
         //知识点库服务器WS
         public string ZSDK_WS_IP
         {
@@ -725,6 +769,7 @@ namespace LBD_WebApiInterface.Api
                 return mZSDK_WS_IP;
             }
         }
+
         public string ZSDK_WS_Port
         {
             get
@@ -743,6 +788,7 @@ namespace LBD_WebApiInterface.Api
                 return mZSDK_FTP_IP;
             }
         }
+
         /// <summary>
         /// 知识点库FTP，sPort
         /// </summary>
@@ -753,6 +799,7 @@ namespace LBD_WebApiInterface.Api
                 return mZSDK_FTP_Port;
             }
         }
+
         /// <summary>
         /// 知识点库FTP，sVirtualPath
         /// </summary>
@@ -763,6 +810,7 @@ namespace LBD_WebApiInterface.Api
                 return mZSDK_FTP_VirDir;
             }
         }
+
         /// <summary>
         /// 知识点库FTP，sUserName
         /// </summary>
@@ -773,6 +821,7 @@ namespace LBD_WebApiInterface.Api
                 return mZSDK_FTP_UserName;
             }
         }
+
         /// <summary>
         /// 知识点库FTP，sPWD
         /// </summary>
@@ -783,10 +832,13 @@ namespace LBD_WebApiInterface.Api
                 return mZSDK_FTP_Pwd;
             }
         }
+
         /// <summary>
         /// 知识点库服务器的聚合应用程序名
         /// </summary>
-        public string ZSDK_WS_VirDir { get { return mZSDK_WS_VirDir; } }
+        public string ZSDK_WS_VirDir
+        { get { return mZSDK_WS_VirDir; } }
+
         //知识点课件WS以及资源库WS
         public string ZSDKJ_WS_IP
         {
@@ -795,6 +847,7 @@ namespace LBD_WebApiInterface.Api
                 return mZSDKJ_WS_IP;
             }
         }
+
         public string ZSDKJ_WS_Port
         {
             get
@@ -802,10 +855,13 @@ namespace LBD_WebApiInterface.Api
                 return mZSDKJ_WS_Port;
             }
         }
+
         /// <summary>
         /// 知识点课件WS以及资源库WS服务器的聚合应用程序名
         /// </summary>
-        public string ZSDKJ_WS_VirDir { get { return mZSDKJ_WS_VirDir; } }
+        public string ZSDKJ_WS_VirDir
+        { get { return mZSDKJ_WS_VirDir; } }
+
         //资源库使用信息收集（与资源库web站点在一起）
         public string ZYKXXSJ_WS_IP
         {
@@ -814,6 +870,7 @@ namespace LBD_WebApiInterface.Api
                 return mZYKXXSJ_WS_IP;
             }
         }
+
         public string ZYKXXSJ_WS_Port
         {
             get
@@ -821,10 +878,12 @@ namespace LBD_WebApiInterface.Api
                 return mZYKXXSJ_WS_Port;
             }
         }
+
         /// <summary>
         /// 资源管理平台Web服务器的聚合应用程序名
         /// </summary>
-        public string ZYKXXSJ_WS_VirDir { get { return mZYKXXSJ_WS_VirDir; } }
+        public string ZYKXXSJ_WS_VirDir
+        { get { return mZYKXXSJ_WS_VirDir; } }
 
         //知识点资源库HTTP信息
         public string ZSDZYK_HTTP_IP
@@ -834,6 +893,7 @@ namespace LBD_WebApiInterface.Api
                 return mZSDZYK_HTTP_IP;
             }
         }
+
         public string ZSDZYK_HTTP_Port
         {
             get
@@ -841,12 +901,14 @@ namespace LBD_WebApiInterface.Api
                 return mZSDZYK_HTTP_Port;
             }
         }
+
         /// <summary>
         ///Http资源服务器的聚合应用程序名
         /// </summary>
-        public string ZSDZYK_HTTP_VirDir { get { return mZSDZYK_HTTP_VirDir; } }
+        public string ZSDZYK_HTTP_VirDir
+        { get { return mZSDZYK_HTTP_VirDir; } }
 
-        //知识点资源库FTP信息 
+        //知识点资源库FTP信息
         public string ZSDZYK_FTP_IP
         {
             get
@@ -854,6 +916,7 @@ namespace LBD_WebApiInterface.Api
                 return mZSDZYK_FTP_IP;
             }
         }
+
         public string ZSDZYK_FTP_Port
         {
             get
@@ -861,6 +924,7 @@ namespace LBD_WebApiInterface.Api
                 return mZSDZYK_FTP_Port;
             }
         }
+
         public string ZSDZYK_FTP_UserName
         {
             get
@@ -868,6 +932,7 @@ namespace LBD_WebApiInterface.Api
                 return mZSDZYK_FTP_UserName;
             }
         }
+
         public string ZSDZYK_FTP_Pwd
         {
             get
@@ -875,11 +940,12 @@ namespace LBD_WebApiInterface.Api
                 return mZSDZYK_FTP_Pwd;
             }
         }
+
         /// <summary>
         ///Ftp资源服务器的聚合应用程序名
         /// </summary>
-        public string ZSDZYK_FTP_VirDir { get { return mZSDZYK_FTP_VirDir; } }
-
+        public string ZSDZYK_FTP_VirDir
+        { get { return mZSDZYK_FTP_VirDir; } }
 
         //以新的方式获取的作文评分WS地址
         public string EssayWSIP2
@@ -889,6 +955,7 @@ namespace LBD_WebApiInterface.Api
                 return m_strEssayWSIP2;
             }
         }
+
         public long EssayWSPort2
         {
             get
@@ -896,44 +963,59 @@ namespace LBD_WebApiInterface.Api
                 return m_lngEssayWSPort2;
             }
         }
+
         /// <summary>
         /// 作文评分的聚合应用程序名
         /// </summary>
-        public string EssayVirDir { get { return m_strEssayVirDir; } }
+        public string EssayVirDir
+        { get { return m_strEssayVirDir; } }
 
-        #endregion
-
-
+        #endregion 属性
 
         #region 成员变量
+
         //基础平台基本系统信息
         private CLPSysConfigInfo clpSysConfigInfo = null;
+
         //解密使用
         private const string C_SecCode = "11122156";
-        private string m_curSysID="B10";
+
+        private string m_curSysID = "B10";
+
         //英语课堂教学系统系统ID
         private const string C_MySystemID = "B10";
+
         //通用课堂教学系统系统ID
         private const string C_GeneralSystemID = "B11";
+
         //电子阅览室系统ID（管理端）
         private const string C_InternetStudySysID = "B30";
+
         private const string C_DigitalLibarySysID = "C11";
+
         //大数据中心之大数据信息收集系统ID
         private const string C_BigDataSysID = "890";
+
         //学生成绩总评系统ID（等于Web端“学生课堂表现”）
         //该系统URL可在更多应用系统中获取
         private const string C_StudentResultID = "810";
+
         //大数据分析中心（教师端）（等同于Web端“学科大数据”）
         //该系统URL可在更多应用系统中获取
         private const string C_BigDataAnalysisSysID = "841";
+
         //个人网盘系统ID
         private const string C_PersonalDiskSysID = "360";
+
         //多教室统一在线管理系统ID
         private const string C_ClassroomManagerSysID = "E00";
+
         //资源库管理系统ID
         private const string C_ZYKGLSysID = "A00";
+
         //作文评分系统ID
         private const string C_EssaySysID = "J11";
+
         //主题背景库系统ID
         //private const string C_ThemeVideo = "K20";
         //网络化资源库
@@ -945,8 +1027,10 @@ namespace LBD_WebApiInterface.Api
         private string m_strZYWSIP;          //作业的WSIP
         private long m_lngZYWSPort;          //作业的WSPort
         private string m_strZYKWSVirDir;
+
         //xiezongwu20151126增加作文评分接口
         private string m_strEssayWSIP;  //作文评分WSip
+
         private long m_lngEssayWSPort;    //作文评分WSport
 
         private string m_strEssayWSIP_IR;  //作文评分WSip_IR
@@ -962,17 +1046,20 @@ namespace LBD_WebApiInterface.Api
 
         //技能训练服务器信息
         private string mSkillTrainIP;
+
         private long mSkillTrainPort;
         private string mSkillTrainVirDir;
 
         //xiezongwu20130401增加FTP资源库独立时获取FTP数据库信息,目前只有资料搜索时才会使用数据库查找方式即访问独立的资源库数据库
         private string m_strResourceDBIP;    //含Port因为该Port与IP是用","隔开
+
         private string m_strResourceDBName;
         private string m_strResourceDBUserName;
         private string m_strResourceDBUserPwd;
 
         //全局变量通过属性访问
         private string m_strFtpName;          //Ftp发布路径的ID
+
         private string m_strFtpUserName;      //当前FTP的用户名
         private string m_strFtpUserPwd;       //当前FTP的密码
         private string m_strFtpIPAddress;     //IP地址
@@ -991,17 +1078,20 @@ namespace LBD_WebApiInterface.Api
 
         //本系统API和WS服务的地址
         private string mNetTeachApiIP;
+
         private string mNetTeachApiPort;
         private string mNetTeachApiVirDir;//add by qinkun @20191012,修改支持兼容版本
 
         //云平台基础平台服务地址
         private string mCloudPlatformBFUrl;//不带http
+
         private string mCloudPlatformBFIP;
         private string mCloudPlatformBFPort;
         private string mCloudPlatformBFPhyPath;
 
         //访问Web API
         private string mApiBaseUrl;
+
         private CommandApi mCommandApi;
 
         //访问WS服务
@@ -1015,38 +1105,44 @@ namespace LBD_WebApiInterface.Api
 
         //电子阅览室（李琳璐，曾名学科资源库）网站服务器地址
         private string mMultipleSubjectWebIPAndPort;
+
         //电子阅览室（李琳璐，曾名学科资源库）WS服务和API地址
         private string mMultipleSubjectAPIIPAndPort;
 
         //个人网盘系统接口的IP和Port
         private string mPersonalDiskAPIIPAndPort;
 
-/*
-        //云平台基础平台Ftp的IP
-        private string mCloudPlatformFtpIP;
-        //云平台基础平台Ftp的端口
-        private string mCloudPlatformFtpPort;
-        //云平台基础平台Ftp的虚拟目录
-        private string mCloudPlatformFtpVirPath;
-        //云平台基础平台Ftp的用户名
-        private string mCloudPlatformFtpUserName;
-        //云平台基础平台Ftp的密码
-        private string mCloudPlatformFtpPassword;
-        //云平台基础平台Ftp的物理路径
-        private string mCloudPlatformFtpPhyPath;
-*/
+        /*
+                //云平台基础平台Ftp的IP
+                private string mCloudPlatformFtpIP;
+                //云平台基础平台Ftp的端口
+                private string mCloudPlatformFtpPort;
+                //云平台基础平台Ftp的虚拟目录
+                private string mCloudPlatformFtpVirPath;
+                //云平台基础平台Ftp的用户名
+                private string mCloudPlatformFtpUserName;
+                //云平台基础平台Ftp的密码
+                private string mCloudPlatformFtpPassword;
+                //云平台基础平台Ftp的物理路径
+                private string mCloudPlatformFtpPhyPath;
+        */
+
         //学校ID
         private string mSchoolID;
+
         //学校名称
         private string mSchoolName;
+
         //学校级别（ 1：大学、 2：中小学）
         private string mSchoolLevel;
+
         //学校类型
         /*（当 SchoolLevel 为 1 时， 2:2 年制、 3:3 年制、 4:4 年制、
 5:5 年制、 6:6 年制、 7:7 年制；当 SchoolLevel 为 2 时， 1：小学、 2：初中、 3：小
 学+初中、 4：高中、 5：小学+高中、 6：初中+高中、 7：小学+初中+高中）
          */
         private string mSchoolType;
+
         //1-小学，2-初中，3-高中，4-大学，5-小学+初中，6-初中+高中，7-小学+高中（一般不会有此类别），8-小学+初中+高中
         private int mMySchoolType;
 
@@ -1058,62 +1154,84 @@ namespace LBD_WebApiInterface.Api
 
         //保存当前学科
         private E_Subject mSubject;
+
         //本系统学科ID
         private byte mMySubjectID;
+
         //云平台学科ID
         private string mCloudPlatformSubjectID;
+
         //云平台学科名
         private string mCloudPlatformSubjectName;
-         
+
         private string curClassSubjectId;//当前用于上课的学科id
+
         //教师ID
         private string mTeacherID;
 
         //WebSocket
         private string mWebSocketIP;
+
         private string mWebSocketPort;
 
         //大数据中心地址
         private string mBigDataWebAddr;
+
         private string mBigDataAPIAddr;
 
         //主题背景库
         private string mThemeVideoWSIP;  //主题背景库WSip
+
         private string mThemeVideoPort;    //主题背景库WSport
         private string mThemeVideoVirDir;//主题背景库应用程序名
 
         //资源库管理
         private string mZYKGL_WS_IP;
+
         private string mZYKGL_WS_Port;
         private string mZYKGL_WS_VirDir;
+
         //知识点识别服务器WS
         private string mZSDSB_WS_IP;
+
         private string mZSDSB_WS_Port;
         private string mZSDSB_WS_VirDir;
+
         //知识点库服务器WS
         private string mZSDK_WS_IP;
+
         private string mZSDK_WS_Port;
         private string mZSDK_WS_VirDir;
+
         //2020.4.30增加by qinkun 新版拼音表使用
         private string mZSDK_FTP_IP;
+
         private string mZSDK_FTP_Port;
         private string mZSDK_FTP_VirDir;
         private string mZSDK_FTP_UserName;
         private string mZSDK_FTP_Pwd;
+
         //知识点课件WS以及资源库WS
         private string mZSDKJ_WS_IP;
+
         private string mZSDKJ_WS_Port;
         private string mZSDKJ_WS_VirDir;
+
         //资源库使用信息收集（与资源库web站点在一起）
         private string mZYKXXSJ_WS_IP;
+
         private string mZYKXXSJ_WS_Port;
         private string mZYKXXSJ_WS_VirDir;
+
         //知识点资源库HTTP的IP和Port
         private string mZSDZYK_HTTP_IP;
+
         private string mZSDZYK_HTTP_Port;
         private string mZSDZYK_HTTP_VirDir;
+
         //知识点资源库FTP信息
         private string mZSDZYK_FTP_IP;
+
         private string mZSDZYK_FTP_Port;
         private string mZSDZYK_FTP_VirDir;
         private string mZSDZYK_FTP_UserName;
@@ -1121,19 +1239,20 @@ namespace LBD_WebApiInterface.Api
 
         //以新的方式获取作文评分的WS地址
         private string m_strEssayWSIP2;
+
         private long m_lngEssayWSPort2;
         private string m_strEssayVirDir;
 
         //在线讨论系统id,系统api地址
-        private string m_tutorSysId="629";
+        private string m_tutorSysId = "629";
+
         private string m_tutorSysApiUrl;
 
         //教学云备课管理端地址
         private string m_bkSysId = "S10";
+
         private string m_bkSysWebUrl;
-        #endregion
-
-
+        #endregion 成员变量
 
         #region 公有方法
 
@@ -1146,35 +1265,35 @@ namespace LBD_WebApiInterface.Api
 
             mInitStatus = false;
         }
-        
+
         /// <summary>
         /// 初始化,根据不同的产品，获取不同的接口的入口地址
         /// </summary>
         /// <param name="sCloudBasicPlatformBFUrl">基础云平台URL,如http://172.16.16.16:8888/</param>
         /// <param name="sProductName">产品名称，枚举变量</param>
         /// <returns>初始化结果，True-成功；False-失败</returns>
-        public bool Initialize(string sCloudBasicPlatformBFUrl,E_TeachProductName sProductName)
+        public bool Initialize(string sCloudBasicPlatformBFUrl, E_TeachProductName sProductName)
         {
             XmlDocument xmlDoc = null;
             string strWholeUrl = sCloudBasicPlatformBFUrl + "Base/WS/Service_Basic.asmx/WS_G_GetSubSystemServerInfoForAllSubject";
             string strParam = "sysID={0}";
-            if (sProductName==E_TeachProductName.EnglishClassRoomTeachSystemV52)
+            if (sProductName == E_TeachProductName.EnglishClassRoomTeachSystemV52)
             {
                 WriteDebugInfo("Initialize", "本系统是云网络智慧教室");
                 strParam = string.Format(strParam, C_MySystemID);
                 m_curSysID = C_MySystemID;
             }
-            else if(sProductName==E_TeachProductName.GeneralClassRoomTeachSystemV20)
+            else if (sProductName == E_TeachProductName.GeneralClassRoomTeachSystemV20)
             {
                 WriteDebugInfo("Initialize", "本系统是通用网络化课堂教学");
                 strParam = string.Format(strParam, C_GeneralSystemID);
                 m_curSysID = C_GeneralSystemID;
             }
-            else if(sProductName==E_TeachProductName.InternetStudySystemV10)
-	    {
+            else if (sProductName == E_TeachProductName.InternetStudySystemV10)
+            {
                 WriteDebugInfo("Initialize", "本系统是互联网学习系统");
                 strParam = string.Format(strParam, C_InternetStudySysID);
-	        m_curSysID = C_InternetStudySysID;
+                m_curSysID = C_InternetStudySysID;
             }
             else if (sProductName == E_TeachProductName.Default)
             {
@@ -1205,7 +1324,6 @@ namespace LBD_WebApiInterface.Api
             //mCloudPlatformBFUrl = sCloudBasicPlatformBFUrl.Replace("http://", null).TrimEnd('/');
             //string strNetTeachIpAndPort = GetSubSysApiIPandPort(C_MySystemID);
 
-
             if (string.IsNullOrEmpty(strNetTeachIpAndPort) == false)
             {
                 string[] arrTemp = strNetTeachIpAndPort.Split(':');
@@ -1215,7 +1333,7 @@ namespace LBD_WebApiInterface.Api
                     //string strNetTeachPort = arrTemp[1];
                     string strNetTeachPort = "";
                     long lPort = 0;
-                    FormatPortAndVirdir(arrTemp[1],out lPort,out mNetTeachApiVirDir);
+                    FormatPortAndVirdir(arrTemp[1], out lPort, out mNetTeachApiVirDir);
                     strNetTeachPort = lPort.ToString();
                     return Initialize(strNetTeachIP, strNetTeachPort);
                 }
@@ -1228,7 +1346,6 @@ namespace LBD_WebApiInterface.Api
             {
                 return false;
             }
-
         }
 
         /// <summary>
@@ -1245,7 +1362,7 @@ namespace LBD_WebApiInterface.Api
             XmlDocument xmlDoc = null;
             string strWholeUrl = sCloudBasicPlatformBFUrl + "Base/WS/Service_Basic.asmx/WS_G_GetSubSystemServerInfoForAllSubject";
             string strParam = "sysID={0}";
-           // strParam = string.Format(strParam, C_MySystemID);
+            // strParam = string.Format(strParam, C_MySystemID);
             strParam = string.Format(strParam, m_curSysID);//20180706 ldy修改，使用当前系统id查询
             string strReturn = mCommandWS.CallMethodPost(strWholeUrl, strParam);
             if (string.IsNullOrEmpty(strReturn))
@@ -1287,7 +1404,6 @@ namespace LBD_WebApiInterface.Api
                 //mCloudPlatformBFUrl = sCloudBasicPlatformBFUrl.Replace("http://", null).TrimEnd('/');
                 //string strNetTeachIpAndPort = GetSubSysApiIPandPort(C_MySystemID);
 
-
                 if (string.IsNullOrEmpty(strNetTeachIpAndPort) == false)
                 {
                     string[] arrTemp = strNetTeachIpAndPort.Split(':');
@@ -1295,9 +1411,9 @@ namespace LBD_WebApiInterface.Api
                     {
                         string strNetTeachIP = arrTemp[0];
                         string strNetTeachPort = "";// arrTemp[1];
-                        long lPort=0;
-                        FormatPortAndVirdir(arrTemp[1],out lPort,out mNetTeachApiVirDir);
-                        strNetTeachPort=lPort.ToString();
+                        long lPort = 0;
+                        FormatPortAndVirdir(arrTemp[1], out lPort, out mNetTeachApiVirDir);
+                        strNetTeachPort = lPort.ToString();
                         //WriteDebugInfo("Initialize2", " Initialize(strNetTeachIP, strNetTeachPort)");
                         //Debug.WriteLine("在Initialize(string sCloudBasicPlatformBFUrl)中Initialize(strNetTeachIP, strNetTeachPort)被调用了");
                         //Debug.Unindent();
@@ -1313,8 +1429,8 @@ namespace LBD_WebApiInterface.Api
                     return false;
                 }
             }
-
         }
+
         /// <summary>
         /// 为学科教学云初始化专门定制的接口ldy20180530
         /// </summary>
@@ -1339,7 +1455,7 @@ namespace LBD_WebApiInterface.Api
                 return false;
             }
         }
-                
+
         /// <summary>
         /// 初始化
         /// </summary>
@@ -1361,7 +1477,7 @@ namespace LBD_WebApiInterface.Api
                     return false;
                 }
                 string tmpNetTeachApiVirDir = "-1";
-                long ltmpPort=0;
+                long ltmpPort = 0;
                 FormatPortAndVirdir(strNetTeachPort, out ltmpPort, out tmpNetTeachApiVirDir);
                 if (string.IsNullOrEmpty(tmpNetTeachApiVirDir) == true)
                 {
@@ -1391,7 +1507,7 @@ namespace LBD_WebApiInterface.Api
 
                 int iCount;
 
-                strWebServiceURL = "http://" + mNetTeachApiIP + ":" + mNetTeachApiPort + "/"+ mNetTeachApiVirDir+"jxWebService.asmx/WS_G_BasicPFWebServerInfo";
+                strWebServiceURL = "http://" + mNetTeachApiIP + ":" + mNetTeachApiPort + "/" + mNetTeachApiVirDir + "jxWebService.asmx/WS_G_BasicPFWebServerInfo";
                 strParam = "strServerID=" + "";
                 strReturn = mCommandWS.CallMethodPost(strWebServiceURL, strParam);
                 if (string.IsNullOrEmpty(strReturn))
@@ -1448,7 +1564,7 @@ namespace LBD_WebApiInterface.Api
                     }
                 }//end if(count>0)
 
-                #endregion
+                #endregion 获取云平台和本系统网站端地址
 
                 #region 获取各应用系统数据接口地址（从本系统的WS服务获取）
                 P_GetOtherSysService();
@@ -1462,9 +1578,9 @@ namespace LBD_WebApiInterface.Api
                     {
                         m_strZYWSIP = arrTemp[0];
                         string[] infoArr = arrTemp[1].Split('/');
-                        m_lngZYWSPort =long.Parse(infoArr[0]);
+                        m_lngZYWSPort = long.Parse(infoArr[0]);
                         if (infoArr.Length >= 2)
-                            m_strZYKWSVirDir = infoArr[1]+"/";
+                            m_strZYKWSVirDir = infoArr[1] + "/";
                         else
                             m_strZYKWSVirDir = "";
                     }
@@ -1473,7 +1589,7 @@ namespace LBD_WebApiInterface.Api
                 //获取资源库数据库、FTP、HTTP信息
                 if (string.IsNullOrEmpty(m_strZYWSIP) == false)
                 {
-                    string strZYKAddr = "http://" + m_strZYWSIP + ":" + m_lngZYWSPort + "/"+ m_strZYKWSVirDir;
+                    string strZYKAddr = "http://" + m_strZYWSIP + ":" + m_lngZYWSPort + "/" + m_strZYKWSVirDir;
                     P_GetZYKinfo(strZYKAddr);
                 }
 
@@ -1483,7 +1599,7 @@ namespace LBD_WebApiInterface.Api
                 //                     string strZSDAddr = "http://" + m_strKnowledgeWSIP + ":" + m_lngKnowledgeWSPort + "/";
                 //                     P_GetZSDinfo(strZSDAddr);
                 //                 }
-                
+
                 //以新的方式获取知识点相关的WS地址
                 string strZYKGL_IPandPort = GetSubSysApiIPandPort(C_ZYKGLSysID);
                 if (string.IsNullOrEmpty(strZYKGL_IPandPort) == false)
@@ -1520,12 +1636,12 @@ namespace LBD_WebApiInterface.Api
                 }
 
                 //以新的方式获取主题背景库地址
-//                 if (string.IsNullOrEmpty(mThemeVideoWSIP))
-//                 {
-//                     string strEssayIPandPort = GetSubSysApiIPandPort(C_EssaySysID);
-// 
-//                 }
-                #endregion
+                //                 if (string.IsNullOrEmpty(mThemeVideoWSIP))
+                //                 {
+                //                     string strEssayIPandPort = GetSubSysApiIPandPort(C_EssaySysID);
+                //
+                //                 }
+                #endregion 获取各应用系统数据接口地址（从本系统的WS服务获取）
 
                 #region 获取学校信息和学期
                 //未有教师登录时获取一个默认学校信息
@@ -1534,7 +1650,7 @@ namespace LBD_WebApiInterface.Api
 
                 //获取学期
                 mTermYear = P_GetTermInfo_WS();
-                #endregion
+                #endregion 获取学校信息和学期
 
                 #region 获取大数据中心地址
                 CloudPlatformSubsystemM bigData = GetSubSysAddr(C_BigDataSysID, null);
@@ -1543,11 +1659,11 @@ namespace LBD_WebApiInterface.Api
                     mBigDataWebAddr = bigData.WebSvrAddr;
                     mBigDataAPIAddr = bigData.WsSvrAddr;
                 }
-                #endregion
+                #endregion 获取大数据中心地址
 
                 #region 获取个人网盘地址
                 mPersonalDiskAPIIPAndPort = GetSubSysApiIPandPort(C_PersonalDiskSysID);
-                #endregion
+                #endregion 获取个人网盘地址
 
                 mInitStatus = true;
 
@@ -1561,7 +1677,7 @@ namespace LBD_WebApiInterface.Api
             return false;
         }
 
-        private bool Initialize(string strNetTeachIP, string strNetTeachPort,bool begnoreNetTeach)
+        private bool Initialize(string strNetTeachIP, string strNetTeachPort, bool begnoreNetTeach)
         {
             try
             {
@@ -1575,8 +1691,8 @@ namespace LBD_WebApiInterface.Api
                     mNetTeachApiIP = strNetTeachIP;
                     mNetTeachApiPort = strNetTeachPort;
 
-                    mApiBaseUrl = string.Format(Properties.Resources.TeachInfoUrl, strNetTeachIP, strNetTeachPort,mNetTeachApiVirDir);
-                    WriteTrackLog("初始化课堂教学webapi地址:" , mApiBaseUrl);
+                    mApiBaseUrl = string.Format(Properties.Resources.TeachInfoUrl, strNetTeachIP, strNetTeachPort, mNetTeachApiVirDir);
+                    WriteTrackLog("初始化课堂教学webapi地址:", mApiBaseUrl);
                     mCommandApi.BaseUrl = mApiBaseUrl;
 
                     //初始化所有系统访问地址
@@ -1591,7 +1707,7 @@ namespace LBD_WebApiInterface.Api
 
                     int iCount;
 
-                    strWebServiceURL = "http://" + mNetTeachApiIP + ":" + mNetTeachApiPort + "/"+ mNetTeachApiVirDir+"jxWebService.asmx/WS_G_BasicPFWebServerInfo";
+                    strWebServiceURL = "http://" + mNetTeachApiIP + ":" + mNetTeachApiPort + "/" + mNetTeachApiVirDir + "jxWebService.asmx/WS_G_BasicPFWebServerInfo";
                     strParam = "strServerID=" + "";
                     strReturn = mCommandWS.CallMethodPost(strWebServiceURL, strParam);
                     if (string.IsNullOrEmpty(strReturn))
@@ -1648,10 +1764,10 @@ namespace LBD_WebApiInterface.Api
                         }
                     }//end if(count>0)
 
-                    #endregion
+                    #endregion 获取云平台和本系统网站端地址
                 }
                 #region 获取各应用系统数据接口地址（从本系统的WS服务获取）
-                if (begnoreNetTeach == false)  P_GetOtherSysService();
+                if (begnoreNetTeach == false) P_GetOtherSysService();
 
                 //修改资源库地址从基础平台获取 ModifiedByQinkun@20171030
                 string strNetZYK_IPandPort = GetSubSysApiIPandPort(C_NETZYKSysID);
@@ -1674,7 +1790,7 @@ namespace LBD_WebApiInterface.Api
                 //获取资源库数据库、FTP、HTTP信息
                 if (string.IsNullOrEmpty(m_strZYWSIP) == false)
                 {
-                    string strZYKAddr = "http://" + m_strZYWSIP + ":" + m_lngZYWSPort + "/"+ m_strZYKWSVirDir;
+                    string strZYKAddr = "http://" + m_strZYWSIP + ":" + m_lngZYWSPort + "/" + m_strZYKWSVirDir;
                     P_GetZYKinfo(strZYKAddr);
                 }
 
@@ -1721,9 +1837,9 @@ namespace LBD_WebApiInterface.Api
                 //                 if (string.IsNullOrEmpty(mThemeVideoWSIP))
                 //                 {
                 //                     string strEssayIPandPort = GetSubSysApiIPandPort(C_EssaySysID);
-                // 
+                //
                 //                 }
-                #endregion
+                #endregion 获取各应用系统数据接口地址（从本系统的WS服务获取）
 
                 #region 获取学校信息和学期
                 //未有教师登录时获取一个默认学校信息
@@ -1732,7 +1848,7 @@ namespace LBD_WebApiInterface.Api
 
                 //获取学期
                 mTermYear = P_GetTermInfo_WS();
-                #endregion
+                #endregion 获取学校信息和学期
 
                 #region 获取大数据中心地址
                 CloudPlatformSubsystemM bigData = GetSubSysAddr(C_BigDataSysID, null);
@@ -1741,11 +1857,11 @@ namespace LBD_WebApiInterface.Api
                     mBigDataWebAddr = bigData.WebSvrAddr;
                     mBigDataAPIAddr = bigData.WsSvrAddr;
                 }
-                #endregion
+                #endregion 获取大数据中心地址
 
                 #region 获取个人网盘地址
                 mPersonalDiskAPIIPAndPort = GetSubSysApiIPandPort(C_PersonalDiskSysID);
-                #endregion
+                #endregion 获取个人网盘地址
 
                 mInitStatus = true;
 
@@ -1768,7 +1884,7 @@ namespace LBD_WebApiInterface.Api
                 //{
                 //    return false;
                 //}
-                if ( string.IsNullOrEmpty(strTeacherID))
+                if (string.IsNullOrEmpty(strTeacherID))
                 {
                     return false;
                 }
@@ -1805,7 +1921,7 @@ namespace LBD_WebApiInterface.Api
                     mMultipleSubjectWebIPAndPort = sysAddr.WebSvrAddr;
                     mMultipleSubjectAPIIPAndPort = sysAddr.WsSvrAddr;
                 }
-                #endregion
+                #endregion 获取电子资源阅览室地址（原本与学科相关）
 
                 return true;
             }
@@ -1816,6 +1932,7 @@ namespace LBD_WebApiInterface.Api
 
             return false;
         }
+
         //
         /// <summary>
         /// 初始化自定义学科
@@ -1824,7 +1941,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="cusSubjectName"></param>
         /// <returns></returns>
 
-        public bool InitInfoForCustomSubject(string cusSubjectId,string cusSubjectName)
+        public bool InitInfoForCustomSubject(string cusSubjectId, string cusSubjectName)
         {
             try
             {
@@ -1839,7 +1956,7 @@ namespace LBD_WebApiInterface.Api
                     mMultipleSubjectWebIPAndPort = sysAddr.WebSvrAddr;
                     mMultipleSubjectAPIIPAndPort = sysAddr.WsSvrAddr;
                 }
-                #endregion
+                #endregion 获取电子资源阅览室地址（原本与学科相关）
 
                 return true;
             }
@@ -1850,6 +1967,7 @@ namespace LBD_WebApiInterface.Api
 
             return false;
         }
+
         //
         //为Web端提供的初始化接口
         public bool Initialize_BS(string strNetTeachIP, string strNetTeachPort, string strToken, string strTeacherID, E_Subject eSubject)
@@ -1859,7 +1977,7 @@ namespace LBD_WebApiInterface.Api
                 mNetTeachApiIP = strNetTeachIP;
                 mNetTeachApiPort = strNetTeachPort;
 
-                mApiBaseUrl = string.Format(Properties.Resources.TeachInfoUrl, strNetTeachIP, strNetTeachPort,mNetTeachApiVirDir);
+                mApiBaseUrl = string.Format(Properties.Resources.TeachInfoUrl, strNetTeachIP, strNetTeachPort, mNetTeachApiVirDir);
                 mCommandApi.BaseUrl = mApiBaseUrl;
 
                 #region 初始化用户信息
@@ -1870,12 +1988,12 @@ namespace LBD_WebApiInterface.Api
 
                 mToken = strToken;
                 mTeacherID = strTeacherID;
-                #endregion
+                #endregion 初始化用户信息
 
                 #region 初始化学科信息
                 mSubject = eSubject;
                 mMySubjectID = GetMySubjectID(mSubject);
-                #endregion
+                #endregion 初始化学科信息
 
                 XmlDocument xmlDoc;
                 string strWebServiceURL = "";
@@ -1885,7 +2003,7 @@ namespace LBD_WebApiInterface.Api
                 int iCount;
 
                 #region 获取云平台和本系统网站端地址
-                strWebServiceURL = "http://" + mNetTeachApiIP + ":" + mNetTeachApiPort + "/"+ mNetTeachApiVirDir + "jxWebService.asmx/WS_G_BasicPFWebServerInfo";
+                strWebServiceURL = "http://" + mNetTeachApiIP + ":" + mNetTeachApiPort + "/" + mNetTeachApiVirDir + "jxWebService.asmx/WS_G_BasicPFWebServerInfo";
                 strParam = "strServerID=" + "";
                 strReturn = mCommandWS.CallMethodPost(strWebServiceURL, strParam);
 
@@ -1937,7 +2055,7 @@ namespace LBD_WebApiInterface.Api
                         }
                     }
                 }//end if(count>0)
-                #endregion
+                #endregion 获取云平台和本系统网站端地址
 
                 #region 获取学校信息和学期
                 //根据当前教师所属学校ID更新学校信息和云平台学科ID
@@ -1945,7 +2063,7 @@ namespace LBD_WebApiInterface.Api
 
                 //获取学期
                 mTermYear = P_GetTermInfo_WS();
-                #endregion
+                #endregion 获取学校信息和学期
 
                 #region 获取资源库HTTP信息
                 //获取资源库WS服务地址
@@ -1987,7 +2105,7 @@ namespace LBD_WebApiInterface.Api
                                 string[] infoArr = arrTemp[1].Split('/');
                                 m_lngZYWSPort = long.Parse(infoArr[0]);
                                 if (infoArr.Length >= 2)
-                                    m_strZYKWSVirDir = "/"+infoArr[1] ;
+                                    m_strZYKWSVirDir = "/" + infoArr[1];
                                 else
                                     m_strZYKWSVirDir = "";
                             }
@@ -1997,7 +2115,7 @@ namespace LBD_WebApiInterface.Api
                     //获取资源库HTTP信息
                     if (string.IsNullOrEmpty(m_strZYWSIP) == false)
                     {
-                        strWebServiceURL = "http://" + m_strZYWSIP + ":" + m_lngZYWSPort + m_strZYKWSVirDir+ "/ZYK/Server.asmx/WS_G_ZYK_GetResHttpServer";
+                        strWebServiceURL = "http://" + m_strZYWSIP + ":" + m_lngZYWSPort + m_strZYKWSVirDir + "/ZYK/Server.asmx/WS_G_ZYK_GetResHttpServer";
                         strParam = "";
                         strReturn = mCommandWS.CallMethodPost(strWebServiceURL, strParam);
 
@@ -2019,7 +2137,7 @@ namespace LBD_WebApiInterface.Api
                         }
                     }
                 }
-                #endregion
+                #endregion 获取资源库HTTP信息
 
                 #region 获取电子资源阅览室地址
                 CloudPlatformSubsystemM sysAddr = GetSubSysAddr(C_DigitalLibarySysID, null);
@@ -2028,7 +2146,7 @@ namespace LBD_WebApiInterface.Api
                     mMultipleSubjectWebIPAndPort = sysAddr.WebSvrAddr;
                     mMultipleSubjectAPIIPAndPort = sysAddr.WsSvrAddr;
                 }
-                #endregion
+                #endregion 获取电子资源阅览室地址
 
                 return true;
             }
@@ -2039,7 +2157,7 @@ namespace LBD_WebApiInterface.Api
             return false;
         }
 
-        #endregion
+        #endregion 初始化相关
 
         #region“按课表上课”相关
 
@@ -2128,7 +2246,7 @@ namespace LBD_WebApiInterface.Api
                     }
                 }
                 LoginApiDataM data = JsonFormatter.JsonDeserialize<LoginApiDataM>(strReturn);
-                if (data!=null&&string.IsNullOrEmpty(data.Result) == false)
+                if (data != null && string.IsNullOrEmpty(data.Result) == false)
                 {
                     if (data.Result != null)
                     {
@@ -2137,7 +2255,7 @@ namespace LBD_WebApiInterface.Api
                     }
                     else
                     {
-                        WriteErrorMessage("CheckUserOnline", "data.Result为空");                        
+                        WriteErrorMessage("CheckUserOnline", "data.Result为空");
                     }
                 }
             }
@@ -2175,7 +2293,7 @@ namespace LBD_WebApiInterface.Api
                 WriteErrorMessage("UserLogout->", "4,sbUrl =" + sbUrl);
                 LoginApiDataM data = JsonFormatter.JsonDeserialize<LoginApiDataM>(strReturn);
                 WriteErrorMessage("UserLogout->", "5,strReturn = " + strReturn);
-                if (data!=null&&string.IsNullOrEmpty(data.Result) == false)
+                if (data != null && string.IsNullOrEmpty(data.Result) == false)
                 {
                     if (data.Result != null)
                     {
@@ -2266,7 +2384,6 @@ namespace LBD_WebApiInterface.Api
             return null;
         }
 
-
         //根据输入的字符串参数，返回MD5加密后的字符串
         private string GetMd5Hash(string input)
         {
@@ -2310,8 +2427,6 @@ namespace LBD_WebApiInterface.Api
             }
             return "";
         }
-
-
 
         //查询课表信息
         public ScheduleInfoM[] GetScheduleByNetClassRoom(string strClassroomID, DateTime dtLessonTime)
@@ -2446,9 +2561,10 @@ namespace LBD_WebApiInterface.Api
             return false;
         }
 
-        #endregion
+        #endregion 公有方法
 
         #region 基础信息相关
+
         /// <summary>
         /// 根据学校ID获取学校信息
         /// </summary>
@@ -2634,9 +2750,11 @@ namespace LBD_WebApiInterface.Api
                     case 1:
                         strParam = strParam + "base";
                         break;
+
                     case 2:
                         strParam = strParam + "all";
                         break;
+
                     default:
                         strParam = strParam + "base";
                         break;
@@ -2877,7 +2995,7 @@ namespace LBD_WebApiInterface.Api
                 xmlDoc = new XmlDocument();
                 xmlDoc.LoadXml(strReturn);
                 XmlNodeList list = xmlDoc.DocumentElement.GetElementsByTagName("anyType");
-                
+
                 int iCount = 0;
                 if (list != null)
                 {
@@ -3357,7 +3475,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="arrStudyLevelName">学习阶段名称</param>
         /// <param name="arrGlobalGrade">年级标识，K1~K12（一年级至高中三年级），U1~U5(大一至大五)，M1~M3（中职一至中职三），H1~H5（高职一至高职五）</param>
         /// <returns>课程班个数</returns>
-        public int GetCourseClassInfoByGH(out string[] arrCourseNo, out string[] arrCourseName, out string[] arrCourseClassID, out string[] arrCourseClassName,out string[] arrSubjectID,out string[] arrStudyLevelID,out string[] arrStudyLevelName,out string[] arrGlobalGrade)
+        public int GetCourseClassInfoByGH(out string[] arrCourseNo, out string[] arrCourseName, out string[] arrCourseClassID, out string[] arrCourseClassName, out string[] arrSubjectID, out string[] arrStudyLevelID, out string[] arrStudyLevelName, out string[] arrGlobalGrade)
         {
             arrCourseNo = null;
             arrCourseName = null;
@@ -3424,9 +3542,9 @@ namespace LBD_WebApiInterface.Api
                     }
                     return iCount;
                 }
-                else 
+                else
                 {
-                    WriteTrackLog("GetCourseClassInfoByGH",JsonFormatter.JsonSerialize(list));
+                    WriteTrackLog("GetCourseClassInfoByGH", JsonFormatter.JsonSerialize(list));
                 }
             }
             catch (Exception e)
@@ -3436,6 +3554,7 @@ namespace LBD_WebApiInterface.Api
 
             return 0;
         }
+
         /// <summary>
         /// 根据教师TeacherID，获取该教师所带的课程班信息
         /// </summary>
@@ -3459,11 +3578,11 @@ namespace LBD_WebApiInterface.Api
             try
             {
                 CourseClassInfoExM[] courseClass1 = P_GetCourseClassByUser();
-              
+
                 if (courseClass1 == null)
                     WriteErrorMessage("GetCourseClassInfoByGH", "用户所带的教学班为空");
-               
-                if (courseClass1 == null )
+
+                if (courseClass1 == null)
                 {
                     return 0;
                 }
@@ -3510,6 +3629,7 @@ namespace LBD_WebApiInterface.Api
 
             return 0;
         }
+
         ////
         /// <summary>
         /// 根据教师TeacherID，获取该教师所带的课程班信息
@@ -3523,7 +3643,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="arrStudyLevelName">学习阶段名称</param>
         /// <param name="arrGlobalGrade">年级标识，K1~K12（一年级至高中三年级），U1~U5(大一至大五)，M1~M3（中职一至中职三），H1~H5（高职一至高职五）</param>
         /// <returns>课程班个数</returns>
-        public int GetCourseClassInfoByUser(out string[] arrCourseNo, out string[] arrCourseName, out string[] arrCourseClassID, out string[] arrCourseClassName, out string[] arrSubjectID, out string[] arrStudyLevelID, out string[] arrStudyLevelName,out string[] arrGlobalGrade)
+        public int GetCourseClassInfoByUser(out string[] arrCourseNo, out string[] arrCourseName, out string[] arrCourseClassID, out string[] arrCourseClassName, out string[] arrSubjectID, out string[] arrStudyLevelID, out string[] arrStudyLevelName, out string[] arrGlobalGrade)
         {
             arrCourseNo = null;
             arrCourseName = null;
@@ -3591,7 +3711,6 @@ namespace LBD_WebApiInterface.Api
                 {
                     WriteTrackLog("GetCourseClassInfoByUser", JsonFormatter.JsonSerialize(list));
                 }
-
             }
             catch (Exception e)
             {
@@ -3600,6 +3719,7 @@ namespace LBD_WebApiInterface.Api
 
             return 0;
         }
+
         ////
         //根据课程班级ID，获取班级下所有学生的详细信息
         public int GetStudentInfoByCourseClassID(string strCourseClassID, out string[] arrXH, out string[] arrName, out string[] arrGender, out string[] arrPhotoPath, out string[] arrClassID, out string[] arrClassName)
@@ -3733,7 +3853,7 @@ namespace LBD_WebApiInterface.Api
 
                 //初始化更多应用系统，一开始从本地数据库读取，主要信息只有系统ID和系统名称
                 //然后从学科平台获取，将各系统的其它信息添加进来
-                string strWholeUrl = string.Format(Properties.Resources.TeachSetUrl, mNetTeachApiIP, mNetTeachApiPort,mNetTeachApiVirDir);
+                string strWholeUrl = string.Format(Properties.Resources.TeachSetUrl, mNetTeachApiIP, mNetTeachApiPort, mNetTeachApiVirDir);
                 strWholeUrl = strWholeUrl + "?action=SelectAllOuterSystemBySubject&params=[\"" + mMySubjectID.ToString() + "\"]";
                 string strData = mCommandApi.CallMethodGet(strWholeUrl);
                 if (string.IsNullOrEmpty(strData))
@@ -3941,7 +4061,7 @@ namespace LBD_WebApiInterface.Api
                 }
 
                 //初始化更多应用系统，确定当前学科最多可以显示哪些系统（从本地数据库读取，主要信息只有系统ID和系统名称）
-                string strWholeUrl = string.Format(Properties.Resources.TeachSetUrl, mNetTeachApiIP, mNetTeachApiPort,mNetTeachApiVirDir);
+                string strWholeUrl = string.Format(Properties.Resources.TeachSetUrl, mNetTeachApiIP, mNetTeachApiPort, mNetTeachApiVirDir);
                 strWholeUrl = strWholeUrl + "?action=SelectAllOuterSystemBySubject&params=[\"" + mMySubjectID.ToString() + "\"]";
                 string strData = mCommandApi.CallMethodGet(strWholeUrl);
                 if (string.IsNullOrEmpty(strData))
@@ -4073,6 +4193,7 @@ namespace LBD_WebApiInterface.Api
                             sys.AccessAddr = sys.AccessAddr + "View/Index.aspx";
                         }
                         break;
+
                     case "630":
                         sys.SysName = "课前预习";
                         if (sys.IsSetup == true)
@@ -4080,6 +4201,7 @@ namespace LBD_WebApiInterface.Api
                             sys.AccessAddr = sys.AccessAddr + "Student/Index.aspx";
                         }
                         break;
+
                     case "510":
                         sys.SysName = "课后练习";
                         if (sys.IsSetup == true)
@@ -4087,6 +4209,7 @@ namespace LBD_WebApiInterface.Api
                             sys.AccessAddr = sys.AccessAddr + "Task/Student/StuIndex.aspx";
                         }
                         break;
+
                     case "810":
                         sys.SysName = "我的成绩";
                         if (sys.IsSetup == true)
@@ -4094,13 +4217,14 @@ namespace LBD_WebApiInterface.Api
                             sys.AccessAddr = sys.AccessAddr + "index.aspx";
                         }
                         break;
+
                     case "821":
                         sys.SysName = "我的知识谱";
                         if (sys.IsSetup == true)
                         {
                             //sys.AccessAddr = sys.AccessAddr + "index.aspx";
-                            string RZWebApiAddr=GetSubSysApiIPandPort("821");
-                            RZWebApiAddr = "http://"+RZWebApiAddr + "/api/ZSP/GetZSP_StudentMainPage";
+                            string RZWebApiAddr = GetSubSysApiIPandPort("821");
+                            RZWebApiAddr = "http://" + RZWebApiAddr + "/api/ZSP/GetZSP_StudentMainPage";
                             RZWebApiAddr = string.Format("{0}?Token={1}&SubjectID={2}&XH={3}", RZWebApiAddr, mToken, mCloudPlatformSubjectID, mTeacherID);
                             WriteDebugInfo("GetSubjectPlatformSysInfoForStu访问知识谱webapi地址", RZWebApiAddr);
                             string AccessAddr = mCommandApi.CallMethodGet(RZWebApiAddr);
@@ -4179,30 +4303,39 @@ namespace LBD_WebApiInterface.Api
                 case "S11":
                     strPartAddr = "/ClassPreview.aspx?lg_tk=" + mToken + "&SubjectID=" + mCloudPlatformSubjectID;
                     break;
+
                 case "S13":
                     strPartAddr = "/AfterClassPractice.aspx?lg_tk=" + mToken + "&SubjectID=" + mCloudPlatformSubjectID;
                     break;
+
                 case "810":
                     strPartAddr = "/index.aspx?lg_tk=" + mToken + "&SubjectID=" + mCloudPlatformSubjectID;
                     break;
+
                 case "830":
                     strPartAddr = "/index.aspx?lg_tk=" + mToken + "&SubjectID=" + mCloudPlatformSubjectID;
                     break;
+
                 case "821":
                     strPartAddr = "/index.aspx?lg_tk=" + mToken + "&SubjectID=" + mCloudPlatformSubjectID;
                     break;
+
                 case "851":
                     strPartAddr = "/View/TeachStudy.aspx?lg_tk=" + mToken + "&typeid=1";
                     break;
+
                 case "852":
                     strPartAddr = "/View/TeachBehaviour.aspx?lg_tk=" + mToken + "&typeid=2";
                     break;
+
                 case "S20":
                     strPartAddr = "/FreeStudy/index.aspx?lg_tk=" + mToken;
                     break;
+
                 case "S30":
                     strPartAddr = "/Mainpage.aspx?lg_tk=" + mToken + "&subID=" + mCloudPlatformSubjectID;
                     break;
+
                 case "430":
                     strPartAddr = "/Community/Forum/WebPage/ForumMain.aspx";
                     break;
@@ -4299,6 +4432,7 @@ namespace LBD_WebApiInterface.Api
 
             return "";
         }
+
         /// <summary>
         /// 获取基础平台系统信息
         /// CLPSysConfigInfo.useRange 云平台产品使用范围。（1：单个专业英语院校使用，2：单个普通大学使用，3：单个中小学校使用，4：多学校（县/区）范围）使用，5：中职学校使用，6：高职学校使用。）
@@ -4333,6 +4467,7 @@ namespace LBD_WebApiInterface.Api
                 return null;
             }
         }
+
         //依次返回 学科大数据、学科课堂表现、电子资源阅览室 三个系统的访问地址
         public string[] GetSomeSystemWebUrl(int iUserType)
         {
@@ -4444,11 +4579,12 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
+
         /// <summary>
         ///   检测当前点控是否可用
         /// </summary>
         /// <returns>结果标识。 1：点控可用，0：超过点数上限，-1：未检测到加密锁，-2：加密锁已过试用期，-3：没有购买该产品，-4：加密锁接口调用错误，-5：加密锁时钟错误 -6:基础平台接口异常 -7:基础平台接口返回值为空 -8：LBD_Webapiinterface接口异常</returns>
-        public int WS_G_SetNewLockPoint(string sysId,string token)
+        public int WS_G_SetNewLockPoint(string sysId, string token)
         {
             try
             {
@@ -4499,7 +4635,7 @@ namespace LBD_WebApiInterface.Api
             try
             {
                 XmlDocument xmlDoc = null;
-               // string strWholeUrl = "http://" + mCloudPlatformBFUrl + "/Base/WS/Service_Basic.asmx/WS_G_GetSubSystemLockerInfoByID";
+                // string strWholeUrl = "http://" + mCloudPlatformBFUrl + "/Base/WS/Service_Basic.asmx/WS_G_GetSubSystemLockerInfoByID";
                 string strWholeUrl = "http://" + mCloudPlatformBFUrl + "/LockerMgr/WS/Service_LockerMgr.asmx/WS_G_GetSubSystemLockerInfoByID";
                 string requestTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 string secCode = CP_MD5Helper.GetMd5Hash(slockerID + requestTime);
@@ -4518,13 +4654,13 @@ namespace LBD_WebApiInterface.Api
                 {
                     return -6;
                 }
-                int iRtnValue =Convert.ToInt32(list[0].InnerText);
+                int iRtnValue = Convert.ToInt32(list[0].InnerText);
                 if (iRtnValue == 1)
                 {
-                    iProductPointCount = Convert.ToInt32(CP_EncryptHelper.DecryptCode(slockerID,list[1].InnerText));
-                    sProbationYear = CP_EncryptHelper.DecryptCode(slockerID,list[2].InnerText);
-                    sProbationMonth = CP_EncryptHelper.DecryptCode(slockerID,list[3].InnerText);
-                    sProbationDay = CP_EncryptHelper.DecryptCode(slockerID,list[4].InnerText);
+                    iProductPointCount = Convert.ToInt32(CP_EncryptHelper.DecryptCode(slockerID, list[1].InnerText));
+                    sProbationYear = CP_EncryptHelper.DecryptCode(slockerID, list[2].InnerText);
+                    sProbationMonth = CP_EncryptHelper.DecryptCode(slockerID, list[3].InnerText);
+                    sProbationDay = CP_EncryptHelper.DecryptCode(slockerID, list[4].InnerText);
                     return 1;//获取成功
                 }
                 else
@@ -4534,18 +4670,23 @@ namespace LBD_WebApiInterface.Api
                         case -1:
                             WriteTrackLog("GetSubSystemLockerInfoByID", "未检测到加密锁");
                             break;
+
                         case -2:
                             WriteTrackLog("GetSubSystemLockerInfoByID", "加密锁已过试用期");
                             break;
+
                         case -3:
                             WriteTrackLog("GetSubSystemLockerInfoByID", "没有购买该产品");
                             break;
+
                         case -4:
                             WriteTrackLog("GetSubSystemLockerInfoByID", "加密锁接口调用错误");
                             break;
+
                         case -5:
                             WriteTrackLog("GetSubSystemLockerInfoByID", "加密锁时钟错误");
                             break;
+
                         default:
                             WriteTrackLog("GetSubSystemLockerInfoByID", "未知错误！");
                             break;
@@ -4559,6 +4700,7 @@ namespace LBD_WebApiInterface.Api
             }
             return -7;
         }
+
         //（弃用）
         private bool P_InitSubjectPlatformSysInfo()
         {
@@ -4627,70 +4769,70 @@ namespace LBD_WebApiInterface.Api
                 if (iCount > 0)
                 {
                     //如果当前云平台学科ID为空，则不匹配学科
-//                     if (string.IsNullOrEmpty(mCloudPlatformSubjectID))
-//                     {
-//                         for (int i = 0; i < iCount; i++)
-//                         {
-//                             XmlNode node = list[i];
-//                             SubjectPlatformSysInfoM o = new SubjectPlatformSysInfoM();
-//                             o.SubjectID = node.ChildNodes[0].InnerText;
-//                             o.SubjectName = node.ChildNodes[1].InnerText;
-//                             o.SysID = node.ChildNodes[2].InnerText;
-//                             o.SysName = node.ChildNodes[3].InnerText;
-//                             o.SysImage = node.ChildNodes[4].InnerText;
-//                             o.IsEXE = Convert.ToBoolean(node.ChildNodes[5].InnerText);
-//                             o.IsSetup = Convert.ToBoolean(node.ChildNodes[6].InnerText);
-//                             o.AccessAddr = node.ChildNodes[7].InnerText;
-//                             o.WebSvrAddr = node.ChildNodes[8].InnerText;
-//                             o.WsSvrAddr = node.ChildNodes[9].InnerText;
-// 
-//                             for (int j = 0; j < listSystem.Count; j++)
-//                             {
-//                                 if (listSystem[j].SysID == o.SysID)
-//                                 {
-//                                     listSystem[j] = o;
-//                                 }
-//                             }
-//                         }
-//                     }
+                    //                     if (string.IsNullOrEmpty(mCloudPlatformSubjectID))
+                    //                     {
+                    //                         for (int i = 0; i < iCount; i++)
+                    //                         {
+                    //                             XmlNode node = list[i];
+                    //                             SubjectPlatformSysInfoM o = new SubjectPlatformSysInfoM();
+                    //                             o.SubjectID = node.ChildNodes[0].InnerText;
+                    //                             o.SubjectName = node.ChildNodes[1].InnerText;
+                    //                             o.SysID = node.ChildNodes[2].InnerText;
+                    //                             o.SysName = node.ChildNodes[3].InnerText;
+                    //                             o.SysImage = node.ChildNodes[4].InnerText;
+                    //                             o.IsEXE = Convert.ToBoolean(node.ChildNodes[5].InnerText);
+                    //                             o.IsSetup = Convert.ToBoolean(node.ChildNodes[6].InnerText);
+                    //                             o.AccessAddr = node.ChildNodes[7].InnerText;
+                    //                             o.WebSvrAddr = node.ChildNodes[8].InnerText;
+                    //                             o.WsSvrAddr = node.ChildNodes[9].InnerText;
+                    //
+                    //                             for (int j = 0; j < listSystem.Count; j++)
+                    //                             {
+                    //                                 if (listSystem[j].SysID == o.SysID)
+                    //                                 {
+                    //                                     listSystem[j] = o;
+                    //                                 }
+                    //                             }
+                    //                         }
+                    //                     }
                     //如果当前云平台学科ID不为空，则需要匹配学科
-//                    else
-//                   {
-                        for (int i = 0; i < iCount; i++)
-                        {
-                            XmlNode node = list[i];
-                            SubjectPlatformSysInfoM o = new SubjectPlatformSysInfoM();
-                            o.SubjectID = node.ChildNodes[0].InnerText;
-                            o.SubjectName = node.ChildNodes[1].InnerText;
-                            o.SysID = node.ChildNodes[2].InnerText;
-                            o.SysName = node.ChildNodes[3].InnerText;
-                            o.SysImage = node.ChildNodes[4].InnerText;
-                            o.IsEXE = Convert.ToBoolean(node.ChildNodes[5].InnerText);
-                            o.IsSetup = Convert.ToBoolean(node.ChildNodes[6].InnerText);
-                            o.AccessAddr = node.ChildNodes[7].InnerText;
-                            o.WebSvrAddr = node.ChildNodes[8].InnerText;
-                            o.WsSvrAddr = node.ChildNodes[9].InnerText;
+                    //                    else
+                    //                   {
+                    for (int i = 0; i < iCount; i++)
+                    {
+                        XmlNode node = list[i];
+                        SubjectPlatformSysInfoM o = new SubjectPlatformSysInfoM();
+                        o.SubjectID = node.ChildNodes[0].InnerText;
+                        o.SubjectName = node.ChildNodes[1].InnerText;
+                        o.SysID = node.ChildNodes[2].InnerText;
+                        o.SysName = node.ChildNodes[3].InnerText;
+                        o.SysImage = node.ChildNodes[4].InnerText;
+                        o.IsEXE = Convert.ToBoolean(node.ChildNodes[5].InnerText);
+                        o.IsSetup = Convert.ToBoolean(node.ChildNodes[6].InnerText);
+                        o.AccessAddr = node.ChildNodes[7].InnerText;
+                        o.WebSvrAddr = node.ChildNodes[8].InnerText;
+                        o.WsSvrAddr = node.ChildNodes[9].InnerText;
 
-                            for (int j = 0; j < listSystem.Count; j++)
+                        for (int j = 0; j < listSystem.Count; j++)
+                        {
+                            if (listSystem[j].SysID == o.SysID)
                             {
-                                if (listSystem[j].SysID == o.SysID)
+                                //匹配学科
+                                if (string.IsNullOrEmpty(o.SubjectID))//如果查询到的系统的学科ID为空，则认为适合所有学科
                                 {
-                                    //匹配学科
-                                    if (string.IsNullOrEmpty(o.SubjectID))//如果查询到的系统的学科ID为空，则认为适合所有学科
+                                    listSystem[j] = o;
+                                }
+                                else
+                                {
+                                    if (o.SubjectID == mCloudPlatformSubjectID)
                                     {
                                         listSystem[j] = o;
-                                    }
-                                    else
-                                    {
-                                        if (o.SubjectID == mCloudPlatformSubjectID)
-                                        {
-                                            listSystem[j] = o;
-                                        }
                                     }
                                 }
                             }
                         }
-//                    }
+                    }
+                    //                    }
                 }
 
                 if (listSystem != null && listSystem.Count > 0)
@@ -4706,7 +4848,7 @@ namespace LBD_WebApiInterface.Api
             return false;
         }
 
-        #endregion
+        #endregion 基础信息相关
 
         #region 课堂信息相关
 
@@ -4771,7 +4913,7 @@ namespace LBD_WebApiInterface.Api
                     return 0;
                 }
 
-                string strApiBaseUrl = string.Format(Properties.Resources.NetCoursewareUrl, mNetTeachApiIP, mNetTeachApiPort,mNetTeachApiVirDir);
+                string strApiBaseUrl = string.Format(Properties.Resources.NetCoursewareUrl, mNetTeachApiIP, mNetTeachApiPort, mNetTeachApiVirDir);
                 CommandApi CommandApi = new CommandApi();
                 CommandApi.BaseUrl = strApiBaseUrl;
 
@@ -4820,7 +4962,7 @@ namespace LBD_WebApiInterface.Api
                 strParam = "strTeacherID=" + mTeacherID + "&strCoursePlanID=" + strCourseClassID + "&strTermYear=" + mTermYear + "&m_intSubjectID=" + mMySubjectID;
                 //WriteErrorMessage("GetLastLoginInfoByTeacherID参数", strWebServiceURL+strParam);
                 strReturn = mCommandWS.CallMethodPost(strWebServiceURL, strParam);
-               // WriteErrorMessage("GetLastLoginInfoByTeacherID结果", strReturn);
+                // WriteErrorMessage("GetLastLoginInfoByTeacherID结果", strReturn);
                 xmlDoc = new XmlDocument();
                 xmlDoc.LoadXml(strReturn);
 
@@ -5040,7 +5182,7 @@ namespace LBD_WebApiInterface.Api
             strTypeName = "";
             try
             {
-                WriteDebugInfo("GetResourceTypeIDandName","进入。eResourceType=" + eResourceType.ToString());
+                WriteDebugInfo("GetResourceTypeIDandName", "进入。eResourceType=" + eResourceType.ToString());
 
                 switch ((int)eResourceType)
                 {
@@ -5048,114 +5190,142 @@ namespace LBD_WebApiInterface.Api
                         iTypeID = 1;
                         strTypeName = "图文教材库";
                         break;
+
                     case 2:
                         iTypeID = 2;
                         strTypeName = "多媒体教程库";
                         break;
+
                     case 3:
                         iTypeID = 3;
                         strTypeName = "公共媒体库";
                         break;
+
                     case 4:
                         iTypeID = 4;
                         strTypeName = "作业库";
                         break;
+
                     case 5:
                         iTypeID = 5;
                         strTypeName = "情景会话库";
                         break;
+
                     case 6:
                         iTypeID = 6;
                         strTypeName = "水平试题库";
                         break;
+
                     case 7:
                         iTypeID = 7;
                         strTypeName = "知识点课件库";
                         break;
+
                     case 8:
                         iTypeID = 8;
                         strTypeName = "主题背景库";
                         break;
+
                     case 9:
                         iTypeID = 9;
                         strTypeName = "本地电脑";
                         break;
+
                     case 10:
                         iTypeID = 10;
                         strTypeName = "翻译库";
                         break;
+
                     case 11:
                         iTypeID = 11;
                         strTypeName = "电子资源库";
                         break;
+
                     case 12:
                         iTypeID = 12;
                         strTypeName = "数字化资源库";
                         break;
+
                     case 13:
                         iTypeID = 13;
                         strTypeName = "网络化课件库";
                         break;
+
                     case 14:
                         iTypeID = 14;
                         strTypeName = "U盘";
                         break;
+
                     case 15:
                         iTypeID = 15;
                         strTypeName = "专用教材";
                         break;
+
                     case 16:
                         iTypeID = 16;
                         strTypeName = "课前预习";
                         break;
+
                     case 17:
                         iTypeID = 17;
                         strTypeName = "课堂教案";
                         break;
+
                     case 18:
                         iTypeID = 18;
                         strTypeName = "课后练习";
                         break;
+
                     case 19:
                         iTypeID = 19;
                         strTypeName = "智能化课件";
                         break;
+
                     case 20:
                         iTypeID = 20;
                         strTypeName = "智能组卷试卷";
                         break;
+
                     case 21:
                         iTypeID = 21;
                         strTypeName = "随堂测试卷";
                         break;
+
                     case 22:
                         iTypeID = 22;
                         strTypeName = "教学方案";
                         break;
+
                     case 23:
                         iTypeID = 23;
                         strTypeName = "课前预习方案";
                         break;
+
                     case 24:
                         iTypeID = 24;
                         strTypeName = "课堂教案V2";
                         break;
+
                     case 25:
                         iTypeID = 25;
                         strTypeName = "课后作业方案";
                         break;
+
                     case 26:
                         iTypeID = 26;
                         strTypeName = "课文讲解课件";
                         break;
+
                     case 27:
                         iTypeID = 27;
                         strTypeName = "重难点讲解课件";
                         break;
+
                     case 28:
                         iTypeID = 28;
                         strTypeName = "本地资料课件集";
                         break;
+
                     case 29:
                         iTypeID = 29;
                         strTypeName = "智能化课件组成";
@@ -5207,6 +5377,7 @@ namespace LBD_WebApiInterface.Api
             }
             return -1;
         }
+
         /// <summary>
         /// 获取课堂内总加分值（学生端使用）
         /// </summary>
@@ -5215,7 +5386,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="CourseClassID">课程班ID</param>
         /// <param name="SubjectID">学科ID,语文-1，数学-2；英语-3</param>
         /// <returns>课堂加分值</returns>
-        public int GetStudentAddScore(string StudentId,string CourseID,string CourseClassID,string SubjectID)
+        public int GetStudentAddScore(string StudentId, string CourseID, string CourseClassID, string SubjectID)
         {
             try
             {
@@ -5250,6 +5421,7 @@ namespace LBD_WebApiInterface.Api
             }
             return -1;
         }
+
         //根据首字母获取对应的单词（多个值之间用@@分隔）
         public string GetWordInfoByKeyword(string strKeyWord)
         {
@@ -5326,7 +5498,7 @@ namespace LBD_WebApiInterface.Api
                     if (string.IsNullOrEmpty(mThemeVideoVirDir) == true)
                         strWebServiceURL = "http://" + mThemeVideoWSIP + ":" + mThemeVideoPort + "/Service1.asmx/VideosFromTheme";
                     else
-                        strWebServiceURL = "http://" + mThemeVideoWSIP + ":" + mThemeVideoPort +"/"+ mThemeVideoVirDir +"Service1.asmx/VideosFromTheme";
+                        strWebServiceURL = "http://" + mThemeVideoWSIP + ":" + mThemeVideoPort + "/" + mThemeVideoVirDir + "Service1.asmx/VideosFromTheme";
                     strParam = "themeName=" + strTheme;
                 }
                 else if (string.IsNullOrEmpty(strTheme) == false && string.IsNullOrEmpty(strThemeWords) == false)
@@ -5342,7 +5514,7 @@ namespace LBD_WebApiInterface.Api
                     if (string.IsNullOrEmpty(mThemeVideoVirDir) == true)
                         strWebServiceURL = "http://" + mThemeVideoWSIP + ":" + mThemeVideoPort + "/Service1.asmx/VideosFromThemeWords";
                     else
-                        strWebServiceURL = "http://" + mThemeVideoWSIP + ":" + mThemeVideoPort +"/"+ mThemeVideoVirDir+ "Service1.asmx/VideosFromThemeWords";
+                        strWebServiceURL = "http://" + mThemeVideoWSIP + ":" + mThemeVideoPort + "/" + mThemeVideoVirDir + "Service1.asmx/VideosFromThemeWords";
                     strParam = "words=" + strThemeWords;
                 }
 
@@ -5351,7 +5523,7 @@ namespace LBD_WebApiInterface.Api
                 {
                     strReturnXml = strReturn;
                 }
-                
+
                 return true;
             }
             catch (Exception e)
@@ -5377,11 +5549,10 @@ namespace LBD_WebApiInterface.Api
 
             return false;
         }
-        #endregion
+
+        #endregion 课堂信息相关
 
         #endregion
-
-
 
         #region 私有方法
 
@@ -5396,41 +5567,52 @@ namespace LBD_WebApiInterface.Api
                 {
                     case 0:
                         return bSubjectID;
+
                     case 1:
                         strSubjectName = "语文";
                         break;
+
                     case 2:
                         strSubjectName = "数学";
                         break;
+
                     case 3:
                         strSubjectName = "英语";
                         break;
+
                     case 4:
                         strSubjectName = "物理";
                         break;
+
                     case 5:
                         strSubjectName = "化学";
                         break;
+
                     case 6:
                         strSubjectName = "生物";
                         break;
+
                     case 7:
                         strSubjectName = "政治";
                         break;
+
                     case 8:
                         strSubjectName = "历史";
                         break;
+
                     case 9:
                         strSubjectName = "地理";
                         break;
+
                     case 10:
                         strSubjectName = "科学";
                         break;
+
                     case 11:
                         strSubjectName = "美术";
                         break;
                 }
-                
+
                 string[] arrParam = new string[1];
                 arrParam[0] = strSubjectName;
 
@@ -5458,17 +5640,19 @@ namespace LBD_WebApiInterface.Api
                 //以下为基础平台定义的两个特殊学科
                 string sciSubId = "Science";//科学
                 string artSubId = "Art";//美术
-                string strSubjectName="";
+                string strSubjectName = "";
 
-                switch(mSchoolLevel)
+                switch (mSchoolLevel)
                 {
                     case "":
                         break;
+
                     case "1"://大学
-                        strPartialSubjectID="S1";
+                        strPartialSubjectID = "S1";
                         break;
+
                     case "2"://中小学
-                        strPartialSubjectID="S2";
+                        strPartialSubjectID = "S2";
                         break;
                 }
                 try
@@ -5608,21 +5792,27 @@ namespace LBD_WebApiInterface.Api
                     case "1":
                         mMySchoolType = 1;
                         break;
+
                     case "2":
                         mMySchoolType = 2;
                         break;
+
                     case "3":
                         mMySchoolType = 5;
                         break;
+
                     case "4":
                         mMySchoolType = 3;
                         break;
+
                     case "5":
                         mMySchoolType = 7;
                         break;
+
                     case "6":
                         mMySchoolType = 6;
                         break;
+
                     case "7":
                         mMySchoolType = 8;
                         break;
@@ -5673,12 +5863,14 @@ namespace LBD_WebApiInterface.Api
                             mCloudPlatformSubjectID = "S1-Chinese";
                             mCloudPlatformSubjectName = "语文";
                             break;
+
                         case "2"://中小学
                             mCloudPlatformSubjectID = "S2-Chinese";
                             mCloudPlatformSubjectName = "语文";
                             break;
                     }
                     break;
+
                 case E_Subject.数学:
                     switch (mSchoolLevel)
                     {
@@ -5686,12 +5878,14 @@ namespace LBD_WebApiInterface.Api
                             mCloudPlatformSubjectID = "S1-Maths";
                             mCloudPlatformSubjectName = "数学";
                             break;
+
                         case "2"://中小学
                             mCloudPlatformSubjectID = "S2-Maths";
                             mCloudPlatformSubjectName = "数学";
                             break;
                     }
                     break;
+
                 case E_Subject.英语:
                     switch (mSchoolLevel)
                     {
@@ -5699,12 +5893,14 @@ namespace LBD_WebApiInterface.Api
                             mCloudPlatformSubjectID = "S1-English";
                             mCloudPlatformSubjectName = "英语";
                             break;
+
                         case "2"://中小学
                             mCloudPlatformSubjectID = "S2-English";
                             mCloudPlatformSubjectName = "英语";
                             break;
                     }
                     break;
+
                 case E_Subject.物理:
                     switch (mSchoolLevel)
                     {
@@ -5712,12 +5908,14 @@ namespace LBD_WebApiInterface.Api
                             mCloudPlatformSubjectID = "S1-Physics";
                             mCloudPlatformSubjectName = "物理";
                             break;
+
                         case "2"://中小学
                             mCloudPlatformSubjectID = "S2-Physics";
                             mCloudPlatformSubjectName = "物理";
                             break;
                     }
                     break;
+
                 case E_Subject.化学:
                     switch (mSchoolLevel)
                     {
@@ -5725,12 +5923,14 @@ namespace LBD_WebApiInterface.Api
                             mCloudPlatformSubjectID = "S1-Chemistry";
                             mCloudPlatformSubjectName = "化学";
                             break;
+
                         case "2"://中小学
                             mCloudPlatformSubjectID = "S2-Chemistry";
                             mCloudPlatformSubjectName = "化学";
                             break;
                     }
                     break;
+
                 case E_Subject.生物:
                     switch (mSchoolLevel)
                     {
@@ -5738,12 +5938,14 @@ namespace LBD_WebApiInterface.Api
                             mCloudPlatformSubjectID = "S1-Biology";
                             mCloudPlatformSubjectName = "生物";
                             break;
+
                         case "2"://中小学
                             mCloudPlatformSubjectID = "S2-Biology";
                             mCloudPlatformSubjectName = "生物";
                             break;
                     }
                     break;
+
                 case E_Subject.政治:
                     switch (mSchoolLevel)
                     {
@@ -5751,12 +5953,14 @@ namespace LBD_WebApiInterface.Api
                             mCloudPlatformSubjectID = "S1-Politics";
                             mCloudPlatformSubjectName = "政治";
                             break;
+
                         case "2"://中小学
                             mCloudPlatformSubjectID = "S2-Politics";
                             mCloudPlatformSubjectName = "政治";
                             break;
                     }
                     break;
+
                 case E_Subject.历史:
                     switch (mSchoolLevel)
                     {
@@ -5764,12 +5968,14 @@ namespace LBD_WebApiInterface.Api
                             mCloudPlatformSubjectID = "S1-History";
                             mCloudPlatformSubjectName = "历史";
                             break;
+
                         case "2"://中小学
                             mCloudPlatformSubjectID = "S2-History";
                             mCloudPlatformSubjectName = "历史";
                             break;
                     }
                     break;
+
                 case E_Subject.地理:
                     switch (mSchoolLevel)
                     {
@@ -5777,20 +5983,24 @@ namespace LBD_WebApiInterface.Api
                             mCloudPlatformSubjectID = "S1-Geography";
                             mCloudPlatformSubjectName = "地理";
                             break;
+
                         case "2"://中小学
                             mCloudPlatformSubjectID = "S2-Geography";
                             mCloudPlatformSubjectName = "地理";
                             break;
                     }
                     break;
+
                 case E_Subject.美术:
                     mCloudPlatformSubjectID = "Art";
                     mCloudPlatformSubjectName = "美术";
                     break;
+
                 case E_Subject.科学:
                     mCloudPlatformSubjectID = "Science";
                     mCloudPlatformSubjectName = "科学";
                     break;
+
                 default:
                     mCloudPlatformSubjectID = "";
                     mCloudPlatformSubjectName = "";
@@ -5817,12 +6027,15 @@ namespace LBD_WebApiInterface.Api
                             sTeachModeID = 9;
                         }
                         break;
+
                     case E_TeachClass_Mode.听力讲解:
                         sTeachModeID = 2;
                         break;
+
                     case E_TeachClass_Mode.口语教学:
                         sTeachModeID = 3;
                         break;
+
                     case E_TeachClass_Mode.阅读训练:
                         if (mSubject == E_Subject.语文)
                         {
@@ -5833,30 +6046,39 @@ namespace LBD_WebApiInterface.Api
                             sTeachModeID = 4;
                         }
                         break;
+
                     case E_TeachClass_Mode.随堂听力测试:
                         sTeachModeID = 5;
                         break;
+
                     case E_TeachClass_Mode.情景会话:
                         sTeachModeID = 6;
                         break;
+
                     case E_TeachClass_Mode.协作写作:
                         sTeachModeID = 7;
                         break;
+
                     case E_TeachClass_Mode.课堂辅导:
                         sTeachModeID = 8;
                         break;
+
                     case E_TeachClass_Mode.随堂测试:
                         sTeachModeID = 10;
                         break;
+
                     case E_TeachClass_Mode.复习辅导:
                         sTeachModeID = 11;
                         break;
+
                     case E_TeachClass_Mode.协作设计制作:
                         sTeachModeID = 12;
                         break;
+
                     case E_TeachClass_Mode.知识竞答:
-                        sTeachModeID = 14; 
+                        sTeachModeID = 14;
                         break;
+
                     case E_TeachClass_Mode.随堂综合测试:
                         sTeachModeID = 15;
                         break;
@@ -5911,8 +6133,10 @@ namespace LBD_WebApiInterface.Api
                         {
                             case "Basic":
                                 break;
+
                             case "CSetup":
                                 break;
+
                             case "Essay"://作文评分
                                 if (string.IsNullOrEmpty(strTempWSAddr) == false)
                                 {
@@ -5920,14 +6144,17 @@ namespace LBD_WebApiInterface.Api
                                     P_FormatIPandPort(strTempWSAddr, out m_strEssayWSIP_IR, out m_lngEssayWSPort_IR, out m_strEssayVirDir_IR);
                                 }
                                 break;
+
                             case "FreeStudy":
                                 break;
+
                             case "OralTest"://口语考试
                                 if (string.IsNullOrEmpty(strTempWSAddr) == false)
                                 {
                                     P_FormatIPandPort(strTempWSAddr, out m_strOTServiceIP, out m_lngOTServicePort);
                                 }
                                 break;
+
                             case "PubResource"://资源库
                                 //修改资源库地址从基础平台获取 ModifiedByQinkun@20171030
                                 //if (string.IsNullOrEmpty(strTempWSAddr) == false)
@@ -5935,22 +6162,26 @@ namespace LBD_WebApiInterface.Api
                                 //    P_FormatIPandPort(strTempWSAddr, out m_strZYWSIP, out m_lngZYWSPort);
                                 //}
                                 break;
+
                             case "SkillTrain"://技能训练
                                 if (string.IsNullOrEmpty(strTempWSAddr) == false)
                                 {
-                                    P_FormatIPandPort(strTempWSAddr, out mSkillTrainIP, out mSkillTrainPort,out mSkillTrainVirDir);
+                                    P_FormatIPandPort(strTempWSAddr, out mSkillTrainIP, out mSkillTrainPort, out mSkillTrainVirDir);
                                 }
                                 break;
+
                             case "ThemeVideo"://主题背景库
                                 if (string.IsNullOrEmpty(strTempWSAddr) == false)
                                 {
-                                    long lThemeVideoPort =0;
+                                    long lThemeVideoPort = 0;
                                     P_FormatIPandPort(strTempWSAddr, out mThemeVideoWSIP, out lThemeVideoPort, out mThemeVideoVirDir);
                                     mThemeVideoPort = lThemeVideoPort.ToString();
                                 }
                                 break;
+
                             case "VOD":
                                 break;
+
                             case "ZSD"://知识点识别
                                 if (mSubject == E_Subject.英语)
                                 {
@@ -5960,6 +6191,7 @@ namespace LBD_WebApiInterface.Api
                                     }
                                 }
                                 break;
+
                             case "CHZSD":
                                 //非英语学科知识点服务器的获取使用此字段
                                 if (mSubject != E_Subject.英语)
@@ -5998,8 +6230,9 @@ namespace LBD_WebApiInterface.Api
                 long.TryParse(strPort, out Port);
             }
         }
+
         //为增加获取聚合的应用程序名修改，非聚合版仍是调用无VirDir参数的
-        private void P_FormatIPandPort(string strAddr, out string IP, out long Port,out string VirDir)
+        private void P_FormatIPandPort(string strAddr, out string IP, out long Port, out string VirDir)
         {
             IP = "";
             Port = 0;
@@ -6008,7 +6241,7 @@ namespace LBD_WebApiInterface.Api
             string strIP = "";
             string strPort = "";
             P_FormatIPandPort(strAddr, out strIP, out strPort);
-            FormatPortAndVirdir(strPort,out Port,out VirDir);
+            FormatPortAndVirdir(strPort, out Port, out VirDir);
             IP = strIP;
             //if (string.IsNullOrEmpty(strPort) == false)
             //{
@@ -6051,33 +6284,43 @@ namespace LBD_WebApiInterface.Api
                     case 1:
                         strSysID = "Basic";
                         break;
+
                     case 2:
                         strSysID = "CSetUp";
                         break;
+
                     case 3:
                         strSysID = "Essay";
                         break;
+
                     case 4:
                         strSysID = "FreeStudy";
                         break;
+
                     case 5:
                         strSysID = "OralTest";
                         break;
+
                     case 6:
                         strSysID = "PubResource";
                         break;
+
                     case 7:
                         strSysID = "SkillTrain";
                         break;
+
                     case 8:
                         strSysID = "ThemeVideo";
                         break;
+
                     case 9:
                         strSysID = "VOD";
                         break;
+
                     case 10:
                         strSysID = "ZSD";
                         break;
+
                     default:
                         break;
                 }
@@ -6090,7 +6333,7 @@ namespace LBD_WebApiInterface.Api
 
             return null;
         }
-        
+
         //获取学校基本信息（通过WS）
         private SchoolBaseInfoM P_GetSchoolInfo_WS()
         {
@@ -6435,7 +6678,7 @@ namespace LBD_WebApiInterface.Api
             try
             {
                 StringBuilder sbUrl = new StringBuilder();
-                sbUrl.Append("http://"+mCloudPlatformBFUrl + "/UserMgr/UserInfoMgr/API/Service_UserInfo.ashx");
+                sbUrl.Append("http://" + mCloudPlatformBFUrl + "/UserMgr/UserInfoMgr/API/Service_UserInfo.ashx");
                 sbUrl.Append("?token=" + mToken);
                 sbUrl.Append("&method=GetGrade");
                 sbUrl.Append(string.Format("&params={0}|", strGradeID));
@@ -6505,7 +6748,7 @@ namespace LBD_WebApiInterface.Api
             try
             {
                 StringBuilder sbUrl = new StringBuilder();
-                sbUrl.Append("http://"+mCloudPlatformBFUrl + "/UserMgr/TeachInfoMgr/Api/Service_TeachInfo.ashx");
+                sbUrl.Append("http://" + mCloudPlatformBFUrl + "/UserMgr/TeachInfoMgr/Api/Service_TeachInfo.ashx");
                 sbUrl.Append("?token=" + mToken);
                 sbUrl.Append("&method=GetCourseStudents");
                 sbUrl.Append(string.Format("&params=|{0}|", strCourseClassID));
@@ -6525,7 +6768,6 @@ namespace LBD_WebApiInterface.Api
                 {
                     return courseStu;
                 }
-
             }
             catch (Exception e)
             {
@@ -6544,12 +6786,15 @@ namespace LBD_WebApiInterface.Api
                     case 0:
                         strSubjectName = "";
                         break;
+
                     case 1:
                         strSubjectName = "语文";
                         break;
+
                     case 2:
                         strSubjectName = "数学";
                         break;
+
                     case 3:
                         strSubjectName = "英语";
                         break;
@@ -6578,8 +6823,8 @@ namespace LBD_WebApiInterface.Api
                 XmlDocument xmlDoc = null;
                 string sResLibVer = GetZYKServerVer();
                 bool bDecrypt = false;
-                if (string.Compare(sResLibVer, "\"v5.6\"",true)== 0) bDecrypt = true;                
-                strWholeUrl = "http://" + mZYKGL_WS_IP + ":" + mZYKGL_WS_Port+"/"+ mZYKGL_WS_VirDir + "SearchStatisticalInfo.asmx/WS_Search_GetServerAddressConf";
+                if (string.Compare(sResLibVer, "\"v5.6\"", true) == 0) bDecrypt = true;
+                strWholeUrl = "http://" + mZYKGL_WS_IP + ":" + mZYKGL_WS_Port + "/" + mZYKGL_WS_VirDir + "SearchStatisticalInfo.asmx/WS_Search_GetServerAddressConf";
                 strParam = "serverID=";
                 strReturn = mCommandWS.CallMethodPost(strWholeUrl, strParam);
                 if (string.IsNullOrEmpty(strReturn))
@@ -6603,7 +6848,7 @@ namespace LBD_WebApiInterface.Api
                     strServerName = list[i].ChildNodes[2].InnerText;
                     if (strModID == "A10" && strServerType == "1")
                     {
-                        if(bDecrypt)
+                        if (bDecrypt)
                         {
                             mZSDK_WS_IP = AITeachCloud.Helper.EncryptHelper.DESDecrypt(list[i].ChildNodes[3].InnerText);
                             mZSDK_WS_Port = AITeachCloud.Helper.EncryptHelper.DESDecrypt(list[i].ChildNodes[4].InnerText);
@@ -6613,7 +6858,7 @@ namespace LBD_WebApiInterface.Api
                             mZSDK_WS_IP = list[i].ChildNodes[3].InnerText;
                             mZSDK_WS_Port = list[i].ChildNodes[4].InnerText;
                         }
-                        if (list[i].ChildNodes.Count>7) mZSDK_WS_VirDir = list[i].ChildNodes[7].InnerText;
+                        if (list[i].ChildNodes.Count > 7) mZSDK_WS_VirDir = list[i].ChildNodes[7].InnerText;
                     }
                     else if (strModID == "A20" && strServerType == "1")
                     {
@@ -6679,7 +6924,7 @@ namespace LBD_WebApiInterface.Api
 
                         if (list[i].ChildNodes.Count > 7) mZSDZYK_HTTP_VirDir = list[i].ChildNodes[7].InnerText;
                     }
-                    else if (strModID == "A00" && strServerType == "4" && strServerName== "资源管理平台Web站点")
+                    else if (strModID == "A00" && strServerType == "4" && strServerName == "资源管理平台Web站点")
                     {
                         if (bDecrypt)
                         {
@@ -6693,7 +6938,7 @@ namespace LBD_WebApiInterface.Api
                         }
 
                         if (list[i].ChildNodes.Count > 7) mZYKXXSJ_WS_VirDir = list[i].ChildNodes[7].InnerText;
-                    }                    
+                    }
                 }
 
                 return true;
@@ -6781,11 +7026,11 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
+
         #endregion
 
-
-
         #region 继续上一堂课，待与大数据中心合并
+
         /// <summary>
         /// 课堂编号
         /// </summary>
@@ -6800,6 +7045,7 @@ namespace LBD_WebApiInterface.Api
                 mLoginClassID = value;
             }
         }
+
         /// <summary>
         /// 进入当前模块时产生的ID
         /// </summary>
@@ -6814,6 +7060,7 @@ namespace LBD_WebApiInterface.Api
                 mCurLoginModuleID = value;
             }
         }
+
         /// <summary>
         /// 进入当前的教学模式时产生的ID
         /// </summary>
@@ -6833,12 +7080,15 @@ namespace LBD_WebApiInterface.Api
         /// 课堂编号
         /// </summary>
         private int mLoginClassID;
+
         private string mCourseID;           //课程ID（可以不需要吧）
         private string mCourseClassID;   //课程班ID（可以不需要包）
+
         /// <summary>
         /// 插入当前模块时产生的ID
         /// </summary>
         private int mCurLoginModuleID;
+
         /// <summary>
         /// 当前的模块ID
         /// </summary>
@@ -6847,6 +7097,7 @@ namespace LBD_WebApiInterface.Api
         /// 插入当前的教学模式时产生的ID
         /// </summary>
         private long mCurLoginTeachModeID;
+
         /// <summary>
         /// 当前的教学模式ID
         /// </summary>
@@ -6860,8 +7111,6 @@ namespace LBD_WebApiInterface.Api
             public short TeachModeID { get; set; }
             public long LoginTeachModeID { get; set; }
         }
-
-
 
         /// <summary>
         /// 确定课程班时调用以下接口，记录一堂课的开始
@@ -7010,6 +7259,7 @@ namespace LBD_WebApiInterface.Api
                 return false;
             }
         }
+
         /// <summary>
         /// 删除学生的出勤记录（老师手动设置学生的出勤情况时调用）ldy20180403
         /// </summary>
@@ -7035,20 +7285,22 @@ namespace LBD_WebApiInterface.Api
                 return false;
             }
         }
+
         /// <summary>
         /// 修改学生出勤记录
         /// </summary>
         /// <param name="strStudentID">学生id</param>
         /// <param name="iScore">分数</param>
         /// <returns></returns>
-        public bool L_UpdateStuSignIn(string strStudentID,int iScore) {
+        public bool L_UpdateStuSignIn(string strStudentID, int iScore)
+        {
             try
             {
                 BD_WriteDebugInfo("L_UpdateStuSignIn", "进入。strStudentID=" + strStudentID);
                 if (string.IsNullOrEmpty(strStudentID))
                     return false;
                 string[] arrParam = new string[1];
-                arrParam[0] = JsonFormatter.JsonSerialize(new { StudentID = strStudentID, Score=iScore,LoginID = mLoginClassID });
+                arrParam[0] = JsonFormatter.JsonSerialize(new { StudentID = strStudentID, Score = iScore, LoginID = mLoginClassID });
                 string strResult = mCommandApi.CallMethodPost("UpdateAttendanceDetail", arrParam);
                 if (string.IsNullOrEmpty(strResult))
                     return false;
@@ -7060,6 +7312,7 @@ namespace LBD_WebApiInterface.Api
                 return false;
             }
         }
+
         //（弃用）目前采用实时保存的方式，此接口不用
         /// <summary>
         /// 批量保存学生签到信息（适合先缓存学生签到信息，最终一次性保存到数据库）
@@ -7335,8 +7588,10 @@ namespace LBD_WebApiInterface.Api
 
         //已选择的资料中的所有叶子节点
         private List<L_ResourceInfoM> mLeafResources;
+
         //当前正在使用的一批资料
         private L_ResourceInfoM mUsingResources;
+
         /// <summary>
         /// 开始上课前选择资料
         /// </summary>
@@ -7499,14 +7754,13 @@ namespace LBD_WebApiInterface.Api
                     {
                         L_TreeToList(treeNode.ChildNodes[i], depth + 1, list.Count - 1, list);
                     }
-
                 }
             }
             catch (Exception e)
             {
                 WriteErrorMessage("L_TreeToList", e.Message);
             }
-        }      
+        }
 
         /// <summary>
         /// 初次进入教学模式时调用
@@ -7652,7 +7906,7 @@ namespace LBD_WebApiInterface.Api
                 {
                     return false;
                 }
-                if(Convert.ToInt32(strResult)==1)
+                if (Convert.ToInt32(strResult) == 1)
                 {
                     return true;
                 }
@@ -8036,6 +8290,7 @@ namespace LBD_WebApiInterface.Api
                     case 1://课堂加分
                         strOperationCode = "ClassBonus001";
                         break;
+
                     case 2://测试加分
                         strOperationCode = "ClassBonus002";
                         break;
@@ -8078,7 +8333,6 @@ namespace LBD_WebApiInterface.Api
             return true;
         }
 
-
         //课堂加分和测试加分(多媒体使用)
         public bool L_ClassBonus_MT(int iClassBonusType, string[] arrStudentID, float[] arrScore, string[] arrReason, string[] arrRemark)
         {
@@ -8096,6 +8350,7 @@ namespace LBD_WebApiInterface.Api
                     case 1://课堂加分
                         strOperationCode = "ClassBonus001";
                         break;
+
                     case 2://测试加分
                         strOperationCode = "ClassBonus002";
                         break;
@@ -8143,9 +8398,10 @@ namespace LBD_WebApiInterface.Api
             }
             return true;
         }
+
         //测试通过
         //保存学生操作及详情（含分值）
-        public int L_StartStudentOperAndDetail(string strStudentID, string strOperCode, string strOperDetail,DateTime OperStartTime,DateTime OperEndTime,float OperScore)
+        public int L_StartStudentOperAndDetail(string strStudentID, string strOperCode, string strOperDetail, DateTime OperStartTime, DateTime OperEndTime, float OperScore)
         {
             try
             {
@@ -8177,6 +8433,7 @@ namespace LBD_WebApiInterface.Api
             }
             return 0;
         }
+
         //测试通过
         //开始学生操作
         public int L_StartStudentOper(string strStudentID, string strOperCode, string strOperDetail)
@@ -8326,7 +8583,7 @@ namespace LBD_WebApiInterface.Api
                 arrParam[1] = mTeacherID.ToString();
 
                 string strResult = mCommandApi.CallMethodPost("UpdateLoginClassEndTime", arrParam);
-                if (string.IsNullOrEmpty(strResult)==false)
+                if (string.IsNullOrEmpty(strResult) == false)
                 {
                     if (Convert.ToInt32(strResult) == 1)
                     {
@@ -8349,14 +8606,13 @@ namespace LBD_WebApiInterface.Api
                 {
                     if (mNetTeachApiVirDir.EndsWith("/"))
                         tmpNetTeachApiVirDi = mNetTeachApiVirDir.TrimEnd('/');
-
                     else
                         tmpNetTeachApiVirDi = mNetTeachApiVirDir;
                     if (tmpNetTeachApiVirDi.StartsWith("/") == false)
                         tmpNetTeachApiVirDi = "/" + tmpNetTeachApiVirDi;
                 }
                 strParam = string.Format(strParam,
-                    mLoginClassID, mBigDataAPIAddr, mNetTeachApiIP + ":" + mNetTeachApiPort+ tmpNetTeachApiVirDi, mCloudPlatformBFUrl, mToken, m_curSysID, curClassSubjectId);
+                    mLoginClassID, mBigDataAPIAddr, mNetTeachApiIP + ":" + mNetTeachApiPort + tmpNetTeachApiVirDi, mCloudPlatformBFUrl, mToken, m_curSysID, curClassSubjectId);
                 BD_WriteDebugInfo("L_EndClass", "参数=" + strParam);
                 //打开发送大数据的EXE
                 System.Diagnostics.Process.Start(strExePath, strParam).WaitForExit();
@@ -8369,6 +8625,7 @@ namespace LBD_WebApiInterface.Api
             }
             return false;
         }
+
         //20190508加一个系统id
         public bool L_EndClass(string sysId)
         {
@@ -8405,14 +8662,13 @@ namespace LBD_WebApiInterface.Api
                 {
                     if (mNetTeachApiVirDir.EndsWith("/"))
                         tmpNetTeachApiVirDi = mNetTeachApiVirDir.TrimEnd('/');
-
                     else
                         tmpNetTeachApiVirDi = mNetTeachApiVirDir;
                     if (tmpNetTeachApiVirDi.StartsWith("/") == false)
                         tmpNetTeachApiVirDi = "/" + tmpNetTeachApiVirDi;
                 }
                 strParam = string.Format(strParam,
-                    mLoginClassID, mBigDataAPIAddr, mNetTeachApiIP + ":" + mNetTeachApiPort+ tmpNetTeachApiVirDi, mCloudPlatformBFUrl, mToken, sysId, curClassSubjectId);
+                    mLoginClassID, mBigDataAPIAddr, mNetTeachApiIP + ":" + mNetTeachApiPort + tmpNetTeachApiVirDi, mCloudPlatformBFUrl, mToken, sysId, curClassSubjectId);
                 BD_WriteDebugInfo("L_EndClass", "参数=" + strParam);
                 //打开发送大数据的EXE
                 System.Diagnostics.Process.Start(strExePath, strParam).WaitForExit();
@@ -8425,8 +8681,10 @@ namespace LBD_WebApiInterface.Api
             }
             return false;
         }
-        private string GetLastLoginIdByTeacher(string teacherId) {
-            try 
+
+        private string GetLastLoginIdByTeacher(string teacherId)
+        {
+            try
             {
                 string[] arrParam = new string[1];
                 arrParam[0] = teacherId;
@@ -8443,6 +8701,7 @@ namespace LBD_WebApiInterface.Api
         #endregion
 
         #region 恢复上一堂课
+
         /// <summary>
         /// 判断是否有上一堂课信息，返回上一堂课编号，为0表示没有上一堂课
         /// </summary>
@@ -8454,7 +8713,7 @@ namespace LBD_WebApiInterface.Api
             try
             {
                 BD_WriteDebugInfo("L_HasLastClassInfo", "进入。strProductCode=" + strProductCode + ",strCourseClassID=" + strCourseClassID);
-                
+
                 string[] arrParam = new string[4];
                 arrParam[0] = strProductCode;
                 arrParam[1] = mTeacherID;
@@ -8553,7 +8812,6 @@ namespace LBD_WebApiInterface.Api
         //返回模式中的设置信息
         public void L_GetLastClassModeSetInfo(int iLastLoginID, int iLastLoginModuleID, int iLastLoginModeID)
         {
-
         }
 
         //返回所有工具的信息（这里应该已经通过工具的操作轨迹计算出最终的工具状态）
@@ -8564,12 +8822,12 @@ namespace LBD_WebApiInterface.Api
             //还要返回工具操作产生的详细信息
         }
 
-/// <summary>
-/// 获取用户所带的而且已经购买的学科
-/// </summary>
-/// <param name="strToken">token</param>
-/// <param name="strUserID">用户id</param>
-/// <returns></returns>
+        /// <summary>
+        /// 获取用户所带的而且已经购买的学科
+        /// </summary>
+        /// <param name="strToken">token</param>
+        /// <param name="strUserID">用户id</param>
+        /// <returns></returns>
         public CloudSubjectM[] GetUserSubjects(string strToken, string strUserID)
         {
             try
@@ -8593,8 +8851,9 @@ namespace LBD_WebApiInterface.Api
                 return null;
             }
         }
+
         //获取并匹配学科的购买信息，将未购买的学科过滤掉
-        private  CloudSubjectM[] P_MatchSubject(CloudSubjectM[] arrSubject)
+        private CloudSubjectM[] P_MatchSubject(CloudSubjectM[] arrSubject)
         {
             try
             {
@@ -8672,10 +8931,11 @@ namespace LBD_WebApiInterface.Api
                 return null;
             }
         }
+
         /// <summary>
         /// 获取学科购买信息
         /// </summary>
-        private  SubjectPurchaseInfoM GetSubjectPurchaseInfo()
+        private SubjectPurchaseInfoM GetSubjectPurchaseInfo()
         {
             try
             {
@@ -8702,21 +8962,27 @@ namespace LBD_WebApiInterface.Api
                     case 1:
                         info.ResultMsg = "正常获取";
                         break;
+
                     case -1:
                         info.ResultMsg = "未检测到加密锁";
                         break;
+
                     case -2:
                         info.ResultMsg = "加密锁已过期";
                         break;
+
                     case -3:
                         info.ResultMsg = "加密锁不能用于该产品";
                         break;
+
                     case -4:
                         info.ResultMsg = "加密锁接口调用错误";
                         break;
+
                     case -5:
                         info.ResultMsg = "加密锁时钟错误";
                         break;
+
                     default:
                         info.ResultMsg = "未知错误";
                         break;
@@ -8752,6 +9018,7 @@ namespace LBD_WebApiInterface.Api
                 throw e;
             }
         }
+
         /// <summary>
         /// 获取在线讨论消息
         /// </summary>
@@ -8763,30 +9030,29 @@ namespace LBD_WebApiInterface.Api
         /// <returns></returns>
         public List<TutorMes> getTutorMes(string tchID, string subjectID, string sysID, int pageIndex, int pageSize)
         {
-            string wholeApiUrl=null;
+            string wholeApiUrl = null;
             try
             {
                 List<TutorMes> tutorMesList;
                 if (string.IsNullOrEmpty(m_tutorSysApiUrl))
-                     m_tutorSysApiUrl = GetSubSysApiIPandPort(m_tutorSysId);
+                    m_tutorSysApiUrl = GetSubSysApiIPandPort(m_tutorSysId);
                 if (string.IsNullOrEmpty(m_bkSysWebUrl))
                     m_bkSysWebUrl = GetSubSysWebIPandPort(m_bkSysId);
                 wholeApiUrl = string.Format("http://{0}/api/Tutor/GetRecentlyQuesList?tchID={1}&subjectID={2}&sysID={3}&pageIndex={4}&pageSize={5}", m_tutorSysApiUrl, tchID, subjectID, sysID, pageIndex, pageSize);
                 string result = CallApiHelper.CallMethodGet(wholeApiUrl);
                 tutorMesList = JsonConvert.DeserializeObject<List<TutorMes>>(result);
                 foreach (TutorMes tm in tutorMesList)
-                    tm.Url = string.Format("http://{0}/tutor.aspx?"+ UtilityClass.serialObject(tm),m_bkSysWebUrl);
+                    tm.Url = string.Format("http://{0}/tutor.aspx?" + UtilityClass.serialObject(tm), m_bkSysWebUrl);
                 return tutorMesList;
             }
             catch (Exception e)
             {
-                WriteErrorMessage("getTutorMes", e.ToString()+" \n"+wholeApiUrl);
+                WriteErrorMessage("getTutorMes", e.ToString() + " \n" + wholeApiUrl);
                 return null;
             }
         }
-     
-        #endregion
 
+        #endregion
 
         private void WriteDebugInfo(string strMethodName, string strInfo)
         {
@@ -8846,11 +9112,12 @@ namespace LBD_WebApiInterface.Api
             }
             catch (Exception e)
             {
-                WriteErrorMessage("FormatPortAndVirdir",e.ToString());
+                WriteErrorMessage("FormatPortAndVirdir", e.ToString());
                 return false;
                 //throw;
             }
         }
+
         /// <summary>
         /// 重新获取知识点基础库信息。由于知识点打包与资源库的分离，导致原来接口获取的数据不正确。为了兼容云网络智慧教室5.0才有此接口
         /// </summary>
@@ -8859,7 +9126,7 @@ namespace LBD_WebApiInterface.Api
         {
             string strWholeUrl = "";
             try
-            {                
+            {
                 XmlDocument xmlDoc = null;
                 string strZYKGL_IPandPort = GetSubSysApiIPandPort("A10");
                 strWholeUrl = "http://" + strZYKGL_IPandPort + "/" + "BaseData/GetBaseData.asmx/WS_Search_GetServerAddressConf";
@@ -8867,7 +9134,7 @@ namespace LBD_WebApiInterface.Api
                 string strReturn = mCommandWS.CallMethodPost(strWholeUrl, strParam);
                 if (string.IsNullOrEmpty(strReturn))
                 {
-                    return false;                    
+                    return false;
                 }
                 xmlDoc = new XmlDocument();
                 xmlDoc.LoadXml(strReturn);
@@ -8909,10 +9176,11 @@ namespace LBD_WebApiInterface.Api
             }
             catch (Exception e)
             {
-                WriteErrorMessage("ReGetZSDBasicLibInfo", e.ToString()+"\n"+ strWholeUrl);
+                WriteErrorMessage("ReGetZSDBasicLibInfo", e.ToString() + "\n" + strWholeUrl);
                 return false;
             }
         }
+
         /// <summary>
         /// 获取数字化资源库（A00）版本
         /// </summary>
@@ -8923,11 +9191,11 @@ namespace LBD_WebApiInterface.Api
             {
                 StringBuilder sbUrl = new StringBuilder();
                 string sResourceLibUrl = "";
-                sResourceLibUrl = "http://"+ mZYKGL_WS_IP+":"+ mZYKGL_WS_Port + "/";
+                sResourceLibUrl = "http://" + mZYKGL_WS_IP + ":" + mZYKGL_WS_Port + "/";
                 if (string.IsNullOrEmpty(mZYKGL_WS_VirDir) == false)
                     sResourceLibUrl = sResourceLibUrl + mZYKGL_WS_VirDir;
 
-                sbUrl.Append(sResourceLibUrl + "api/config/getversion");                
+                sbUrl.Append(sResourceLibUrl + "api/config/getversion");
                 WriteTrackLog("GetZYKServerVer", "sbUrl = " + sbUrl);
                 string strResult = CallApiHelper.CallMethodGet(sbUrl.ToString());
                 return strResult;
@@ -8937,8 +9205,8 @@ namespace LBD_WebApiInterface.Api
                 WriteErrorMessage("GetZYKServerVer", e.ToString());
                 return "error";
             }
-
         }
+
         private void WriteErrorMessage(string strMethodName, string strErrorMessage)
         {
             try
@@ -8958,6 +9226,7 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
+
         private void WriteTrackLog(string strMethodName, string strErrorMessage)
         {
             try

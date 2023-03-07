@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using LBD_WebApiInterface.Utility;
-using System.IO;
+﻿using lancoo.cp.basic.sysbaseclass;
 using LBD_WebApiInterface.Models.CloudPreparation;
-using lancoo.cp.basic.sysbaseclass;
-using System.Xml;
-using LBD_WebApiInterface.Models;
+using LBD_WebApiInterface.Utility;
 using Newtonsoft.Json.Linq;
+using System;
+using System.IO;
+using System.Text;
+
 //using LBD_WebApiInterface.Other;
 //using LG.IntelligentCourse.WebService.Model;
 
@@ -25,18 +22,25 @@ namespace LBD_WebApiInterface.Api
     public class CloudPreparationI
     {
         #region 私有变量
+
         private string mTeachCenterApiUrl;
         private string mHomeworkApiUrl;
         private bool mInit;
+
         //private IntelCoursewareI mIntelCoursewareI;
         private CloudPreparationSrvInfoM[] mCloudPreparationSrvInfo;
-        #endregion
 
-        #region 公有变量、属性        
-        public CloudPreparationSrvInfoM[] CloudPreparationSrvInfo { get { return mCloudPreparationSrvInfo; } }
-        #endregion
+        #endregion 私有变量
+
+        #region 公有变量、属性
+
+        public CloudPreparationSrvInfoM[] CloudPreparationSrvInfo
+        { get { return mCloudPreparationSrvInfo; } }
+
+        #endregion 公有变量、属性
 
         #region 初始化
+
         /// <summary>
         /// 初始化
         /// </summary>
@@ -62,7 +66,7 @@ namespace LBD_WebApiInterface.Api
                 mTeachCenterApiUrl = "http://" + CloudPreparationIP + ":" + CloudPreparationPort;
                 WriteTrackLog("Initialize", "mTeachCenterApiUrl=" + mTeachCenterApiUrl);
                 //mIntelCoursewareI = new IntelCoursewareI();
-                mCloudPreparationSrvInfo = GetCPSrvInfo();                
+                mCloudPreparationSrvInfo = GetCPSrvInfo();
                 return true;
             }
             catch (Exception e)
@@ -71,7 +75,8 @@ namespace LBD_WebApiInterface.Api
             }
             return false;
         }
-        public bool Initialize(string CloudPreparationIP, string CloudPreparationPort,string HomeworkWsIP,string HomeworkWsPort)
+
+        public bool Initialize(string CloudPreparationIP, string CloudPreparationPort, string HomeworkWsIP, string HomeworkWsPort)
         {
             try
             {
@@ -91,7 +96,7 @@ namespace LBD_WebApiInterface.Api
                 mHomeworkApiUrl = "http://" + HomeworkWsIP + ":" + HomeworkWsPort; ;
                 WriteTrackLog("Initialize", "mTeachCenterApiUrl=" + mTeachCenterApiUrl + ",mHomeworkApiUrl=" + mHomeworkApiUrl);
                 //mIntelCoursewareI = new IntelCoursewareI();
-                mCloudPreparationSrvInfo = GetCPSrvInfo();                
+                mCloudPreparationSrvInfo = GetCPSrvInfo();
                 return true;
             }
             catch (Exception e)
@@ -100,17 +105,19 @@ namespace LBD_WebApiInterface.Api
             }
             return false;
         }
-        #endregion
+
+        #endregion 初始化
 
         #region 获取云备课服务器信息
+
         /// <summary>
         ///  获取云备课服务器信息
         /// </summary>
         /// <returns></returns>
-        /// 
+        ///
         private CloudPreparationSrvInfoM[] GetCPSrvInfo()
         {
-           // int SumCount = 0;
+            // int SumCount = 0;
             try
             {
                 if (mInit == false) return null;
@@ -157,9 +164,11 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
-        #endregion
+
+        #endregion 获取云备课服务器信息
 
         #region 查询课堂教学方案
+
         /// <summary>
         /// 查找教学方案（分页查询），带Token
         /// </summary>
@@ -175,7 +184,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="SumCount">教学方案总量</param>
         /// 20190927
         /// <returns>教学方案列表</returns>
-        public TeachProgramM[] GetTeachingProgram(string TeacherID, string SchoolID, string SubjectID, string Term, string ClassID, string Keyword, int PageNo, int PageSize,string Token, out int SumCount)
+        public TeachProgramM[] GetTeachingProgram(string TeacherID, string SchoolID, string SubjectID, string Term, string ClassID, string Keyword, int PageNo, int PageSize, string Token, out int SumCount)
         {
             SumCount = 0;
             try
@@ -243,11 +252,11 @@ namespace LBD_WebApiInterface.Api
         /// <param name="ClassID">班级ID（可选）</param>
         /// <param name="Keyword">关键词</param>
         /// <param name="PageNo">分页查询页码</param>
-        /// <param name="PageSize">分页查询每页大小</param>        
+        /// <param name="PageSize">分页查询每页大小</param>
         /// <param name="SumCount">教学方案总量</param>
         /// 20190927
         /// <returns>教学方案列表</returns>
-        public TeachProgramM[] GetTeachingProgram(string TeacherID, string SchoolID, string SubjectID, string Term, string ClassID, string Keyword, int PageNo, int PageSize,  out int SumCount)
+        public TeachProgramM[] GetTeachingProgram(string TeacherID, string SchoolID, string SubjectID, string Term, string ClassID, string Keyword, int PageNo, int PageSize, out int SumCount)
         {
             SumCount = 0;
             try
@@ -261,7 +270,7 @@ namespace LBD_WebApiInterface.Api
                 sbUrl.Append("&SubjectID=" + SubjectID);
                 sbUrl.Append("&Term=" + Term);
                 sbUrl.Append("&ClassID=" + ClassID);
-                sbUrl.Append("&SchoolID=" + SchoolID);                
+                sbUrl.Append("&SchoolID=" + SchoolID);
                 sbUrl.Append("&pageNo=" + PageNo);
                 sbUrl.Append("&pageSize=" + PageSize);
                 sbUrl.Append("&KeyWord=" + Keyword);
@@ -311,7 +320,7 @@ namespace LBD_WebApiInterface.Api
         /// <returns></returns>
         public TeachProgramM GetTeachingProgramByID(string sTeachingProgramID)
         {
-           // int SumCount = 0;
+            // int SumCount = 0;
             try
             {
                 if (mInit == false) return null;
@@ -392,7 +401,7 @@ namespace LBD_WebApiInterface.Api
 
                 WriteTrackLog("GetTeachingProgram，不分页", "sbUrl=" + sbUrl.ToString());
                 string strResult = CallApiHelper.CallMethodGet(sbUrl.ToString());
-                WriteTrackLog("GetTeachingProgram，不分页","strResult:" + strResult);
+                WriteTrackLog("GetTeachingProgram，不分页", "strResult:" + strResult);
                 if (string.IsNullOrEmpty(strResult))
                 {
                     WriteErrorMessage("GetTeachingProgram，不分页", "返回值为空。查询条件为：" + sbUrl.ToString());
@@ -437,7 +446,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="SchoolID">学校ID</param>
         /// <param name="SubjectID">学科ID</param>
         /// <param name="Term">学期ID</param>
-        /// <param name="ClassID">班级ID（可选）</param>        
+        /// <param name="ClassID">班级ID（可选）</param>
         /// <returns>教学方案列表</returns>
         public TeachProgramM[] GetTeachingProgram(string TeacherID, string SchoolID, string SubjectID, string Term, string ClassID)
         {
@@ -452,7 +461,7 @@ namespace LBD_WebApiInterface.Api
                 sbUrl.Append("&SubjectID=" + SubjectID);
                 sbUrl.Append("&Term=" + Term);
                 sbUrl.Append("&ClassID=" + ClassID);
-                sbUrl.Append("&SchoolID=" + SchoolID);                
+                sbUrl.Append("&SchoolID=" + SchoolID);
                 sbUrl.Append("&pageNo=0");
                 sbUrl.Append("&pageSize=0");
                 sbUrl.Append("&KeyWord=");
@@ -499,9 +508,10 @@ namespace LBD_WebApiInterface.Api
             return null;
         }
 
-        #endregion
+        #endregion 查询课堂教学方案
 
         #region 根据课堂教案id查找课堂教案更多信息
+
         /// <summary>
         /// 根据课堂教案id查找课堂教案信息
         /// </summary>
@@ -509,7 +519,7 @@ namespace LBD_WebApiInterface.Api
         /// <returns></returns>
         public TeachClassProgramM GetTeachClassProgramByID(string sTeachClassProgramID)
         {
-           // int SumCount = 0;
+            // int SumCount = 0;
             try
             {
                 if (mInit == false) return null;
@@ -556,9 +566,11 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
-        #endregion
+
+        #endregion 根据课堂教案id查找课堂教案更多信息
 
         #region 根据用户ID、学校ID、学科ID、学期、班级ID查询课前、课堂、课后相关
+
         /// <summary>
         /// 查询课前预习方案,带Token
         /// </summary>
@@ -624,7 +636,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="SchoolID">学校ID</param>
         /// <param name="SubjectID">学科ID</param>
         /// <param name="Term">学期ID</param>
-        /// <param name="ClassID">班级ID（可选）</param>        
+        /// <param name="ClassID">班级ID（可选）</param>
         /// <returns>课前预习方案列表</returns>
         public PreClassProgramM[] GetPreview(string TeacherID, string SchoolID, string SubjectID, string Term, string ClassID)
         {
@@ -639,7 +651,7 @@ namespace LBD_WebApiInterface.Api
                 sbUrl.Append("&SubjectID=" + SubjectID);
                 sbUrl.Append("&Term=" + Term);
                 sbUrl.Append("&ClassID=" + ClassID);
-                sbUrl.Append("&SchoolID=" + SchoolID);                
+                sbUrl.Append("&SchoolID=" + SchoolID);
                 sbUrl.Append("&TimeStamp=" + strTimeStamp);
                 //sbUrl.Append("&Key=" + CP_EncryptHelper.EncryptCode("X888", strTimeStamp + TeacherID));
                 sbUrl.Append("&Key=" + CP_MD5Helper.GetMd5Hash(strTimeStamp + TeacherID));
@@ -737,7 +749,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="SchoolID">学校ID</param>
         /// <param name="SubjectID">学科ID</param>
         /// <param name="Term">学期</param>
-        /// <param name="ClassID">班级ID（可空）</param>        
+        /// <param name="ClassID">班级ID（可空）</param>
         /// <returns></returns>
         public TeachClassProgramM[] GetTeachClassProgram(string TeacherID, string SchoolID, string SubjectID, string Term, string ClassID)
         {
@@ -896,9 +908,11 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
-        #endregion
+
+        #endregion 根据用户ID、学校ID、学科ID、学期、班级ID查询课前、课堂、课后相关
 
         #region 根据教学方案ID,查询课堂、课前、课后、相关教辅
+
         /// <summary>
         /// 根据教学方案ID查询该教学方案下的课堂教案
         /// </summary>
@@ -944,6 +958,7 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
+
         /// <summary>
         /// 根据教学方案ID查询该教学方案下的课前预习
         /// </summary>
@@ -989,6 +1004,7 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
+
         /// <summary>
         /// 根据教学方案ID查询该教学方案下的课后预习
         /// </summary>
@@ -1034,6 +1050,7 @@ namespace LBD_WebApiInterface.Api
             }
             return null;
         }
+
         /// <summary>
         /// 根据教学方案ID查询该教学方案下的相关教辅
         /// </summary>
@@ -1080,9 +1097,10 @@ namespace LBD_WebApiInterface.Api
             return null;
         }
 
-        #endregion
-                
+        #endregion 根据教学方案ID,查询课堂、课前、课后、相关教辅
+
         #region 查询任务类
+
         /// <summary>
         /// 查询课前预习任务信息
         /// </summary>
@@ -1197,8 +1215,9 @@ namespace LBD_WebApiInterface.Api
         {
             try
             {
-                short setItemID =TeachSetI.GetSetItemID(eSetItem);
-                string param = JsonFormatter.JsonSerialize(new { 
+                short setItemID = TeachSetI.GetSetItemID(eSetItem);
+                string param = JsonFormatter.JsonSerialize(new
+                {
                     SetItemID = setItemID,
                     SetItemValue = strValue,
                     SubjectID = bSubjectID,
@@ -1211,7 +1230,7 @@ namespace LBD_WebApiInterface.Api
                     return 0;
                 else
                 {
-                    CLP_ApiResultM<string> result=JsonFormatter.JsonDeserialize<CLP_ApiResultM<string>>(strReturn);
+                    CLP_ApiResultM<string> result = JsonFormatter.JsonDeserialize<CLP_ApiResultM<string>>(strReturn);
                     if (result.ErrorFlag == 0)
                         return long.Parse(result.Data);
                     else
@@ -1268,9 +1287,9 @@ namespace LBD_WebApiInterface.Api
                 WriteErrorMessage("GetItemValueSingle", e.Message);
                 return null;
             }
-         
         }
-        #endregion
+
+        #endregion 查询任务类
 
         #region 课后离线作业上传、下载相关
 
@@ -1281,7 +1300,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="UserID">用户ID</param>
         /// <param name="AssignmentID">任务ID</param>
         /// <returns></returns>
-        public OfflineHomeworkFtpInfo MakeOfflineHomeWork(string sHomeworkApiUrl,string UserID, string AssignmentID)
+        public OfflineHomeworkFtpInfo MakeOfflineHomeWork(string sHomeworkApiUrl, string UserID, string AssignmentID)
         {
             try
             {
@@ -1307,12 +1326,13 @@ namespace LBD_WebApiInterface.Api
                 result.Data.FtpUserName = lancoo.cp.basic.sysbaseclass.CP_EncryptHelper.DecryptCode("unpack", result.Data.FtpUserName);
                 return result.Data;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 WriteErrorMessage("MakeOfflineHomeWork", e.Message);
             }
             return null;
         }
+
         /// <summary>
         /// 上传离线作业(作业ftp上传后调用此接口）
         /// </summary>
@@ -1323,23 +1343,23 @@ namespace LBD_WebApiInterface.Api
         /// <param name="FtpUserName">ftp的用户名</param>
         /// <param name="FtpPassword">ftp的密码</param>
         /// <returns>False-表示失败，True-表示成功</returns>
-        public bool PutMyOfflineHomeWork(string UserID, string FtpIP, string FtpPort, string FtpPath, string FtpUserName, string FtpPassword,string AssignmentID)
+        public bool PutMyOfflineHomeWork(string UserID, string FtpIP, string FtpPort, string FtpPath, string FtpUserName, string FtpPassword, string AssignmentID)
         {
             try
             {
                 UserID = lancoo.cp.basic.sysbaseclass.CP_EncryptHelper.EncryptCode("unpack", UserID);
                 FtpIP = lancoo.cp.basic.sysbaseclass.CP_EncryptHelper.EncryptCode("unpack", FtpIP);
-                FtpPort = lancoo.cp.basic.sysbaseclass.CP_EncryptHelper.EncryptCode("unpack",FtpPort);
+                FtpPort = lancoo.cp.basic.sysbaseclass.CP_EncryptHelper.EncryptCode("unpack", FtpPort);
                 FtpPath = lancoo.cp.basic.sysbaseclass.CP_EncryptHelper.EncryptCode("unpack", FtpPath);
                 FtpUserName = lancoo.cp.basic.sysbaseclass.CP_EncryptHelper.EncryptCode("unpack", FtpUserName);
                 FtpPassword = lancoo.cp.basic.sysbaseclass.CP_EncryptHelper.EncryptCode("unpack", FtpPassword);
-                AssignmentID=lancoo.cp.basic.sysbaseclass.CP_EncryptHelper.EncryptCode("unpack", AssignmentID);
+                AssignmentID = lancoo.cp.basic.sysbaseclass.CP_EncryptHelper.EncryptCode("unpack", AssignmentID);
 
                 StringBuilder sbUrl = new StringBuilder();
                 sbUrl.Append(mHomeworkApiUrl + "/api/TaskAnswer/PutUnpackTaskSuccess");
                 //sbUrl.Append(string.Format("?userID={0}&ftpIP={1}&ftpPort={2}&ftpPath={3}&ftpUserName={4}&ftpPassword={5}", UserID, FtpIP, FtpPort, FtpPath, FtpUserName, FtpPassword));
 
-                UnpackTaskSuccessMode utsmObj=new UnpackTaskSuccessMode();
+                UnpackTaskSuccessMode utsmObj = new UnpackTaskSuccessMode();
                 utsmObj.userID = UserID;
                 utsmObj.assignmentID = AssignmentID;
                 utsmObj.ftpIP = FtpIP;
@@ -1350,7 +1370,7 @@ namespace LBD_WebApiInterface.Api
 
                 string strParam = JsonFormatter.JsonSerialize(utsmObj);
                 WriteTrackLog("PutMyOfflineHomeWork", "strParam = " + strParam);
-                string strResult = CallApiHelper.CallMethodPost(sbUrl.ToString(),strParam);
+                string strResult = CallApiHelper.CallMethodPost(sbUrl.ToString(), strParam);
                 WriteTrackLog("PutMyOfflineHomeWork", "strResult = " + strResult);
                 if (string.IsNullOrEmpty(strResult))
                 {
@@ -1385,7 +1405,7 @@ namespace LBD_WebApiInterface.Api
         /// <param name="FtpUserName">ftp的用户名</param>
         /// <param name="FtpPassword">ftp的密码</param>
         /// <returns>False-表示失败，True-表示成功</returns>
-        public bool PutMyOfflineHomeWork(string UserID, string FtpIP, string FtpPort, string FtpPath, string FtpUserName, string FtpPassword, string AssignmentID,out string strRtnMsg)
+        public bool PutMyOfflineHomeWork(string UserID, string FtpIP, string FtpPort, string FtpPath, string FtpUserName, string FtpPassword, string AssignmentID, out string strRtnMsg)
         {
             strRtnMsg = "";
             try
@@ -1425,7 +1445,7 @@ namespace LBD_WebApiInterface.Api
                 //XmlNodeList Data_nodes = doc.GetElementsByTagName("Data");
                 OHW_ApiResultM<string> result = JsonFormatter.JsonDeserialize<OHW_ApiResultM<string>>(strResult);
                 if (result.Code == "00")
-                {                    
+                {
                     return true;
                 }
                 else
@@ -1467,8 +1487,8 @@ namespace LBD_WebApiInterface.Api
         //        //XmlDocument doc=new XmlDocument();
         //        //doc.LoadXml(strResult);
         //        //XmlNodeList Data_nodes = doc.GetElementsByTagName("Data");
-        //        UnpackTaskStuInfo result = JsonFormatter.JsonDeserialize<UnpackTaskStuInfo>(strResult);                
-        //        return result.stuInfos.ToArray();                
+        //        UnpackTaskStuInfo result = JsonFormatter.JsonDeserialize<UnpackTaskStuInfo>(strResult);
+        //        return result.stuInfos.ToArray();
         //    }
         //    catch(Exception e)
         //    {
@@ -1509,13 +1529,14 @@ namespace LBD_WebApiInterface.Api
             return null;
         }
 
-        #endregion
-        
+        #endregion 课后离线作业上传、下载相关
+
         #region 私有方法，调试使用
+
         private void WriteDebugInfo(string strMethodName, string strInfo)
         {
 #if RELEASE
-    return;
+            return;
 #endif
             try
             {
@@ -1534,6 +1555,7 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
+
         private void WriteErrorMessage(string strMethodName, string strErrorMessage)
         {
             try
@@ -1553,6 +1575,7 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
+
         private void WriteTrackLog(string strMethodName, string strErrorMessage)
         {
             try
@@ -1572,6 +1595,7 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
+
         /// <summary>
         /// 判断是否需要打印跟踪日志
         /// </summary>
@@ -1591,6 +1615,7 @@ namespace LBD_WebApiInterface.Api
                 return false;
             }
         }
+
         /// <summary>
         /// 获取注册表值
         /// </summary>
@@ -1612,10 +1637,11 @@ namespace LBD_WebApiInterface.Api
             }
             catch (Exception e)
             {
-                WriteErrorMessage("GetRegistryValue",e.ToString());
+                WriteErrorMessage("GetRegistryValue", e.ToString());
                 return null;
             }
         }
-        #endregion
+
+        #endregion 私有方法，调试使用
     }
 }

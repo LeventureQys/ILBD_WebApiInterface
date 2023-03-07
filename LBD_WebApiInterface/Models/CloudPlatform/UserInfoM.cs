@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace LBD_WebApiInterface.Models.CloudPlatform
+﻿namespace LBD_WebApiInterface.Models.CloudPlatform
 {
     //管理员信息
     public class ManagerInfoM
@@ -86,6 +81,7 @@ namespace LBD_WebApiInterface.Models.CloudPlatform
         public string TeacherName { get; set; }
         public string UpdateTime { get; set; }
     }
+
     //add by qinkun20171205
     public class CourseClassInfoExM
     {
@@ -179,5 +175,4 @@ namespace LBD_WebApiInterface.Models.CloudPlatform
         public string Renren { get; set; }
         public string UpdateTime { get; set; }
     }
-
 }

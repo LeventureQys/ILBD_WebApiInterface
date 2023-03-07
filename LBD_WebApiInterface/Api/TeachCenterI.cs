@@ -1,14 +1,13 @@
-﻿using System;
+﻿using LBD_WebApiInterface.Models.TeachCenter;
+using LBD_WebApiInterface.Utility;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using LBD_WebApiInterface.Models;
-using LBD_WebApiInterface.Models.TeachCenter;
-using LBD_WebApiInterface.Utility;
+
 //using LBD_WebApiInterface.Other;
 //using LG.IntelligentCourse.WebService.Model;
-
 
 namespace LBD_WebApiInterface.Api
 {
@@ -29,7 +28,7 @@ namespace LBD_WebApiInterface.Api
         private CommandApi mCommandApi;
         //private IntelCoursewareI mIntelCoursewareI;
 
-        public bool Initialize(string strTeachCenterIP,string strTeachCenterPort)
+        public bool Initialize(string strTeachCenterIP, string strTeachCenterPort)
         {
             try
             {
@@ -56,9 +55,8 @@ namespace LBD_WebApiInterface.Api
             return false;
         }
 
-
-
         #region 公共接口
+
         /// <summary>
         /// 获取教学中心WebSocket地址
         /// </summary>
@@ -124,9 +122,11 @@ namespace LBD_WebApiInterface.Api
                 return false;
             }
         }
-        #endregion
+
+        #endregion 公共接口
 
         #region 课前预习相关
+
         public LBD_WebApiInterface.Models.TeachCenter.PreviewM[] GetPreview(string strTeacherID, string strCloudSubjectID, string strTerm, string strCourseClassID)
         {
             try
@@ -185,6 +185,7 @@ namespace LBD_WebApiInterface.Api
                                     preview.MuKeName = arrPreview[i].PreCourseware[j].CoursewareName;
                                     preview.MuKeType = arrPreview[i].PreCourseware[j].CoursewareType;
                                     break;
+
                                 case 3:
                                 case 4:
                                 case 5:
@@ -292,6 +293,7 @@ namespace LBD_WebApiInterface.Api
                                 preview2.MuKeName = preview.PreCourseware[j].CoursewareName;
                                 preview2.MuKeType = preview.PreCourseware[j].CoursewareType;
                                 break;
+
                             case 3:
                             case 4:
                             case 5:
@@ -333,9 +335,11 @@ namespace LBD_WebApiInterface.Api
                 return null;
             }
         }
-        #endregion
+
+        #endregion 课前预习相关
 
         #region 课堂教案相关
+
         //返回的数据会把指定班级的放在前面，同时把非此班级的带在后面
         //教学计划从1个变成可以多个，此接口将只返回第一个教学计划，若想获取多个教学计划，用GetLessonPlan_MultTask
         public LBD_WebApiInterface.Models.TeachCenter.LessonPlanM[] GetLessonPlan(string strTeacherID, string strCloudSubjectID, string strTerm, string strCourseClassID)
@@ -375,7 +379,7 @@ namespace LBD_WebApiInterface.Api
                 List<LBD_WebApiInterface.Models.TeachCenter.LessonPlanM> list2 = new List<LBD_WebApiInterface.Models.TeachCenter.LessonPlanM>();
                 for (int i = 0; i < arrLessonPlan.Length; i++)
                 {
-                    LBD_WebApiInterface.Models.TeachCenter.LessonPlanM lessonPlan= new LBD_WebApiInterface.Models.TeachCenter.LessonPlanM();
+                    LBD_WebApiInterface.Models.TeachCenter.LessonPlanM lessonPlan = new LBD_WebApiInterface.Models.TeachCenter.LessonPlanM();
                     lessonPlan.ID = arrLessonPlan[i].ID;
                     lessonPlan.Name = arrLessonPlan[i].LessonPlanName;
                     lessonPlan.Status = arrLessonPlan[i].Status;
@@ -393,11 +397,13 @@ namespace LBD_WebApiInterface.Api
                                     lessonPlan.KeWenJiangJieID = arrLessonPlan[i].LPCourseware[j].CoursewareID;
                                     lessonPlan.KeWenJiangJieName = arrLessonPlan[i].LPCourseware[j].CoursewareName;
                                     break;
+
                                 case 3:
                                 case 4:
                                     lessonPlan.ZhongNanDianID = arrLessonPlan[i].LPCourseware[j].CoursewareID;
                                     lessonPlan.ZhongNanDianName = arrLessonPlan[i].LPCourseware[j].CoursewareName;
                                     break;
+
                                 case 5:
                                 case 6:
                                 case 7:
@@ -408,7 +414,7 @@ namespace LBD_WebApiInterface.Api
                             }
                         }
                     }
-                    if (arrLessonPlan[i].LPTask != null && arrLessonPlan[i].LPTask.Count>0)
+                    if (arrLessonPlan[i].LPTask != null && arrLessonPlan[i].LPTask.Count > 0)
                     {
                         lessonPlan.CourseClassID = arrLessonPlan[i].LPTask[0].TaskObject;
                         lessonPlan.CourseClassName = arrLessonPlan[i].LPTask[0].TaskObjectName;
@@ -486,11 +492,13 @@ namespace LBD_WebApiInterface.Api
                                 lessonPlan2.KeWenJiangJieID = lessonPlan.LPCourseware[j].CoursewareID;
                                 lessonPlan2.KeWenJiangJieName = lessonPlan.LPCourseware[j].CoursewareName;
                                 break;
+
                             case 3:
                             case 4:
                                 lessonPlan2.ZhongNanDianID = lessonPlan.LPCourseware[j].CoursewareID;
                                 lessonPlan2.ZhongNanDianName = lessonPlan.LPCourseware[j].CoursewareName;
                                 break;
+
                             case 5:
                             case 6:
                             case 7:
@@ -570,7 +578,7 @@ namespace LBD_WebApiInterface.Api
                             cour.CoursewareID = arrLessonPlan[i].LPCourseware[j].CoursewareID;
                             cour.CoursewareName = arrLessonPlan[i].LPCourseware[j].CoursewareName;
                             cour.CoursewareType = arrLessonPlan[i].LPCourseware[j].CoursewareType;
-                            cour.CoursewarePicPath = arrLessonPlan[i].LPCourseware[j].CoursewarePicPath;                          
+                            cour.CoursewarePicPath = arrLessonPlan[i].LPCourseware[j].CoursewarePicPath;
                             lessonPlan.LPCourseware.Add(cour);
                         }
                     }
@@ -660,7 +668,7 @@ namespace LBD_WebApiInterface.Api
                         cour.CoursewareID = lessonPlan.LPCourseware[j].CoursewareID;
                         cour.CoursewareName = lessonPlan.LPCourseware[j].CoursewareName;
                         cour.CoursewareType = lessonPlan.LPCourseware[j].CoursewareType;
-                        cour.CoursewarePicPath = lessonPlan.LPCourseware[j].CoursewarePicPath;                          
+                        cour.CoursewarePicPath = lessonPlan.LPCourseware[j].CoursewarePicPath;
                         lessonPlan2.LPCourseware.Add(cour);
                     }
                 }
@@ -668,7 +676,7 @@ namespace LBD_WebApiInterface.Api
                 if (lessonPlan.LPTask != null && lessonPlan.LPTask.Count > 0)
                 {
                     Get_LPTaskM task = null;
-                    for (int j = 0; j <lessonPlan.LPTask.Count; j++)
+                    for (int j = 0; j < lessonPlan.LPTask.Count; j++)
                     {
                         task = new Get_LPTaskM();
                         task.ID = lessonPlan.LPTask[j].ID;
@@ -797,14 +805,14 @@ namespace LBD_WebApiInterface.Api
         //}
 
         //获取人工制作的课文讲解、重难点讲解课件的FTP
-        private string P_GetCoursewareFtpPath1(string strCoursewareID,string strNetTeachIPandPort)
+        private string P_GetCoursewareFtpPath1(string strCoursewareID, string strNetTeachIPandPort)
         {
             try
             {
                 string[] arrParam = new string[1];
                 arrParam[0] = strCoursewareID;
                 string[] arr = strNetTeachIPandPort.Split(':');
-                mCommandApi.BaseUrl = string.Format(Properties.Resources.NetCoursewareUrl, arr[0], arr[1],"");
+                mCommandApi.BaseUrl = string.Format(Properties.Resources.NetCoursewareUrl, arr[0], arr[1], "");
                 string strResult = mCommandApi.CallMethodGet("GetCoursewarePath", arrParam);
                 return strResult;
             }
@@ -976,7 +984,7 @@ namespace LBD_WebApiInterface.Api
             {
                 if (string.IsNullOrEmpty(strLessonPlanID))
                 {
-                    return  null;
+                    return null;
                 }
                 if (LPTask == null)
                 {
@@ -1060,7 +1068,7 @@ namespace LBD_WebApiInterface.Api
         //                arrCour[i].Creator = list[i].CreatorID;
         //                arrCour[i].LastEditTime = list[i].LastEditTime;
         //                arrCour[i].UseTimes = list[i].UseTimes;
-        //                arrCour[i].ShareStatus = list[i].IsShare ? (byte)1 : (byte)0; 
+        //                arrCour[i].ShareStatus = list[i].IsShare ? (byte)1 : (byte)0;
         //                if (arrCour[i].CoursewareSetInfo == null)
         //                {
         //                    arrCour[i].CoursewareSetInfo = new LP_CoursewareSetInfoM();
@@ -1208,7 +1216,7 @@ namespace LBD_WebApiInterface.Api
                 }
                 bool bResult = UtilityClass.AnalyseTeachCenterJson<bool>(strResult);
 
-                if (bResult==false)
+                if (bResult == false)
                 {
                     return false;
                 }
@@ -1339,8 +1347,8 @@ namespace LBD_WebApiInterface.Api
                     task.ClassroomID = lessonPlan.LPTask[0].ClassroomID;
                     task.Classroom = lessonPlan.LPTask[0].Classroom;
                     lessonPlan2.LPTask.Add(task);
-                } 
-                
+                }
+
                 return lessonPlan2;
             }
             catch (Exception e)
@@ -1402,7 +1410,7 @@ namespace LBD_WebApiInterface.Api
 
                     string[] arrParam = new string[1];
                     arrParam[0] = strCoursewareID;
-                    mCommandApi.BaseUrl = string.Format(Properties.Resources.NetCoursewareUrl, arrIPandPort[0], arrIPandPort[1],"");
+                    mCommandApi.BaseUrl = string.Format(Properties.Resources.NetCoursewareUrl, arrIPandPort[0], arrIPandPort[1], "");
                     string strResult = mCommandApi.CallMethodPost("UpdateNetCoursewareUseTimes", arrParam);
                     if (string.IsNullOrEmpty(strResult))
                     {
@@ -1416,7 +1424,6 @@ namespace LBD_WebApiInterface.Api
                 //智能制作
                 else if (ManulOrIntel == 2)
                 {
-
                 }
 
                 return bResult;
@@ -1535,9 +1542,11 @@ namespace LBD_WebApiInterface.Api
         //        return false;
         //    }
         //}
-        #endregion
+
+        #endregion 课堂教案相关
 
         #region 课后练习相关
+
         public LBD_WebApiInterface.Models.TeachCenter.PracticeM[] GetPractice(string strTeacherID, string strCloudSubjectID, string strTerm, string strCourseClassID)
         {
             try
@@ -1598,6 +1607,7 @@ namespace LBD_WebApiInterface.Api
                                     practice.KeHouCeShiName = arrPractice[i].PraCourseware[j].CoursewareName;
                                     practice.KeHouCeShiType = arrPractice[i].PraCourseware[j].CoursewareType;
                                     break;
+
                                 case 5:
                                 case 6:
                                 case 7:
@@ -1704,6 +1714,7 @@ namespace LBD_WebApiInterface.Api
                                 practice2.KeHouCeShiName = practice.PraCourseware[j].CoursewareName;
                                 practice2.KeHouCeShiType = practice.PraCourseware[j].CoursewareType;
                                 break;
+
                             case 5:
                             case 6:
                             case 7:
@@ -1745,8 +1756,8 @@ namespace LBD_WebApiInterface.Api
                 return null;
             }
         }
-        #endregion
 
+        #endregion 课后练习相关
 
         private void WriteErrorMessage(string strMethodName, string strErrorMessage)
         {
@@ -1767,6 +1778,5 @@ namespace LBD_WebApiInterface.Api
             }
             catch { }
         }
-
     }
 }

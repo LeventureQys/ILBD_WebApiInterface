@@ -95,10 +95,10 @@ bool WebApi_Api::TeachInfo::JudgeDeviceDetec()
 	return RAW(JudgeDeviceDetec());
 }
 
-bool WebApi_Api::TeachInfo::GetCloudPlatformSubject(string& strSubjectID, string& strSubjectName)
-{
-	
-}
+//bool WebApi_Api::TeachInfo::GetCloudPlatformSubject(string& strSubjectID, string& strSubjectName)
+//{
+//	
+//}
 
 string WebApi_Api::TeachInfo::GetSubSysWebIPandPort(string strSysID)
 {

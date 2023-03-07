@@ -3,8 +3,6 @@
 //Data:2023.3.6
 //info:获得通用的枚举类型
 namespace WebApi_Api{
-	ENUM_MATCH(WebApi_Api::E_TeachProductName_cpp, LBD_WebApiInterface::Api::TeachInfoI::E_TeachProductName, E_TeachProductName_cpp, E_TeachProductName)
-		ENUM_MATCH(WebApi_Api::E_Subject_cpp, LBD_WebApiInterface::Api::TeachInfoI::E_Subject, E_Subject_cpp, E_Subject)
 #pragma region TeachInfo
 	// 学科
 	enum class E_Subject_cpp

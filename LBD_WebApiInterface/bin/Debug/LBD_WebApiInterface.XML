@@ -118,67 +118,67 @@
             <returns>true-初始化成功，false-初始化失败</returns>
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.GetBLibraryM(System.String,System.String,System.String)">
-            <summary>
-             获取新版数字化资源库字库信息
-            </summary>
-            <returns></returns>
+             <summary>
+              获取新版数字化资源库字库信息
+             </summary>
+             <returns></returns>
             
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.GetBLibraryMCatalogSearch(System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-             获取新版数字化资源库字库信息
-            <param name="OptionalParams">参数的格式:学科}学习阶段}水平级别}子库}资源格式}题型（以"}"隔开）  C}F}}I}1|2}</param>
-            <param name="PageIndex">当前页：取值为大于等于1的整数，默认值1</param>
-            <param name="PageSize ">每页返回的数量：取值为大于0的整数，默认值10</param>
-            <param name="FilterContext ">要查询的关键字P</param>
-            </summary>
-            <returns></returns>
+             <summary>
+              获取新版数字化资源库字库信息
+             <param name="OptionalParams">参数的格式:学科}学习阶段}水平级别}子库}资源格式}题型（以"}"隔开）  C}F}}I}1|2}</param>
+             <param name="PageIndex">当前页：取值为大于等于1的整数，默认值1</param>
+             <param name="PageSize ">每页返回的数量：取值为大于0的整数，默认值10</param>
+             <param name="FilterContext ">要查询的关键字P</param>
+             </summary>
+             <returns></returns>
             
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.GetServerAddressConf(System.String)">
-            <summary>
-             获取新版数字化资源库服务器信息
-            </summary>
-            <returns></returns>
+             <summary>
+              获取新版数字化资源库服务器信息
+             </summary>
+             <returns></returns>
             
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.GetSharedLibraryM(System.String)">
-            <summary>
-             调用数字化资源共享
-            20190423
-            </summary>
-            <returns></returns>
+             <summary>
+              调用数字化资源共享
+             20190423
+             </summary>
+             <returns></returns>
             
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.GetPaperResultData(System.String,System.Int32,System.String,System.Int32,System.String,System.Int32,System.Int32,System.String)">
-            <summary>
-             获取随堂测试试卷信息
-            </summary>
-            <returns></returns>
+             <summary>
+              获取随堂测试试卷信息
+             </summary>
+             <returns></returns>
             
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.addSubjectNetwork(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            教学云主页添加学科网信息
-              <param name="TeacherID">教师ID</param>
-            <param name="SchoolID">学校ID</param>
-            <param name="SubjectID">学科ID</param>
-            <param name="Term">学期ID</param>
-              <param name="Icons">图标路径</param>
-            <param name="ResAddress">学科网网站</param>
-            <param name="AddressName">学科网名称</param>
-            <param name="AddressUsername">用户名</param>
-             <param name="AddressPassword">密码</param>
-            </summary>
-            <returns></returns>
+             <summary>
+             教学云主页添加学科网信息
+               <param name="TeacherID">教师ID</param>
+             <param name="SchoolID">学校ID</param>
+             <param name="SubjectID">学科ID</param>
+             <param name="Term">学期ID</param>
+               <param name="Icons">图标路径</param>
+             <param name="ResAddress">学科网网站</param>
+             <param name="AddressName">学科网名称</param>
+             <param name="AddressUsername">用户名</param>
+              <param name="AddressPassword">密码</param>
+             </summary>
+             <returns></returns>
             
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.deleteSubjectNetwork(System.String)">
-            <summary>
-            删除学科网信息
-             <param name="ID">学科网ID</param>
-            </summary>
-            <returns></returns>
+             <summary>
+             删除学科网信息
+              <param name="ID">学科网ID</param>
+             </summary>
+             <returns></returns>
             
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.getSubjectNetworkByTeacherID(System.String,System.String,System.String,System.String)">
@@ -189,13 +189,13 @@
             <returns></returns>
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.addCourseTime(System.String,System.String,System.String,System.String)">
-            <summary>
-            添加课时对应的教学方案信息
-             /// <param name="CourseTime">课时，格式2017-08-20 20:18:15</param>
-            <param name="CourseName">课时名称</param>
-            <param name="TeachProgramID">教学方案ID</param>
-            </summary>
-            <returns></returns>
+             <summary>
+             添加课时对应的教学方案信息
+              /// <param name="CourseTime">课时，格式2017-08-20 20:18:15</param>
+             <param name="CourseName">课时名称</param>
+             <param name="TeachProgramID">教学方案ID</param>
+             </summary>
+             <returns></returns>
             
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.getCourseTimeByTeachProgramID(System.String)">
@@ -206,14 +206,14 @@
             <returns></returns>
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.addKnowledge(System.String,System.String,System.String,System.String,System.String)">
-            <summary>
-            添加或者更新知识点对应的教学方案信息
-             /// <param name="KnowledgeCode">知识点唯一编码</param>
-            <param name="KnowledgeContent">知识点内容</param>
-            <param name="TeachProgramID">教学方案ID</param>
-            <param name="BelongCoursewareID">所属的子方案id（如课前预习）</param>
-            </summary>
-            <returns></returns>
+             <summary>
+             添加或者更新知识点对应的教学方案信息
+              /// <param name="KnowledgeCode">知识点唯一编码</param>
+             <param name="KnowledgeContent">知识点内容</param>
+             <param name="TeachProgramID">教学方案ID</param>
+             <param name="BelongCoursewareID">所属的子方案id（如课前预习）</param>
+             </summary>
+             <returns></returns>
             
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.getKnowledgeByTeachProgramID(System.String,System.String,System.String)">
@@ -232,10 +232,10 @@
             <returns></returns>
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudServerConfigl.GetCPSrvInfo">
-            <summary>
-             获取云备课服务器信息
-            </summary>
-            <returns></returns>
+             <summary>
+              获取云备课服务器信息
+             </summary>
+             <returns></returns>
             
         </member>
         <!-- Badly formed XML comment ignored for member "M:LBD_WebApiInterface.Api.CloudServerConfigl.ImageConvertString(System.String)" -->
@@ -266,19 +266,19 @@
             <returns></returns>
         </member>
         <member name="M:LBD_WebApiInterface.Api.CourseCenterI.GetRecordRes(System.String,System.String,System.Int32,System.String,System.Int32,System.Int32,System.Nullable{System.DateTime},System.Nullable{System.DateTime},System.Int32@)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="Subject">传学科名称，传空获取不属于任何学科的视频</param>
-            <param name="TeacherID">传教师id,传空表示所有老师</param>
-            <param name="SortType"></param>
-            <param name="SearchStr"></param>
-            <param name="PageIndex"></param>
-            <param name="PageSize"></param>
-            <param name="StartTime">可以传空</param>
-            <param name="EndTime">可以传空</param>
-            <param name="TotalCount"></param>
-            <returns></returns>
+             </summary>
+             <param name="Subject">传学科名称，传空获取不属于任何学科的视频</param>
+             <param name="TeacherID">传教师id,传空表示所有老师</param>
+             <param name="SortType"></param>
+             <param name="SearchStr"></param>
+             <param name="PageIndex"></param>
+             <param name="PageSize"></param>
+             <param name="StartTime">可以传空</param>
+             <param name="EndTime">可以传空</param>
+             <param name="TotalCount"></param>
+             <returns></returns>
         </member>
         <member name="M:LBD_WebApiInterface.Api.CourseCenterI.GetDirRecordRes(System.String,System.Int32@)">
             <summary>
@@ -537,7 +537,7 @@
         <member name="F:LBD_WebApiInterface.Api.NetCoursewareI.TableFlagName.图文教材库">
             <summary>
             图文教材库
-            </summary>        
+            </summary>
         </member>
         <member name="F:LBD_WebApiInterface.Api.NetCoursewareI.TableFlagName.多媒体教程库">
             <summary>
@@ -1373,10 +1373,10 @@
             <returns>true-初始化成功，false-初始化失败</returns>
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudPreparationI.GetCPSrvInfo">
-            <summary>
-             获取云备课服务器信息
-            </summary>
-            <returns></returns>
+             <summary>
+              获取云备课服务器信息
+             </summary>
+             <returns></returns>
             
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudPreparationI.GetTeachingProgram(System.String,System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Int32@)">
@@ -1407,7 +1407,7 @@
             <param name="ClassID">班级ID（可选）</param>
             <param name="Keyword">关键词</param>
             <param name="PageNo">分页查询页码</param>
-            <param name="PageSize">分页查询每页大小</param>        
+            <param name="PageSize">分页查询每页大小</param>
             <param name="SumCount">教学方案总量</param>
             20190927
             <returns>教学方案列表</returns>
@@ -1439,7 +1439,7 @@
             <param name="SchoolID">学校ID</param>
             <param name="SubjectID">学科ID</param>
             <param name="Term">学期ID</param>
-            <param name="ClassID">班级ID（可选）</param>        
+            <param name="ClassID">班级ID（可选）</param>
             <returns>教学方案列表</returns>
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudPreparationI.GetTeachClassProgramByID(System.String)">
@@ -1469,7 +1469,7 @@
             <param name="SchoolID">学校ID</param>
             <param name="SubjectID">学科ID</param>
             <param name="Term">学期ID</param>
-            <param name="ClassID">班级ID（可选）</param>        
+            <param name="ClassID">班级ID（可选）</param>
             <returns>课前预习方案列表</returns>
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudPreparationI.GetTeachClassProgram(System.String,System.String,System.String,System.String,System.String,System.String)">
@@ -1492,7 +1492,7 @@
             <param name="SchoolID">学校ID</param>
             <param name="SubjectID">学科ID</param>
             <param name="Term">学期</param>
-            <param name="ClassID">班级ID（可空）</param>        
+            <param name="ClassID">班级ID（可空）</param>
             <returns></returns>
         </member>
         <member name="M:LBD_WebApiInterface.Api.CloudPreparationI.GetHomework(System.String,System.String,System.String,System.String,System.String,System.String)">
@@ -5305,19 +5305,19 @@
             </summary>
         </member>
         <member name="P:LBD_WebApiInterface.ClassTeach.AllOperationM.OperationParent">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="P:LBD_WebApiInterface.ClassTeach.AllOperationM.OperationType">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="P:LBD_WebApiInterface.ClassTeach.AllOperationM.Operator">
-            <summary>
+             <summary>
             
-            </summary>
+             </summary>
         </member>
         <member name="T:LBD_WebApiInterface.ClassTeach.AttachResourceM">
             <summary>
@@ -5851,8 +5851,8 @@
         </member>
         <member name="P:LBD_WebApiInterface.Properties.Resources.Culture">
             <summary>
-              使用此强类型资源类，为所有资源查找
-              重写当前线程的 CurrentUICulture 属性。
+              重写当前线程的 CurrentUICulture 属性，对
+              使用此强类型资源类的所有资源查找执行重写。
             </summary>
         </member>
         <member name="P:LBD_WebApiInterface.Properties.Resources.MultipleSubjectServiceUrl">

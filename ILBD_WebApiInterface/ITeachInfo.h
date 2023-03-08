@@ -75,6 +75,7 @@ namespace WebApi_Api {
 		//string[] GetSomeSystemWebUrl(int iUserType)
 		//CloudPlatformSubjectM[] GetSubjectsByUserID(string strToken, string strUserID, out bool bValidToken)
 		int WS_G_SetNewLockPoint(string sysId, string token);
+		//这个功能获得系统的锁控信息
 		int GetSubSystemLockerInfoByID(string slockerID, int& iProductPointCount, string& sProbationYear, string& sProbationMonth, string& sProbationDay);
 		//TeachModuleM[] GetSubjectTeachModule()
 		//LBD_WebApiInterface.ClassTeach.TeachModeM[] GetSubjectTeachMode()

@@ -121,6 +121,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Api_Enums.h" />
     <ClInclude Include="ITeachInfo.h" />
     <ClInclude Include="Instance.h" />
     <ClInclude Include="pch.h" />

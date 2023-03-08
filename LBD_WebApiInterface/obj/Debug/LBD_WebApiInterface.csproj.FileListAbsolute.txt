@@ -85,3 +85,13 @@ D:\※源码管理\云网络智慧教室V5.3\代码\Teacher\LBD_WebApiInterface\
 D:\※源码管理\云网络智慧教室V5.3\代码\Teacher\LBD_WebApiInterface\obj\Debug\LBD_WebApiInterface.csproj.GenerateResource.Cache
 D:\※源码管理\云网络智慧教室V5.3\代码\Teacher\LBD_WebApiInterface\obj\Debug\LBD_WebApiInterface.dll
 D:\※源码管理\云网络智慧教室V5.3\代码\Teacher\LBD_WebApiInterface\obj\Debug\LBD_WebApiInterface.pdb
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\LBD_WebApiInterface\bin\Debug\LBD_WebApiInterface.XML
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\LBD_WebApiInterface\bin\Debug\LBD_WebApiInterface.dll
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\LBD_WebApiInterface\bin\Debug\LBD_WebApiInterface.pdb
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\LBD_WebApiInterface\obj\Debug\LBD_WebApiInterface.csproj.AssemblyReference.cache
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\LBD_WebApiInterface\obj\Debug\LBD_WebApiInterface.Properties.Resources.resources
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\LBD_WebApiInterface\obj\Debug\LBD_WebApiInterface.csproj.GenerateResource.cache
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\LBD_WebApiInterface\obj\Debug\LBD_WebApiInterface.csproj.CoreCompileInputs.cache
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\LBD_WebApiInterface\obj\Debug\LBD_WebApiInterface.csproj.CopyComplete
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\LBD_WebApiInterface\obj\Debug\LBD_WebApiInterface.dll
+D:\Current\LBD_VS19\LBD_VS19\LBD_WebApiInterface\LBD_WebApiInterface\obj\Debug\LBD_WebApiInterface.pdb

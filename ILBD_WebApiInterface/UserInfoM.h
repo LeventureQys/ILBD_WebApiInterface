@@ -1,7 +1,7 @@
 #pragma once
 //Author:Leventure
 //Data:2023.3.7
-//Info:UserInfoM类的对外接口
+//Info:UserInfoM锟斤拷亩锟斤拷锟接匡拷
 #include <string>
 using namespace std;
 namespace WebApi_Model {

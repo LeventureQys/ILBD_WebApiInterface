@@ -33,6 +33,18 @@
     <ClInclude Include="ITeachInfo.h">
       <Filter>头文件\Api</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
+=======
+    <ClInclude Include="UserInfoM.h">
+      <Filter>头文件\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Model_Trans.h">
+      <Filter>头文件\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Api_Enums.h">
+      <Filter>头文件\Api</Filter>
+    </ClInclude>
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">

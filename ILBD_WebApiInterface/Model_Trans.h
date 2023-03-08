@@ -4,8 +4,10 @@
 //Info:这个类在cpp文件中引用，用于提供一些转换函数，将.net中的类转换成cpp能读得懂的类，通常以拷贝构造函数或者转换函数进行，具体策略在更新的过程中
 
 #include "UserInfoM.h"
+#include "BaseInfoM.h"
 #include "Trans.h"
 using namespace LBD_WebApiInterface::Models::CloudPlatform;
+using namespace LBD_WebApiInterface::Models;
 using namespace WebApi_Model;
 
 
@@ -43,3 +45,13 @@ LoginUserInfo_cpp to_LoginUserInfo(LoginUserInfo^ Info) {
 
 }
 
+CloudPlatformSubsystem_cpp to_CloudPlatformSubsystem(CloudPlatformSubsystemM^ Info) {
+
+	CloudPlatformSubsystem_cpp result;
+	TRANCPP_S(result, Info, SysID);
+	TRANCPP_S(result, Info, SubjectID);
+	TRANCPP_S(result, Info, WebSvrAddr);
+	TRANCPP_S(result, Info, WsSvrAddr);
+
+	return result;
+}

@@ -16,8 +16,8 @@ s2s(RAW(value))\
 
 
 //ºê×ª»»Ê¾Àý
-ENUM_MATCH(WebApi_Api::E_TeachProductName_cpp, LBD_WebApiInterface::Api::TeachInfoI::E_TeachProductName, E_TeachProductName_cpp, E_TeachProductName)
-ENUM_MATCH(WebApi_Api::E_Subject_cpp, LBD_WebApiInterface::Api::TeachInfoI::E_Subject, E_Subject_cpp, E_Subject)
+ENUM_MATCH(E_TeachProductName_cpp, LBD_WebApiInterface::Api::TeachInfoI::E_TeachProductName, E_TeachProductName_cpp, E_TeachProductName)
+ENUM_MATCH(E_Subject_cpp, LBD_WebApiInterface::Api::TeachInfoI::E_Subject, E_Subject_cpp, E_Subject)
 
 using namespace std;
 
@@ -161,6 +161,7 @@ int WebApi_Api::TeachInfo::GetSubSystemLockerInfoByID(string slockerID, int& iPr
 	System::String^ cs_sProbationDay = s2s(sProbationDay);
 
 	int result = 0;
+
 	result = RAW(GetSubSystemLockerInfoByID(s2s(slockerID), iProductPointCount, cs_sProbationYear, cs_sProbationMonth, cs_sProbationDay));
 
 	sProbationYear = s2s(cs_sProbationYear);
@@ -168,6 +169,7 @@ int WebApi_Api::TeachInfo::GetSubSystemLockerInfoByID(string slockerID, int& iPr
 	sProbationDay = s2s(cs_sProbationDay);
 
 	return result;
+
 }
 
 int WEB_API WebApi_Api::TeachInfo::UpdateNetCoursewareStatus(string strCoursewareID, bool bStatus, string strLastEditor)
